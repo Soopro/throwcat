@@ -1,0 +1,78 @@
+<md-sidenav class="primary-nav md-sidenav-left md-whiteframe-z3 no-scroll"
+            md-component-id="main_nav"
+            layout="column"
+            flex>
+  <md-toolbar>
+    <div class="md-toolbar-tools"
+         layout-align="space-between center">
+        <div class="logo"></div>
+        <md-button class="md-icon-button"
+                   aria-label="{{_('Toggle main nav')}}"
+                   ng-click="toggleNav('main_nav')">
+          <md-icon md-svg-icon="ic_arrow_back_24px">
+          </md-icon>
+        </md-button>
+    </div>
+  </md-toolbar>
+  <md-content flex>
+    <ul class="sidenav-menu">
+      <li ng-repeat="nav in navs.data">
+        <div class="name-tag"
+             ng-if="!nav.alias">
+          <span class="md-caption text-primary">
+            {{_(nav.name)}}
+          </span>
+        </div>
+        <div ng-if="nav.alias && !nav.nodes">
+          <md-button class="main-nav-btn"
+                     ng-click="go(nav.path)"
+                     ng-class="nav.class"
+                     ng-disabled="isCrrent(nav.alias)">
+            <div class="row"
+                 layout="row">
+              <md-icon class="ico"
+                       md-svg-icon="{{nav.ico}}"
+                       ng-if="nav.ico">
+              </md-icon>
+              <span class="text">
+                {{_(nav.name)}}
+              </span>
+            </div>
+          </md-button>
+        </div>
+        <div ng-if="nav.alias && nav.nodes">
+          <md-button class="main-nav-btn menu-btn-toggle"
+                     ng-click="toggle(nav.alias)"
+                     ng-class="nav.class"
+                     ng-disabled="isCrrent(nav.alias)">
+            <div class="row"
+                 layout="row">
+              <md-icon class="ico"
+                       md-svg-icon="{{nav.ico}}"
+                       ng-if="nav.ico">
+              </md-icon>
+              <span class="text"
+                    flex>
+                {{_(nav.name)}}
+              </span>
+              <md-icon class="menu-toggle-icon"
+                       md-svg-icon="ic_expand_more_24px"
+                       ng-class="{'toggled': isShow(nav.alias)}">
+              </md-icon>
+            </div>
+          </md-button>
+          <ul class="menu-toggle-list"
+              ng-show="isShow(nav.alias)"
+              ng-class="{'active':isCurrent(nav.alias)}">
+              <li ng-repeat="child in nav.nodes">
+                <md-button ng-class="child.class"
+                           ng-click="go(child.path)">
+                  {{_(child.name)}}
+                </md-button>
+              </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </md-content>
+</md-sidenav>

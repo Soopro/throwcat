@@ -1,8 +1,11 @@
 .DS_Store
 .idea
+.*
 npm-debug.log
 *_book
 *.pyc
+bower_components
+build
 server_conf.js
 
 .tmp

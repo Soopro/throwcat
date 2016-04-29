@@ -1,0 +1,143 @@
+/*
+-----------------------------------------------
+throwCat UI Styles
+http://www.soopro.io
+
+Author:   redy
+----------------------------------------------- */
+
+@import "_variables_.less";
+@import "_mixins_.less";
+
+/* utils
+----------------------------------------------- */
+
+*[ng-cloak] {
+  display: none;
+}
+
+.unselectable,
+[unselectable] {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default !important;
+}
+
+/* styles
+----------------------------------------------- */
+.top-nav {
+  background-color: transparent  !important;
+}
+
+.copyright{
+  &:extend(.unselectable all);
+  margin-top: 32px;
+  padding: 8px 24px;
+  opacity: 0.2;
+  @media (max-width: 600px) and (max-height: 600px){
+    display: none;
+  }
+  @media (min-width: 599px) and (max-height: 700px){
+    display: none;
+  }
+}
+
+
+// sidenav menu
+.sidenav-menu{
+  padding:0;
+  margin:0;
+  padding-bottom: 16px;
+}
+
+.sidenav-menu > li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  & .name-tag {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+.sidenav-menu .md-button{
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+  cursor: pointer;
+  display: block;
+  line-height: 1.4em;
+  min-height: 40px;
+  overflow: hidden;
+  // padding: 0px 16px;
+  padding: 0 4px;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  // word-break: break-all;
+  vertical-align: middle;
+  & span {
+    padding: 6px 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &[disabled]{
+    background-color: lighten(@gray-bg-color, 25%);
+  }
+  &.main-nav-btn{
+    & md-icon:first-child {
+      width: 18px;
+      height: 18px;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+    & .text {
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+    }
+  }
+}
+
+.menu-toggle-list {
+  padding:0;
+  margin:0;
+  max-height: 2000px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -webkit-transition-property: max-height;
+  -moz-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -moz-transition-property: max-height;
+  transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  transition-property: max-height;
+
+  &.active{
+    background-color: lighten(@gray-bg-color, 25%);
+  }
+  & .md-button,
+  & a.md-button {
+    display: block;
+    font-weight: 400;
+    padding: 0 16px 0 32px;
+    text-transform: none;
+  }
+  &.ng-hide {
+    max-height: 0;
+  }
+}
+
+.menu-btn-toggle{
+  & .menu-toggle-icon {
+    display: block;
+    margin-left: auto;
+    speak: none;
+    vertical-align: middle;
+    transition: transform 0.4s ease-in-out;
+    -webkit-transition: -webkit-transform 0.4s ease-in-out;
+  }
+  & .menu-toggle-icon.toggled {
+    .transform(rotate(180deg));
+  }
+}

@@ -1,0 +1,69 @@
+<div class="view-animate"
+     layout="column"
+     layout-margin
+     layout-padding
+     flex>
+  <div layout="row"
+       layout-align-gt-sm="center center"
+       flex>
+    <section flex-gt-sm="60"
+             flex>
+      <!-- section header -->
+      <header>
+        <h1 class="md-display-2">
+          {{_('Login')}}
+        </h2>
+      </header>
+      <!-- form -->
+      <form name="auth_form"
+            layout="column"
+            ng-submit="submit()"
+            novalidate>
+
+        <md-input-container>
+          <label>{{_('Owner Account')}}</label>
+          <input name="log"
+                 type="email"
+                 ng-model="auth.log"
+                 required/>
+          <ng-messages ng-if="auth_form.log.$touched"
+                       for="auth_form.log.$error">
+            <ng-message when="email">
+              {{ _('Owner Account must be an email address.') }}
+            </ng-message>
+            <ng-message when="required">
+              {{ _('Owner Account is required.') }}
+            </ng-message>
+          </ng-messages>
+        </md-input-container>
+
+        <md-input-container>
+          <label>{{_('Magic Spell')}}</label>
+          <input name="spell"
+                 ng-model="auth.spell"
+                 required/>
+          <ng-messages ng-if="auth_form.spell.$touched"
+                       for="auth_form.spell.$error">
+            <ng-message when="required">
+              {{ _('Spell is required.') }}
+            </ng-message>
+          </ng-messages>
+        </md-input-container>
+
+        <md-input-container>
+          <md-button class="md-raised md-accent"
+                     ng-disabled="submitted"
+                     type="submit">
+            {{_('Enter')}}
+          </md-button>
+        </md-input-container>
+      </form>
+    </section>
+  </div>
+  <!-- copyrights -->
+  <div class="copyright"
+       layout="row"
+       layout-align="center center">
+    <small ng-bind="_('ThrowCat is free.')"></small>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "bolt",
+  "description": "Soopro member promo agent ui.",
+  "private": true,
+  "authors": [],
+  "main": "index.html",
+  "license": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "angular-cookies": "^1.5.0",
+    "angular-messages": "^1.5.0",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
+    "angular-material": "^1.0.8",
+    "angular-local-storage": "^0.2.7"
+  }
+}

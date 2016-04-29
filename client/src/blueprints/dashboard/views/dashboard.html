@@ -1,0 +1,99 @@
+<div class="view-animate">
+  <div layout="column">
+    <!-- column -->
+    <section layout-padding>
+        <!-- section header -->
+        <header layout-margin>
+          <h2 class="md-title">
+            {{_('Dashboard')}}
+          </h2>
+        </header>
+        <!-- analytic -->
+        <div layout-gt-sm="row">
+          <!-- count: members -->
+          <md-card class="analysis"
+                   layout-padding
+                   flex>
+            <div layout='column'
+                 layout-align="center center"
+                 layout-margin>
+              <md-icon class="s60"
+                       md-svg-icon="ic_people_24px">
+              </md-icon>
+            </div>
+            <md-card-content layout='column'
+                             layout-align="center center">
+              <div class="md-title subject">
+                {{ _('Members') }}
+              </div>
+              <div class="md-display-2">
+                {{ status.members_count | abbrnum }}
+              </div>
+              <div layout-margin>
+                <md-button class="main-nav-btn md-primary"
+                           ng-href="/#/member">
+                  {{_('Enter')}}
+                </md-button>
+              </div>
+            </md-card-content>
+          </md-card>
+
+          <!-- count: members -->
+          <md-card class="analysis"
+                   layout-padding
+                   flex>
+            <div layout='column'
+                 layout-align="center center"
+                 layout-margin>
+              <md-icon class="s60"
+                       md-svg-icon="ic_local_play_24px">
+              </md-icon>
+            </div>
+            <md-card-content layout='column'
+                             layout-align="center center">
+              <div class="md-title subject">
+                {{ _('Promotions') }}
+              </div>
+              <div class="md-display-2">
+                {{ status.promos_count | abbrnum }}
+              </div>
+              <div layout-margin>
+                <md-button class="main-nav-btn md-primary"
+                           ng-href="/#/promo">
+                  {{_('Enter')}}
+                </md-button>
+              </div>
+            </md-card-content>
+          </md-card>
+
+          <!-- count: members -->
+          <md-card class="analysis"
+                   layout-padding
+                   flex>
+            <div layout='column'
+                 layout-align="center center"
+                 layout-margin>
+              <md-icon class="s60"
+                       md-svg-icon="ic_event_24px">
+              </md-icon>
+            </div>
+            <md-card-content layout='column'
+                             layout-align="center center">
+              <div class="md-title subject">
+                {{ _('Events') }}
+              </div>
+              <div class="md-display-2">
+                {{ status.events_count | abbrnum }}
+              </div>
+              <div layout-margin>
+                <md-button class="main-nav-btn md-primary"
+                           ng-href="/#/event">
+                  {{_('Enter')}}
+                </md-button>
+              </div>
+            </md-card-content>
+          </md-card>
+        </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<md-toolbar class="md-hue-3 top-nav">
+  <div class="md-toolbar-tools">
+    <!-- nav menu -->
+    <div class="anim-fade">
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Toggle main nav')}}"
+                 ng-click="toggleNav('main_nav')">
+        <md-icon md-svg-icon="ic_menu_24px"></md-icon>
+      </md-button>
+    </div>
+
+    <div flex></div>
+
+    <!-- language menu -->
+    <md-menu md-offset="0 -5">
+      <md-button aria-label="{{_('Language')}}"
+                 class="md-icon-button"
+                 ng-click="$mdOpenMenu($event)">
+        <md-icon md-svg-icon="ic_language_24px"
+                 md-menu-origin>
+        </md-icon>
+      </md-button>
+      <md-menu-content width="3">
+        <md-menu-item ng-repeat="locale in locales">
+          <md-button ng-click="use_lang(locale)"
+                     ng-disabled="is_current_lang(locale)">
+            {{ locale.text }}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
+    <!-- settings menu -->
+    <md-menu md-offset="0 -5"
+             class="anim-fade"
+             ng-show="is_logged()">
+      <md-button aria-label="{{_('Menu')}}" class="md-icon-button"
+       ng-click="$mdOpenMenu($event)">
+        <md-icon md-menu-origin md-svg-icon="ic_more_vert_24px"></md-icon>
+      </md-button>
+      <md-menu-content width="3">
+        <md-menu-item>
+          <md-button ng-click="reload()">
+            {{_('Reload')}}
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ng-click="exit()">
+            {{_('Exit')}}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div>
+</md-toolbar>
