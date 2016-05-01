@@ -13,16 +13,22 @@ angular.module 'throwCat'
         ico: "ic_dashboard_24px"
       }
       {
-        alias: "about"
-        name: "About Us"
-        ico: "ic_info_outline_24px"
-        path: "/about"
-        open: true
+        alias: "account"
+        name: "Account"
+        ico: "ic_account_box_24px"
+        nodes:[
+          {
+            alias: "create"
+            name: "Create New"
+            path: "/create_app"
+            class: "md-primary"
+          }
+        ]
       }
       {
-        alias: "help"
-        name: "Help"
-        ico: "ic_help_outline_24px"
+        alias: "about"
+        name: "About"
+        ico: "ic_info_outline_24px"
         path: "/about"
         open: true
       }

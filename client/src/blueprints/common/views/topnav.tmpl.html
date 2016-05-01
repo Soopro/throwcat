@@ -13,45 +13,27 @@
 
     <div flex></div>
 
-    <!-- language menu -->
-    <md-menu md-offset="0 -5">
-      <md-button aria-label="{{_('Language')}}"
-                 class="md-icon-button"
-                 ng-click="$mdOpenMenu($event)">
-        <md-icon md-svg-icon="ic_language_24px"
-                 md-menu-origin>
-        </md-icon>
-      </md-button>
-      <md-menu-content width="3">
-        <md-menu-item ng-repeat="locale in locales">
-          <md-button ng-click="use_lang(locale)"
-                     ng-disabled="is_current_lang(locale)">
-            {{ locale.text }}
-          </md-button>
-        </md-menu-item>
-      </md-menu-content>
-    </md-menu>
+    <div layout="row"
+         layout-align="center center">
+      <!-- language menu -->
+      <md-menu md-offset="0 -5">
+        <md-button aria-label="{{_('Language')}}"
+                   class="md-icon-button"
+                   ng-click="$mdOpenMenu($event)">
+          <md-icon md-svg-icon="ic_language_24px"
+                   md-menu-origin>
+          </md-icon>
+        </md-button>
+        <md-menu-content width="3">
+          <md-menu-item ng-repeat="locale in locales">
+            <md-button ng-click="use_lang(locale)"
+                       ng-disabled="is_current_lang(locale)">
+              {{ locale.text }}
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
 
-    <!-- settings menu -->
-    <md-menu md-offset="0 -5"
-             class="anim-fade"
-             ng-show="is_logged()">
-      <md-button aria-label="{{_('Menu')}}" class="md-icon-button"
-       ng-click="$mdOpenMenu($event)">
-        <md-icon md-menu-origin md-svg-icon="ic_more_vert_24px"></md-icon>
-      </md-button>
-      <md-menu-content width="3">
-        <md-menu-item>
-          <md-button ng-click="reload()">
-            {{_('Reload')}}
-          </md-button>
-        </md-menu-item>
-        <md-menu-item>
-          <md-button ng-click="exit()">
-            {{_('Exit')}}
-          </md-button>
-        </md-menu-item>
-      </md-menu-content>
-    </md-menu>
   </div>
 </md-toolbar>

@@ -1,9 +1,10 @@
 angular.module 'throwCat'
 
-.controller "userRecoveryCtrl", [
+.controller "userRegisterCtrl", [
   '$scope'
   '$location'
   'restUser'
+  'Auth'
   'flash'
   'Config'
   'fsv'
@@ -11,11 +12,12 @@ angular.module 'throwCat'
     $scope
     $location
     restUser
+    Auth
     flash
     Config
     fsv
   ) ->
-    $scope.reg = {}
+    $scope.rec = {}
     $scope.checked = false
     $scope.submitted = false
 
@@ -31,28 +33,24 @@ angular.module 'throwCat'
       return
 
       $scope.submitted = true
-      do_auth = new restUser.check($scope.reg)
+      do_auth = new restUser.check($scope.rec)
       do_auth.$post()
       .then (data)->
         $scope.checked = true
       .finally ->
         $scope.submitted = false
 
-    $scope.recovery = ->
+    $scope.register = ->
       fields = ['code', 'pwd', 'pwd2']
-      if not fsv($scope.reg_form, fields) or $scope.submitted
+      if not fsv($scope.rec_form, fields) or $scope.submitted
         return
 
       $scope.submitted = true
-      do_auth = new restUser.register($scope.reg)
+      do_auth = new restUser.recovery($scope.rec)
       do_auth.$post()
       .then (data)->
-        do_login()
+        $location.path Config.route.auth
       .finally ->
         $scope.submitted = false
-
-    do_login = (token)->
-      Auth.login token
-      $location.path '/'
 
 ]

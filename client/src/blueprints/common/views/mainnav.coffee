@@ -45,9 +45,10 @@ angular.module 'throwCat'
 
     $scope.is_show = (menu) ->
       if singleMode
-        return navs.activatedMenus == menu or $scope.isCurrent(menu)
+        return navs.activatedMenus == menu or $scope.is_current(menu)
       else
-        return navs.activatedMenus.indexOf(menu) > -1 or $scope.isCurrent(menu)
+        activated = navs.activatedMenus.indexOf(menu) > -1
+        return activated or $scope.is_current(menu)
 
     $scope.is_current = (menu) ->
       return navs.currSection is menu

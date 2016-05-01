@@ -5,8 +5,8 @@ angular.module 'throwCat'
   (
     $routeProvider
   ) ->
-    bp = "dashboard"
-    dir = "blueprints/dashboard/views"
+    bp = "overseer"
+    dir = "blueprints/overseer/views"
 
     $routeProvider
     .when '/',

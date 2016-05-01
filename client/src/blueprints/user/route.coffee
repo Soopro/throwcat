@@ -19,6 +19,11 @@ angular.module 'throwCat'
       controller: 'userRegisterCtrl'
 
     $routeProvider
+    .when '/'+bp+'/recovery',
+      templateUrl: dir+'/recovery.html'
+      controller: 'userRecoveryCtrl'
+
+    $routeProvider
     .when '/'+bp+'/exit',
       template: ''
       controller: 'userExitCtrl'

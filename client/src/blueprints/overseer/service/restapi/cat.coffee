@@ -1,6 +1,6 @@
 angular.module 'throwCat'
 
-.factory 'restUser', [
+.factory 'restCat', [
   'supResource'
   'Config'
   (

@@ -5,29 +5,31 @@
      flex>
   <div layout="row"
        layout-align-gt-sm="center center"
-       flex>
+       flex="{{checked?'none':''}}">
     <section flex-gt-sm="60"
              flex>
       <!-- section header -->
       <header>
-        <h1 class="md-display-2">
-          {{_('Login')}}
-        </h2>
+        <h1 class="md-display-1">
+          {{_('Recovery')}}
+        </h1>
       </header>
       <!-- form -->
-      <form name="auth_form"
+      <form name="check_form"
             layout="column"
-            ng-submit="submit()"
+            ng-show="!checked"
+            ng-submit="check()"
             novalidate>
 
         <md-input-container>
-          <label>{{_('Account')}}</label>
+          <label>{{_('Email for Account')}}</label>
           <input name="log"
                  type="email"
-                 ng-model="auth.log"
-                 required/>
-          <ng-messages ng-if="auth_form.log.$touched"
-                       for="auth_form.log.$error">
+                 ng-model="rec.log"
+                 ng-disiabled="checked"
+                 required />
+          <ng-messages ng-if="check_form.log.$touched"
+                       for="check_form.log.$error">
             <ng-message when="email">
               {{ _('Must be an email address.') }}
             </ng-message>
@@ -37,48 +39,115 @@
           </ng-messages>
         </md-input-container>
 
+        <md-input-container layout="column"
+                            layout-gt-xs="row"
+                            layout-align-gt-xs="center center">
+
+          <md-button class="btn md-raised md-accent"
+                     ng-disabled="submitted"
+                     type="submit">
+            {{_('Check')}}
+          </md-button>
+          <span flex></span>
+          <div class="md-padding"
+               hide-gt-xs>
+          </div>
+          <md-button class="btn"
+                     ng-disabled="submitted"
+                     ng-href="/#/user/login">
+            {{_('Go back to Login')}}
+          </md-button>
+
+        </md-input-container>
+      </form>
+
+      <!-- form -->
+      <form name="rec_form"
+            layout="column"
+            ng-show="checked"
+            ng-submit="recovery()"
+            novalidate>
+        <div>
+          <p>
+            {{_('A Recovery code has been sent to %s.', reg.log)}}
+          </p>
+        </div>
+
         <md-input-container>
-          <label>{{_('Password')}}</label>
-          <input name="pwd"
-                 ng-model="auth.pwd"
+          <label>{{_('Enter the Recovery code')}}</label>
+          <input name="code"
+                 type="text"
+                 ng-model="rec.code"
                  required/>
-          <ng-messages ng-if="auth_form.pwd.$touched"
-                       for="auth_form.pwd.$error">
+          <ng-messages ng-if="rec_form.code.$touched"
+                       for="rec_form.code.$error">
             <ng-message when="required">
               {{ _('This is required.') }}
             </ng-message>
           </ng-messages>
         </md-input-container>
 
+        <div layout="column"
+             layout-gt-xs="row">
+          <md-input-container flex>
+            <label>{{_('New Password')}}</label>
+            <input name="pwd"
+                   type="password"
+                   ng-model="rec.pwd"
+                   maxlength="50"
+                   ng-pattern="input_pattern.pwd"
+                   required/>
+            <ng-messages ng-if="rec_form.pwd.$touched"
+                         for="rec_form.pwd.$error">
+              <ng-message when="required">
+                {{ _('This is required.') }}
+              </ng-message>
+              <ng-message when="pattern">
+                {{ _('It is invalid.') }}
+              </ng-message>
+            </ng-messages>
+          </md-input-container>
+          <md-input-container flex>
+            <label>{{_('Confirm Password')}}</label>
+            <input name="pwd2"
+                   type="password"
+                   maxlength="50"
+                   ng-model="rec.pwd2"
+                   password-verify='rec.pwd'
+                   required/>
+            <ng-messages ng-if="rec_form.pwd2.$touched"
+                         for="rec_form.pwd2.$error">
+              <ng-message when="required">
+                {{ _('This is required.') }}
+              </ng-message>
+              <ng-message when="passwordVerify">
+                {{ _('The password confirmation does not match.') }}
+              </ng-message>
+            </ng-messages>
+          </md-input-container>
+        </div>
+
         <md-input-container layout="column"
                             layout-gt-xs="row"
-                            layout-align="center center">
-          <md-button class="md-raised md-accent"
+                            layout-align-gt-xs="center center">
+
+          <md-button class="btn md-raised md-accent"
                      ng-disabled="submitted"
                      type="submit">
-            {{_('Login')}}
+            {{_('Recovery')}}
           </md-button>
-          <md-button class="md-raised"
-                     ng-disabled="submitted"
-                     ng-href="/user/register">
-            {{_('Register')}}
-          </md-button>
-
           <span flex></span>
-
-          <md-button ng-disabled="submitted"
-                     ng-href="/user/recovery">
-            {{_('Forget password?')}}
+          <div class="md-padding"
+               hide-gt-xs>
+          </div>
+          <md-button class="btn"
+                     ng-disabled="submitted"
+                     ng-href="/#/user/login">
+            {{_('Go back to Login')}}
           </md-button>
-
         </md-input-container>
+
       </form>
     </section>
-  </div>
-  <!-- copyrights -->
-  <div class="copyright"
-       layout="row"
-       layout-align="center center">
-    <small ng-bind="_('ThrowCat is free.')"></small>
   </div>
 </div>

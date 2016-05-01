@@ -2,10 +2,10 @@ angular.module 'throwCat'
 
 .controller "dashboardCtrl", [
   '$scope'
-  'restAgent'
+  'restCat'
   (
     $scope
-    restAgent
+    restCat
   ) ->
-    $scope.status = restAgent.status.get()
+    # $scope.status = restCat.status.get()
 ]
