@@ -7,7 +7,6 @@ angular.module 'throwCat'
   '$mdMedia'
   'Auth'
   'navService'
-  'navDefault'
   (
     $scope
     $location
@@ -15,17 +14,12 @@ angular.module 'throwCat'
     $mdMedia
     Auth
     navService
-    navDefault
   ) ->
     $scope.navs = navs = navService
     singleMode = false
-    navDefault.load()
 
     $scope.is_locked_open = (hasNav)->
       return $mdMedia('gt-md')
-
-    $scope.is_logged = (menu) ->
-      return menu.open or Auth.is_logged()
 
     $scope.is_open = ->
       is_open = $mdSidenav('main_nav').isOpen()

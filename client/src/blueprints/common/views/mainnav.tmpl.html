@@ -34,7 +34,7 @@
           <md-button class="main-nav-btn"
                      ng-click="go(nav.path)"
                      ng-class="nav.class"
-                     ng-disabled="is_current(nav.alias) || !is_logged(nav)">
+                     ng-disabled="is_current(nav.alias)">
             <div class="row"
                  layout="row">
               <md-icon class="ico"
@@ -51,7 +51,7 @@
           <md-button class="main-nav-btn menu-btn-toggle"
                      ng-click="toggle(nav.alias)"
                      ng-class="nav.class"
-                     ng-disabled="is_current(nav.alias) || !is_logged(nav)">
+                     ng-disabled="is_current(nav.alias)">
             <div class="row"
                  layout="row">
               <md-icon class="ico"
@@ -73,8 +73,7 @@
               ng-class="{'active':is_current(nav.alias)}">
               <li ng-repeat="child in nav.nodes">
                 <md-button ng-class="child.class"
-                           ng-click="go(child.path)"
-                           ng-disabled="!is_logged(nav)">
+                           ng-click="go(child.path)">
                   {{_(child.name)}}
                 </md-button>
               </li>

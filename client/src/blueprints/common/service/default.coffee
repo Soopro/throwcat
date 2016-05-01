@@ -30,7 +30,6 @@ angular.module 'throwCat'
         name: "About"
         ico: "ic_info_outline_24px"
         path: "/about"
-        open: true
       }
       {
         alias: "exit"

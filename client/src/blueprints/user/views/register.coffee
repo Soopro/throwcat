@@ -1,6 +1,6 @@
 angular.module 'throwCat'
 
-.controller "userRecoveryCtrl", [
+.controller "userRegisterCtrl", [
   '$scope'
   '$location'
   'restUser'

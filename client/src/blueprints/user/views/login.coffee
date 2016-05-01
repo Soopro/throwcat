@@ -4,6 +4,7 @@ angular.module 'throwCat'
   '$scope'
   '$location'
   'restUser'
+  'navService'
   'Auth'
   'flash'
   'Config'
@@ -12,11 +13,15 @@ angular.module 'throwCat'
     $scope
     $location
     restUser
+    navService
     Auth
     flash
     Config
     fsv
   ) ->
+    navService
+
+
     $scope.auth = {}
     $scope.submitted = false
 
