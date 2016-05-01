@@ -20,7 +20,7 @@ angular.module 'throwCat'
     $scope.auth = {}
     $scope.submitted = false
 
-    $scope.submit = ->
+    $scope.login = ->
       if not fsv($scope.auth_form, ['log', 'pwd']) or $scope.submitted
         return
 

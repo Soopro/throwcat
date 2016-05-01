@@ -32,3 +32,7 @@ angular.module 'throwCat'
       '/404'
       '/403'
     ]
+
+  input_pattern:
+    slug: /^[a-zA-Z0-9_-]{3,50}$/
+    pwd: /^[\~!@#$%^&*()-_=+|{}\[\],.?\/:;\'\'\d\w]{3,50}$/

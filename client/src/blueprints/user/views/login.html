@@ -10,14 +10,14 @@
              flex>
       <!-- section header -->
       <header>
-        <h1 class="md-display-2">
+        <h1 class="md-display-1">
           {{_('Login')}}
-        </h2>
+        </h1>
       </header>
       <!-- form -->
       <form name="auth_form"
             layout="column"
-            ng-submit="submit()"
+            ng-submit="login()"
             novalidate>
 
         <md-input-container>
@@ -52,33 +52,32 @@
 
         <md-input-container layout="column"
                             layout-gt-xs="row"
-                            layout-align="center center">
-          <md-button class="md-raised md-accent"
+                            layout-align-gt-xs="center center">
+          <md-button class="btn md-raised md-accent"
                      ng-disabled="submitted"
                      type="submit">
             {{_('Login')}}
           </md-button>
-          <md-button class="md-raised"
+
+          <md-button class="btn md-raised"
                      ng-disabled="submitted"
-                     ng-href="/user/register">
+                     ng-href="/#/user/register">
             {{_('Register')}}
           </md-button>
 
           <span flex></span>
+          <div class="md-padding"
+               hide-gt-xs>
+          </div>
 
-          <md-button ng-disabled="submitted"
-                     ng-href="/user/recovery">
+          <md-button class="btn"
+                     ng-disabled="submitted"
+                     ng-href="/#/user/recovery">
             {{_('Forget password?')}}
           </md-button>
 
         </md-input-container>
       </form>
     </section>
-  </div>
-  <!-- copyrights -->
-  <div class="copyright"
-       layout="row"
-       layout-align="center center">
-    <small ng-bind="_('ThrowCat is free.')"></small>
   </div>
 </div>
