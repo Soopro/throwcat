@@ -7,5 +7,5 @@ angular.module 'throwCat'
     $scope
     restCat
   ) ->
-    # $scope.status = restCat.status.get()
+    $scope.inspector = restCat.inspector.query()
 ]

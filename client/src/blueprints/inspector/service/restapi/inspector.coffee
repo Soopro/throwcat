@@ -9,7 +9,7 @@ angular.module 'throwCat'
   ) ->
     api = "#{Config.baseURL.api}/crm/agent"
 
-    auth: do ->
-      supResource "#{api}/check_in"
+    inspector: do ->
+      supResource "#{api}/inspector"
 
 ]

@@ -28,7 +28,7 @@ angular.module 'throwCat'
       '/user/login'
       '/user/recovery'
     ]
-    open: [
+    error: [
       '/404'
       '/403'
     ]
