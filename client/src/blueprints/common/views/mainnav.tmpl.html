@@ -5,13 +5,20 @@
   <md-toolbar>
     <div class="md-toolbar-tools"
          layout-align="space-between center">
-        <div class="logo"></div>
-        <md-button class="md-icon-button"
-                   aria-label="{{_('Toggle main nav')}}"
-                   ng-click="toggleNav('main_nav')">
-          <md-icon md-svg-icon="ic_arrow_back_24px">
-          </md-icon>
-        </md-button>
+      <div class="logo"
+           layout="row"
+           layout-align="center center">
+        <!-- build:[md-svg-src] logo_cat.svg -->
+        <md-icon md-svg-src="styles/logo_cat.svg"></md-icon>
+        <!-- /build-->
+        <span layout-padding>ThrowCat</span>
+      </div>
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Toggle main nav')}}"
+                 ng-click="toggle_nav('main_nav')">
+        <md-icon md-svg-icon="ic_arrow_back_24px">
+        </md-icon>
+      </md-button>
     </div>
   </md-toolbar>
   <md-content flex>
@@ -27,7 +34,7 @@
           <md-button class="main-nav-btn"
                      ng-click="go(nav.path)"
                      ng-class="nav.class"
-                     ng-disabled="isCrrent(nav.alias)">
+                     ng-disabled="is_current(nav.alias) || !is_logged(nav)">
             <div class="row"
                  layout="row">
               <md-icon class="ico"
@@ -44,7 +51,7 @@
           <md-button class="main-nav-btn menu-btn-toggle"
                      ng-click="toggle(nav.alias)"
                      ng-class="nav.class"
-                     ng-disabled="isCrrent(nav.alias)">
+                     ng-disabled="is_current(nav.alias) || !is_logged(nav)">
             <div class="row"
                  layout="row">
               <md-icon class="ico"
@@ -57,16 +64,17 @@
               </span>
               <md-icon class="menu-toggle-icon"
                        md-svg-icon="ic_expand_more_24px"
-                       ng-class="{'toggled': isShow(nav.alias)}">
+                       ng-class="{'toggled': is_show(nav.alias)}">
               </md-icon>
             </div>
           </md-button>
           <ul class="menu-toggle-list"
-              ng-show="isShow(nav.alias)"
-              ng-class="{'active':isCurrent(nav.alias)}">
+              ng-show="is_show(nav.alias)"
+              ng-class="{'active':is_current(nav.alias)}">
               <li ng-repeat="child in nav.nodes">
                 <md-button ng-class="child.class"
-                           ng-click="go(child.path)">
+                           ng-click="go(child.path)"
+                           ng-disabled="!is_logged(nav)">
                   {{_(child.name)}}
                 </md-button>
               </li>

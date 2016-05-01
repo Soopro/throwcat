@@ -15,6 +15,5 @@ angular.module 'throwCat'
   ) ->
     g.$clear()
     Auth.logout()
-    console.log Config.route.auth
     $location.path Config.route.auth
 ]

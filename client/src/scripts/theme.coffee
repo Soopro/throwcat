@@ -5,7 +5,6 @@ angular.module 'throwCat'
   (
     $mdThemingProvider
   ) ->
-
     $mdThemingProvider.theme('default')
     .primaryPalette('indigo')
     .accentPalette('pink')

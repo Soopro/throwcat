@@ -18,7 +18,7 @@ angular.module 'throwCat'
     flashWatcher
   ) ->
     console.log "-----------------------------"
-    console.log "Flash Sloth:", App.version
+    console.log "ThrowCat:", App.version
     console.log "Developers:", App.artisan.join(', ')
     console.log "-----------------------------"
 

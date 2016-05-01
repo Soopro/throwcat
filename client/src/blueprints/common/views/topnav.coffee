@@ -24,10 +24,7 @@ angular.module 'throwCat'
     $scope.navs = navService
     $scope.locales = Config.locales
 
-    $scope.showMenu = ->
-      return $mdMedia('gt-md')
-
-    $scope.toggleNav = (nav) ->
+    $scope.toggle_nav = (nav) ->
       $mdSidenav(nav).toggle()
 
     $scope.is_current_lang = (locale) ->

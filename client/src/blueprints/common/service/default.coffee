@@ -13,28 +13,24 @@ angular.module 'throwCat'
         ico: "ic_dashboard_24px"
       }
       {
-        alias: "promo"
-        name: "Promotions"
-        ico: "ic_local_play_24px"
-        path: "/promo"
+        alias: "about"
+        name: "About Us"
+        ico: "ic_info_outline_24px"
+        path: "/about"
+        open: true
       }
       {
-        alias: "events"
-        name: "Events"
-        ico: "ic_event_24px"
-        path: "/event"
-      }
-      {
-        alias: "member"
-        name: "Membership"
-        ico: "ic_people_24px"
-        path: "/member"
+        alias: "help"
+        name: "Help"
+        ico: "ic_help_outline_24px"
+        path: "/about"
+        open: true
       }
       {
         alias: "exit"
         name: "Exit"
         ico: "ic_exit_24px"
-        path: "/exit"
+        path: "/user/exit"
       }
     ]
 

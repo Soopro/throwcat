@@ -1,12 +1,14 @@
 <md-toolbar class="md-hue-3 top-nav">
   <div class="md-toolbar-tools">
     <!-- nav menu -->
-    <div class="anim-fade">
+    <div layout="row"
+         layout-align="center center">
       <md-button class="md-icon-button"
                  aria-label="{{_('Toggle main nav')}}"
-                 ng-click="toggleNav('main_nav')">
+                 ng-click="toggle_nav('main_nav')">
         <md-icon md-svg-icon="ic_menu_24px"></md-icon>
       </md-button>
+      <span>ThrowCat</span>
     </div>
 
     <div flex></div>

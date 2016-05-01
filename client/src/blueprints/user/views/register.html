@@ -50,27 +50,12 @@
           </ng-messages>
         </md-input-container>
 
-        <md-input-container layout="column"
-                            layout-gt-xs="row"
-                            layout-align="center center">
+        <md-input-container>
           <md-button class="md-raised md-accent"
                      ng-disabled="submitted"
                      type="submit">
-            {{_('Login')}}
+            {{_('Enter')}}
           </md-button>
-          <md-button class="md-raised"
-                     ng-disabled="submitted"
-                     ng-href="/user/register">
-            {{_('Register')}}
-          </md-button>
-
-          <span flex></span>
-
-          <md-button ng-disabled="submitted"
-                     ng-href="/user/recovery">
-            {{_('Forget password?')}}
-          </md-button>
-
         </md-input-container>
       </form>
     </section>

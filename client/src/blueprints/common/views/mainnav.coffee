@@ -21,10 +21,13 @@ angular.module 'throwCat'
     singleMode = false
     navDefault.load()
 
-    $scope.isLockedOpen = (hasNav)->
+    $scope.is_locked_open = (hasNav)->
       return $mdMedia('gt-md')
 
-    $scope.isOpen = ->
+    $scope.is_logged = (menu) ->
+      return menu.open or Auth.is_logged()
+
+    $scope.is_open = ->
       is_open = $mdSidenav('main_nav').isOpen()
       is_locked_open = $scope.isLockedOpen()
       if is_open and is_locked_open
@@ -40,16 +43,16 @@ angular.module 'throwCat'
       else
         angular.toggleList(navs.activatedMenus, menu)
 
-    $scope.isShow = (menu) ->
+    $scope.is_show = (menu) ->
       if singleMode
         return navs.activatedMenus == menu or $scope.isCurrent(menu)
       else
         return navs.activatedMenus.indexOf(menu) > -1 or $scope.isCurrent(menu)
 
-    $scope.isCurrent = (menu) ->
+    $scope.is_current = (menu) ->
       return navs.currSection is menu
 
-    $scope.toggleNav = (nav)->
+    $scope.toggle_nav = (nav)->
       $mdSidenav(nav).toggle()
 
     $scope.go = (route)->
