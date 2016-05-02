@@ -4,6 +4,7 @@ angular.module 'throwCat'
   '$scope'
   '$location'
   'restUser'
+  'Auth'
   'flash'
   'Config'
   'fsv'
@@ -11,6 +12,7 @@ angular.module 'throwCat'
     $scope
     $location
     restUser
+    Auth
     flash
     Config
     fsv
@@ -38,8 +40,8 @@ angular.module 'throwCat'
       .finally ->
         $scope.submitted = false
 
-    $scope.recovery = ->
-      fields = ['code', 'pwd', 'pwd2']
+    $scope.register = ->
+      fields = ['code', 'key', 'pwd', 'pwd2']
       if not fsv($scope.reg_form, fields) or $scope.submitted
         return
 

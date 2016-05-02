@@ -7,8 +7,8 @@ angular.module 'throwCat'
     $routeProvider
     gResolveProvider
   ) ->
-    bp = "inspector"
-    dir = "blueprints/inspector/views"
+    bp = "question"
+    dir = "blueprints/question/views"
 
     resolve =
       global: gResolveProvider.resolve

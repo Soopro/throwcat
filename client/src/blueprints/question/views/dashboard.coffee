@@ -3,9 +3,12 @@ angular.module 'throwCat'
 .controller "dashboardCtrl", [
   '$scope'
   'restCat'
+  'image'
   (
     $scope
     restCat
+    image
   ) ->
-    $scope.inspector = restCat.inspector.query()
+    $scope.questions = restCat.question.query()
+    $scope.image = image
 ]

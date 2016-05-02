@@ -1,6 +1,6 @@
 angular.module 'throwCat'
 
-.controller "userRegisterCtrl", [
+.controller "userRecoveryCtrl", [
   '$scope'
   '$location'
   'restUser'
@@ -40,7 +40,7 @@ angular.module 'throwCat'
       .finally ->
         $scope.submitted = false
 
-    $scope.register = ->
+    $scope.recovery = ->
       fields = ['code', 'pwd', 'pwd2']
       if not fsv($scope.rec_form, fields) or $scope.submitted
         return

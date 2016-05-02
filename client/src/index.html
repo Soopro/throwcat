@@ -63,13 +63,9 @@
     <ng-include src="'blueprints/common/views/topnav.tmpl.html'"
                 ng-controller="topNavCtrl">
     </ng-include>
-    <md-content class="view-container"
+    <md-content class="ng-view"
                 layout="column"
                 flex>
-      <ng-view class="view"
-               layout="column"
-               flex>
-      </ng-view>
     </md-content>
   </div>
 

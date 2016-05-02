@@ -1,0 +1,72 @@
+<div class="view-animate">
+  <div layout="column">
+    <!-- column -->
+    <section layout-padding>
+      <!-- section header -->
+      <header layout-margin>
+        <h2 class="md-title">
+          {{_('Dashboard')}}
+        </h2>
+      </header>
+
+      <!-- questions -->
+      <div class="md-margin"
+           layout="row"
+           layout-xs="none"
+           layout-wrap>
+
+        <div flex-gt-md="25"
+             flex-md="33"
+             flex-sm="50"
+             ng-repeat="i in [1,2,3,4]">
+          <md-card>
+            <md-card-header>
+              <md-card-avatar>
+                <md-icon class="md-avatar-icon"
+                         md-svg-icon="ic_collections_24px">
+                </md-icon>
+              </md-card-avatar>
+              <md-card-header-text>
+                <span class="md-title">Title</span>
+                <span class="md-subhead">subhead</span>
+              </md-card-header-text>
+            </md-card-header>
+            <img ng-src="{{image.trans_cover}}"
+                 class="md-card-image img-cover"
+                 style="background-image:
+                        url(http://media.soopro.com/devin/dp/folio10.jpg)"
+                 alt="{{_('Img Title')}}">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">
+                  Card header
+                </span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <p class="md-caption text-clamp-3">
+                The titles of Washed Out's breakthrough song and
+                the first single from Paracosm share the
+                two most important words in Ernest Greene's
+                musical language: feel it. It's a simple request,
+                as well...
+              </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="start center">
+              <md-button class="btn md-primary"
+                         ng-href="/#/member">
+                {{_('Enter')}}
+              </md-button>
+            </md-card-actions>
+          </md-card>
+        </div>
+
+      </div>
+    </section>
+  </div>
+  <!-- add -->
+  <md-button class="md-accent md-fab md-fab-bottom-right fixed"
+             aria-label="{{_('Add')}}">
+    <md-icon md-svg-icon="ic_add_24px"></md-icon>
+  </md-button>
+</div>

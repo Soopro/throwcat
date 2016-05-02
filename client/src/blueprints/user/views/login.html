@@ -40,6 +40,7 @@
         <md-input-container>
           <label>{{_('Password')}}</label>
           <input name="pwd"
+                 type="password"
                  ng-model="auth.pwd"
                  required/>
           <ng-messages ng-if="auth_form.pwd.$touched"
