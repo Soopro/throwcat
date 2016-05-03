@@ -14,7 +14,7 @@ angular.module 'throwCat'
         filename: '@filename'
 
     doMediaAuth: (alias, data) ->
-      supResource "#{api}/:app_alias/auth/upload"
+      supResource "#{api}/auth/upload"
       .post app_alias: alias, data
       .$promise
 

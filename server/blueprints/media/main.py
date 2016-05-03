@@ -19,7 +19,7 @@ blueprint = Blueprint("media", __name__)
 route_inject(blueprint, urls)
 
 # endpoint types
-admin_api_endpoints = [
+user_api_endpoints = [
     "{}.list_media".format(bp_name),
     "{}.save_media".format(bp_name),
     "{}.get_media".format(bp_name),
@@ -30,8 +30,8 @@ admin_api_endpoints = [
 
 
 @blueprint.before_request
-def media_module_before_request():
-    verify_access(user_apis=admin_api_endpoints)
+def before():
+    verify_access(user_apis=user_api_endpoints)
 
 
 @blueprint.errorhandler(APIError)

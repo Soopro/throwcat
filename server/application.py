@@ -22,7 +22,7 @@ from apiresps.errors import (NotFound,
                              UncaughtException)
 
 from services.cdn import qiniu, ufile
-from common_models import (User)
+from common_models import (User, Media)
 
 from services.mail_push import MailQueuePusher
 from envs import CONFIG_NAME
@@ -168,6 +168,7 @@ def create_app(config_name="development"):
     # register before request handlers
     @app.before_request
     def app_before_request():
+        print request.url, request.method
         # cors response
         if request.method == "OPTIONS":
             resp = current_app.make_default_options_response()
@@ -184,6 +185,9 @@ def create_app(config_name="development"):
     # register blueprints
     from blueprints.user import blueprint as users_module
     app.register_blueprint(users_module, url_prefix="/user")
+
+    from blueprints.media import blueprint as media_module
+    app.register_blueprint(media_module, url_prefix="/media")
 
     print "-------------------------------------------------------"
     print "Throwcat: {}".format(app.version)

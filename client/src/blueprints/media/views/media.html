@@ -22,16 +22,17 @@
           <div class="anim-item"
                ng-repeat="media in mediafiles">
             <md-list-item class="md-2-line"
-                          ng-click="select(event)">
+                          ng-class="{'selected': media._seleted}"
+                          ng-click="select(media)">
               <div class="md-list-item-text"
                    layout="column">
                 <h3 class="text-nowrap"
                     vw-max="65">
-                  {{ event.title }}
+                  {{ media.title }}
                 </h3>
                 <p class="text-nowrap"
                    vw-max="65">
-                  {{ event.time }}
+                  {{ media.time }}
                 </p>
               </div>
               <md-icon md-svg-icon="ic_event_24px">

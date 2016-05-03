@@ -24,7 +24,7 @@ angular.module 'throwCat'
     navService.section('media')
     $scope.now = Date.now()
 
-    $scope.mediafiles = restMedia.media.query
+    $scope.mediafiles = restMedia.media.query()
 
     # upload media
     $scope.uploadedMediafiles = []
@@ -77,13 +77,6 @@ angular.module 'throwCat'
         upload(uploadStack[0])
       else
         $scope.upload_status = 0
-
-
-    $scope.edit = (media)->
-      showDialog(media)
-      .then (media)->
-        if media.deleted
-          angular.removeFromList($scope.mediafiles, media, 'filename')
 
 
     $scope.onFileSelect = ($files, re_media) ->
@@ -178,8 +171,6 @@ angular.module 'throwCat'
       msg = 'Please use the native replication function '+
             'to copy the content in the textbox.'
       prompt(msg, url)
-
-
 
       # flash "Media files have been deleted."
 

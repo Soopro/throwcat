@@ -4,8 +4,8 @@ from __future__ import absolute_import
 from .controllers import *
 
 urls = [
-    ("/", list_media, "GET"),
-    ("/", save_media, "POST"),
+    ("", list_media, "GET"),
+    ("", save_media, "POST"),
     ("/<filename>", get_media, "GET"),
     ("/<filename>", update_media, "PUT"),
     ("/<filename>", delete_media, "DELETE"),

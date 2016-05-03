@@ -1276,3 +1276,108 @@ Traceback (most recent call last):
     raise request.routing_exception
 NotFound: 404: Not Found
  [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 06:57:03,462 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 06:57:41,360 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 06:58:35,319 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 06:58:45,650 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 06:58:59,416 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 07:02:05,151 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 07:02:05,319 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 07:04:07,913 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 07:04:09,085 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 07:15:09,503 WARNING: Uncaught Exception: TypeError(u"'Collection' object is not callable. If you meant to call the 'find_by_oid_scope' method on a 'Collection' object it is failing because no such method exists.\nIf 'find_by_oid_scope' is a Document then you may have forgotten to register it to the connection.",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 39, in list_media
+    Media.find_by_oid_scope(user['_id'], scope)
+  File "/Library/Python/2.7/site-packages/mongokit/collection.py", line 75, in __call__
+    "register it to the connection." % (name, name))
+TypeError: 'Collection' object is not callable. If you meant to call the 'find_by_oid_scope' method on a 'Collection' object it is failing because no such method exists.
+If 'find_by_oid_scope' is a Document then you may have forgotten to register it to the connection.
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
