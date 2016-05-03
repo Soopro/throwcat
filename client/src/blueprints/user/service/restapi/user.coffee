@@ -7,9 +7,17 @@ angular.module 'throwCat'
     supResource
     Config
   ) ->
-    api = "#{Config.baseURL.api}/crm/agent"
+    api = "#{Config.baseURL.api}/user"
 
-    auth: do ->
-      supResource "#{api}/check_in"
+    doCheck: ->
+      supResource "#{api}/check"
+      .post null, data
+      .$promise
+
+    doRegister: ->
+      supResource "#{api}/register"
+      .create null, data
+      .$promise
+
 
 ]

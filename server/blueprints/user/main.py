@@ -20,9 +20,9 @@ route_inject(blueprint, urlpatterns)
 
 # endpoint types
 open_api_endpoints = [
-    "{}.regsister".format(bp_name),
-    "{}.get_captcha".format(bp_name),
+    "{}.register".format(bp_name),
     "{}.recovery".format(bp_name),
+    "{}.get_register_captcha".format(bp_name),
     "{}.get_recovery_captcha".format(bp_name),
     "{}.login".format(bp_name),
 ]

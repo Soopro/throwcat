@@ -4,18 +4,17 @@ from .controllers import *
 
 urlpatterns = [
     # open apis
-    ('/regsister', regsister, 'POST'),
-    ('/captcha', get_captcha, 'POST'),
+    ('/register', register, 'POST'),
+    ('/register/captcha', get_register_captcha, 'POST'),
     ('/recovery', recovery, 'POST'),
     ('/recovery/captcha', get_recovery_captcha, 'POST'),
     ('/login', login, 'POST'),
 
     # for uesr
-    ('/info', get_user_info, 'GET'),
     ('/profile', get_profile, 'GET'),
-    ('/profile', reset_profile, 'POST'),
     ('/security/password', change_password, 'POST'),
-    # ('/security/key', get_key, 'GET'),
-    ('/security/secret', recovery_secret, 'PUT'),
+
+    ('/security/secret', get_secret, 'GET'),
+    ('/security/secret', reset_secret, 'PUT'),
 
 ]

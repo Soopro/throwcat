@@ -12,7 +12,7 @@ from ..errors import *
 
 
 @output_json
-def get_captcha():
+def get_register_captcha():
     login = get_param("login", Struct.Login, True)
 
     User = current_app.mongodb_conn.User
@@ -32,7 +32,7 @@ def get_captcha():
 
 
 @output_json
-def regsister():
+def register():
     slug = get_param("slug", Struct.Slug, True)
     captcha = get_param("captcha", Struct.Token, True)
     login = get_param("login", Struct.Login, True)
