@@ -19,7 +19,9 @@
           "angular-aria/angular-aria.js",
           "angular-material/angular-material.js",
           "angular-route/angular-route.js",
-          "angular-sanitize/angular-sanitize.js"
+          "angular-sanitize/angular-sanitize.js",
+          "ng-file-upload/ng-file-upload.js",
+          "ng-file-upload/ng-file-upload-shim.js"
         ],
         "cwd":"bower_components",
         "dest":"/src/scripts/libs/"

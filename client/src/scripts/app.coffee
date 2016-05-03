@@ -9,6 +9,7 @@ angular.module 'throwCat', [
   'ngMaterial'
   'supLocales'
   'supResource'
+  'ngFileUpload'
 ]
 
 angular.module 'throwCat'

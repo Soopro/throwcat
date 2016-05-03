@@ -108,7 +108,7 @@ angular.module 'throwCat'
 
 
     count_uploads = 0
-    upload_api_url = restMedia.media_upload_url $scope.app.alias
+    upload_api_url = restMedia.media_upload_url
     upload = (media) ->
       if not media
         return
@@ -182,23 +182,7 @@ angular.module 'throwCat'
       prompt(msg, url)
 
 
-    # select/more/trash
-    $scope.paged = 1
-    selectedItems = []
-    funcGenerator.select $scope, selectedItems
-    funcGenerator.more $scope, $scope.mediafiles
-    funcGenerator.trash $scope, selectedItems, (data)->
-      angular.removeFromList($scope.mediafiles, data)
-    , ->
-      flash "Media files have been deleted."
 
-    # edit dialog
-    showDialog = (media) ->
-      dialog.show
-        controller: 'mediaEditCtrl'
-        templateUrl: 'blueprints/app/views/media_edit.tmpl.html'
-        locals:
-          media: media
-          app: $scope.app
+      # flash "Media files have been deleted."
 
 ]

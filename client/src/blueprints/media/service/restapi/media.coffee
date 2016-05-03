@@ -10,8 +10,7 @@ angular.module 'throwCat'
     api = "#{Config.baseURL.api}/media"
 
     media: do ->
-      supResource "#{api}/:app_alias/:filename",
-        app_alias: '@app_alias'
+      supResource "#{api}/:filename",
         filename: '@filename'
 
     doMediaAuth: (alias, data) ->
@@ -19,7 +18,7 @@ angular.module 'throwCat'
       .post app_alias: alias, data
       .$promise
 
-    media_upload_url: (alias)->
-      return "#{api}/#{alias}"
+    media_upload_url: ->
+      return "#{api}"
 
 ]
