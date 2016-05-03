@@ -110,7 +110,7 @@ def create_app(config_name="development"):
     mongodb_conn = mongodb_database[app.config.get("MONGODB_DATABASE")]
 
     # register mongokit models
-    mongodb_database.register([User, Profile])
+    mongodb_database.register([User])
 
     # inject database connections to app object
     app.redis = rds_conn

@@ -6,7 +6,7 @@ urlpatterns = [
     # open apis
     ('/', get_questions, 'GET'),
     ('/<alias>', get_question, 'GET'),
-    
+
     # for admin
     ('/<alias>', create_question, 'POST'),
     ('/<alias>', update_question, 'PUT'),

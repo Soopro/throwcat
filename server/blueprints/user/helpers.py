@@ -50,8 +50,8 @@ def del_recovery_captcha(key):
     current_app.redis.delete(key)
 
 
-def generate_key(user_id):
-    return unicode(user_id).upper()
+def generate_key(slug):
+    return u"{}-{}".format(slug, uuid4().hex.upper())
 
 
 def generate_secret():
@@ -100,7 +100,11 @@ def output_user(user):
     return {
         "id": user["_id"],
         "login": user["login"],
-        "name": user["name"]
+        "slug": user["slug"]
+        "display_name": user["display_name"],
+        "email": user["email"],
+        "app_key": user["app_key"],
+        "app_secret": user["app_secret"]
     }
 
 
@@ -109,10 +113,3 @@ def output_user_with_token(user):
     user = output_user(user)
     user["token"] = token
     return user
-
-
-def output_profile(profile):
-    return {
-        "key": profile["key"],
-        "secret": profile["secret"]
-    }

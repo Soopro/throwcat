@@ -16,6 +16,6 @@ urlpatterns = [
     ('/profile', reset_profile, 'POST'),
     ('/security/password', change_password, 'POST'),
     # ('/security/key', get_key, 'GET'),
-    # ('/security/key', recovery_key, 'PUT'),
+    ('/security/secret', recovery_secret, 'PUT'),
 
 ]

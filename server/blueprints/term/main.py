@@ -33,8 +33,8 @@ admin_api_endpoints = [
 
 @blueprint.before_request
 def before():
-    verify_access(open_apis=open_api_endpoints
-                  admin_apis=admin_api_endpoints)
+    verify_access(open_apis=open_api_endpoints,
+                  user_apis=admin_api_endpoints)
 
 
 

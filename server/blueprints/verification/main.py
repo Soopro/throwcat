@@ -31,7 +31,6 @@ def before():
     verify_access(open_apis=open_api_endpoints)
 
 
-
 @blueprint.errorhandler(APIError)
 def blueprint_api_err(err):
     return make_json_response(err)
