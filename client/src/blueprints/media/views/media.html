@@ -4,61 +4,41 @@
       <!-- section header -->
       <header layout-margin>
         <h2 class="md-title">
-          {{_('Dashboard')}}
+          {{_('Media')}}
         </h2>
       </header>
 
-      <!-- questions -->
-      <div class="md-margin"
-           layout="row"
-           layout-xs="none"
-           layout-wrap>
+      <!-- media -->
+      <div class="md-margin">
 
-        <div flex-gt-md="25"
-             flex-md="33"
-             flex-sm="50"
-             ng-repeat="i in [1,2,3,4]">
-          <md-card>
-            <md-card-header>
-              <md-card-avatar>
-                <md-icon class="md-avatar-icon"
-                         md-svg-icon="ic_collections_24px">
-                </md-icon>
-              </md-card-avatar>
-              <md-card-header-text>
-                <span class="md-title">Title</span>
-                <span class="md-subhead">subhead</span>
-              </md-card-header-text>
-            </md-card-header>
-            <img ng-src="{{image.trans_cover}}"
-                 class="md-card-image img-cover"
-                 style="background-image:
-                        url(http://media.soopro.com/devin/dp/folio10.jpg)"
-                 alt="{{_('Img Title')}}">
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline">
-                  Card header
-                </span>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-              <p class="md-caption text-clamp-3">
-                The titles of Washed Out's breakthrough song and
-                the first single from Paracosm share the
-                two most important words in Ernest Greene's
-                musical language: feel it. It's a simple request,
-                as well...
-              </p>
-            </md-card-content>
-            <md-card-actions layout="row" layout-align="start center">
-              <md-button class="btn md-primary"
-                         ng-href="/#/member">
-                {{_('Enter')}}
-              </md-button>
-            </md-card-actions>
-          </md-card>
-        </div>
+        <md-list>
+          <md-subheader class="md-no-sticky">
+            <span ng-bind-html="_('You have <span class=text-primary>'+
+                               '%s</span> media.', mediafiles.length)">
+            </span>
+          </md-subheader>
+          <md-divider></md-divider>
+          <!-- items -->
+          <div class="anim-item"
+               ng-repeat="media in mediafiles">
+            <md-list-item class="md-2-line"
+                          ng-click="select(event)">
+              <div class="md-list-item-text"
+                   layout="column">
+                <h3 class="text-nowrap"
+                    vw-max="65">
+                  {{ event.title }}
+                </h3>
+                <p class="text-nowrap"
+                   vw-max="65">
+                  {{ event.time }}
+                </p>
+              </div>
+              <md-icon md-svg-icon="ic_event_24px">
+              </md-icon>
+            </md-list-item>
+          </div>
+        </md-list>
 
       </div>
     </section>

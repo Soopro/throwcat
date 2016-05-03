@@ -45,11 +45,9 @@ angular.module 'throwCat'
         filename = filename.substring(0,16) + '...'
 
       if typeof(angular.translate) is 'function'
-        flash_msg = angular.translate(
-                    "%s is invalid that it will not be uploaded.",
-                    filename)
+        flash_msg = angular.translate("%s is invalid.", filename)
       else
-        flash_msg = filename+" is invalid will be skipped."
+        flash_msg = filename+" is invalid."
 
       $scope.percent = 0
       $scope.upload_status = 2
