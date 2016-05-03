@@ -21,7 +21,7 @@ from apiresps.errors import (NotFound,
                              MethodNotAllowed,
                              UncaughtException)
 
-from services.cdn import qiniu, ufile
+from services.cdn import qiniu
 from common_models import (User, Media)
 
 from services.mail_push import MailQueuePusher
@@ -31,7 +31,7 @@ from envs import CONFIG_NAME
 __version_info__ = ('0', '1', '0')
 __version__ = '.'.join(__version_info__)
 
-__artisan__ = ['Majik']
+__artisan__ = ['Majik', 'Redyyu']
 
 
 def create_app(config_name="development"):
@@ -62,8 +62,6 @@ def create_app(config_name="development"):
 
     # cdn
     qiniu.init(public_key=app.config.get('CDN_PUBLIC_KEY'),
-               private_key=app.config.get('CDN_PRIVATE_KEY'))
-    ufile.init(public_key=app.config.get('CDN_PUBLIC_KEY'),
                private_key=app.config.get('CDN_PRIVATE_KEY'))
 
     # logging
@@ -110,7 +108,7 @@ def create_app(config_name="development"):
     mongodb_conn = mongodb_database[app.config.get("MONGODB_DATABASE")]
 
     # register mongokit models
-    mongodb_database.register([User])
+    mongodb_database.register([User, Media])
 
     # inject database connections to app object
     app.redis = rds_conn
@@ -168,7 +166,6 @@ def create_app(config_name="development"):
     # register before request handlers
     @app.before_request
     def app_before_request():
-        print request.url, request.method
         # cors response
         if request.method == "OPTIONS":
             resp = current_app.make_default_options_response()

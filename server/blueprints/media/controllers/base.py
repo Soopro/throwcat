@@ -7,7 +7,7 @@ import uuid
 import os
 import mimetypes
 
-from services.cdn import qiniu, ufile
+from services.cdn import qiniu
 
 from utils.api_utils import output_json
 from utils.request import get_param
@@ -16,10 +16,6 @@ from utils.helpers import now, safe_filename
 from apiresps.validations import Struct
 
 from ..errors import *
-
-
-THUMBNAILS_DIR = u'thumbnails'
-THUMBNAILS_SIZE = (480, 480)
 
 
 def allowed_file(filename):
@@ -71,17 +67,10 @@ def upload_authorize():
 
     cdn_key = "{}/{}".format(scope, key)
     bucket = current_app.config.get('CDN_UPLOADS_BUCKET')
-    CDN = current_app.config.get('CDN', '')
 
     try:
-        if CDN == 'ufile':
-            api_url = ufile.gen_api_url(bucket, cdn_key, method)
-            auth = ufile.authorize(method, bucket, cdn_key, headers, mimetype)
-        elif CDN == 'qiniu':
-            api_url = qiniu.get_api_url()
-            auth = qiniu.authorize(bucket, cdn_key)
-        else:
-            raise Exception
+        api_url = qiniu.get_api_url()
+        auth = qiniu.authorize(bucket, cdn_key)
     except Exception:
         raise MediaAuthorizeFailed
 
@@ -181,15 +170,9 @@ def delete_media(filename):
 
     bucket = current_app.config.get('CDN_UPLOADS_BUCKET')
 
-    CDN = current_app.config.get('CDN', '')
     cdn_key = "{}/{}".format(scope, filename)
     try:
-        if CDN == 'qiniu':
-            qiniu.delete(bucket, cdn_key)
-        elif CDN == 'ufile':
-            ufile.delete(bucket, cdn_key)
-        else:
-            raise Exception
+        qiniu.delete(bucket, cdn_key)
     except Exception as e:
         current_app.logger.warn(MediaDeleteFailed(str(e)))
 
@@ -277,5 +260,5 @@ def output_media(media):
         'type': media['type'],
         'mimetype': media['mimetype'],
         'ext': media['ext'],
-        'updated': media['updated']
+        'updated': media['updated'],
     }
