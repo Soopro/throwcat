@@ -18,28 +18,33 @@ angular.module 'throwCat'
     outer_resolve =
       outer: outerResolveProvider.resolve
 
+
+    # before login
     $routeProvider
-    .when '/'+bp+'/login',
+    .when '/login',
       templateUrl: dir+'/login.html'
       controller: 'userLoginCtrl'
       resolve: outer_resolve
 
-    $routeProvider
-    .when '/'+bp+'/register',
+    .when '/register',
       templateUrl: dir+'/register.html'
       controller: 'userRegisterCtrl'
       resolve: outer_resolve
 
-    $routeProvider
-    .when '/'+bp+'/recovery',
+    .when '/recovery',
       templateUrl: dir+'/recovery.html'
       controller: 'userRecoveryCtrl'
       resolve: outer_resolve
 
-    $routeProvider
-    .when '/'+bp+'/exit',
+    .when '/exit',
       template: ''
       controller: 'userExitCtrl'
+
+    # logged
+    .when '/'+bp+'/profile',
+      templateUrl: dir+'/profile.html'
+      controller: 'userProfileCtrl'
+      resolve: resolve
 
     return
 ]

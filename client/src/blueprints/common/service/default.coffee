@@ -24,10 +24,14 @@ angular.module 'throwCat'
         ico: "ic_account_box_24px"
         nodes:[
           {
-            alias: "create"
-            name: "Create New"
-            path: "/create_app"
-            class: "md-primary"
+            alias: "profile"
+            name: "Profile"
+            path: "/user/profile"
+          }
+          {
+            alias: "security"
+            name: "Security"
+            path: "/user/security"
           }
         ]
       }

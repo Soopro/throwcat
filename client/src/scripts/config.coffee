@@ -11,8 +11,8 @@ angular.module 'throwCat'
 
   route:
     portal: '/'
-    auth: '/user/login'
-    exit: '/user/exit'
+    auth: '/login'
+    exit: '/exit'
     error: '/404'
 
   locales: [
@@ -24,9 +24,9 @@ angular.module 'throwCat'
 
   path:
     outer: [
-      '/user/register'
-      '/user/login'
-      '/user/recovery'
+      '/login'
+      '/register'
+      '/recovery'
     ]
     error: [
       '/404'
