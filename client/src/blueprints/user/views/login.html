@@ -22,12 +22,12 @@
 
         <md-input-container>
           <label>{{_('Account')}}</label>
-          <input name="log"
+          <input name="login"
                  type="email"
-                 ng-model="auth.log"
+                 ng-model="auth.login"
                  required/>
-          <ng-messages ng-if="auth_form.log.$touched"
-                       for="auth_form.log.$error">
+          <ng-messages ng-if="auth_form.login.$touched"
+                       for="auth_form.login.$error">
             <ng-message when="email">
               {{ _('Must be an email address.') }}
             </ng-message>
@@ -39,13 +39,13 @@
 
         <md-input-container>
           <label>{{_('Password')}}</label>
-          <input name="pwd"
+          <input name="passwd"
                  type="password"
-                 ng-model="auth.pwd"
-                 ng-pattern="input_pattern.pwd"
+                 ng-model="auth.passwd"
+                 ng-pattern="input_pattern.passwd"
                  required/>
-          <ng-messages ng-if="auth_form.pwd.$touched"
-                       for="auth_form.pwd.$error">
+          <ng-messages ng-if="auth_form.passwd.$touched"
+                       for="auth_form.passwd.$error">
             <ng-message when="required">
               {{ _('This is required.') }}
             </ng-message>

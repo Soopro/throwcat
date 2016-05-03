@@ -28,7 +28,7 @@ angular.module 'throwCat'
     $scope.input_pattern = Config.input_pattern
 
     $scope.check = ->
-      if not fsv($scope.check_form, ['log']) or $scope.submitted
+      if not fsv($scope.check_form, ['login']) or $scope.submitted
         return
 
       $scope.submitted = true

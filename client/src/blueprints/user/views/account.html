@@ -47,7 +47,7 @@
               <input name="pwd"
                      type="password"
                      ng-model="user.pwd"
-                     ng-pattern="input_pattern.pwd"
+                     ng-pattern="input_pattern.passwd"
                      required/>
               <ng-messages ng-if="security_form.pwd.$touched"
                            for="security_form.pwd.$error">
@@ -65,7 +65,7 @@
               <input name="new_pwd"
                      type="password"
                      ng-model="user.new_pwd"
-                     ng-pattern="input_pattern.pwd"
+                     ng-pattern="input_pattern.passwd"
                      required/>
               <ng-messages ng-if="security_form.new_pwd.$touched"
                            for="security_form.new_pwd.$error">
@@ -83,7 +83,7 @@
               <input name="new_pwd2"
                      type="password"
                      ng-model="user.new_pwd2"
-                     ng-pattern="input_pattern.pwd"
+                     ng-pattern="input_pattern.passwd"
                      required/>
               <ng-messages ng-if="security_form.new_pwd2.$touched"
                            for="security_form.new_pwd2.$error">

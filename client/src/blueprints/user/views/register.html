@@ -114,14 +114,14 @@
              layout-gt-xs="row">
           <md-input-container flex>
             <label>{{_('New Password')}}</label>
-            <input name="pwd"
+            <input name="passwd"
                    type="password"
-                   ng-model="reg.pwd"
+                   ng-model="reg.passwd"
                    maxlength="50"
-                   ng-pattern="input_pattern.pwd"
+                   ng-pattern="input_pattern.passwd"
                    required/>
-            <ng-messages ng-if="reg_form.pwd.$touched"
-                         for="reg_form.pwd.$error">
+            <ng-messages ng-if="reg_form.passwd.$touched"
+                         for="reg_form.passwd.$error">
               <ng-message when="required">
                 {{ _('This is required.') }}
               </ng-message>
@@ -132,14 +132,14 @@
           </md-input-container>
           <md-input-container flex>
             <label>{{_('Confirm Password')}}</label>
-            <input name="pwd2"
+            <input name="passwd2"
                    type="password"
                    maxlength="50"
-                   ng-model="reg.pwd2"
-                   password-verify='reg.pwd'
+                   ng-model="reg.passwd2"
+                   password-verify='reg.passwd'
                    required/>
-            <ng-messages ng-if="reg_form.pwd2.$touched"
-                         for="reg_form.pwd2.$error">
+            <ng-messages ng-if="reg_form.passwd2.$touched"
+                         for="reg_form.passwd2.$error">
               <ng-message when="required">
                 {{ _('This is required.') }}
               </ng-message>
