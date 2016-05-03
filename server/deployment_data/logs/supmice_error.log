@@ -1,0 +1,738 @@
+2016-03-18 12:57:37,858 WARNING: Uncaught Exception: KeyError('activated',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/base.py", line 122, in app_list
+    app_list.append(output_app(app, user))
+  File "/Users/majik/github/supmice/blueprints/app/controllers/base.py", line 229, in output_app
+    Extension.find_by_ids(trunk["extension"]["activated"])
+KeyError: 'activated'
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-18 12:59:38,465 WARNING: Uncaught Exception: KeyError('activated',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/base.py", line 122, in app_list
+    app_list.append(output_app(app, user))
+  File "/Users/majik/github/supmice/blueprints/app/controllers/base.py", line 229, in output_app
+    Extension.find_by_ids(trunk["extension"]["activated"])
+KeyError: 'activated'
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-18 13:10:03,504 WARNING: Uncaught Exception: KeyError('activated',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/base.py", line 122, in app_list
+    app_list.append(output_app(app, user))
+  File "/Users/majik/github/supmice/blueprints/app/controllers/base.py", line 229, in output_app
+    Extension.find_by_ids(trunk["extension"]["activated"])
+KeyError: 'activated'
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-18 13:50:56,031 WARNING: Uncaught Exception: UnboundLocalError("local variable 'owner' referenced before assignment",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 147, in access_token
+    if owner is None:
+UnboundLocalError: local variable 'owner' referenced before assignment
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-18 13:51:26,530 WARNING: Uncaught Exception: UnboundLocalError("local variable 'owner' referenced before assignment",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 147, in access_token
+    if owner is None:
+UnboundLocalError: local variable 'owner' referenced before assignment
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-18 13:58:11,000 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/supmice/application.py:166]
+2016-03-18 13:59:52,799 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/supmice/application.py:166]
+2016-03-18 14:00:40,023 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/supmice/application.py:166]
+2016-03-18 14:01:10,466 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/supmice/application.py:166]
+2016-03-18 14:02:44,105 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/supmice/application.py:166]
+2016-03-18 14:34:47,546 WARNING: Uncaught Exception: TypeError('activate_app_ext() takes exactly 2 arguments (1 given)',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+TypeError: activate_app_ext() takes exactly 2 arguments (1 given)
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-18 14:35:18,139 WARNING: Uncaught Exception: TypeError('activate_app_ext() takes exactly 2 arguments (1 given)',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+TypeError: activate_app_ext() takes exactly 2 arguments (1 given)
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 14:26:45,303 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 86, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 20, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 14:26:48,074 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 86, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 20, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 14:27:07,123 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 86, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 20, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 14:27:08,259 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 86, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 20, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 14:27:13,145 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 86, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 20, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 14:27:18,424 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 86, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 20, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 14:29:18,044 WARNING: Uncaught Exception: MailQueuePushFailed()
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/users/controllers/base.py", line 137, in register_user
+    context)
+  File "/Users/majik/github/supmice/services/mail_push/mail_push.py", line 71, in send_system_mail
+    self._push_single_mail(send_mail)
+  File "/Users/majik/github/supmice/services/mail_push/mail_push.py", line 39, in _push_single_mail
+    raise MailQueuePushFailed
+MailQueuePushFailed: MAIL_QUEUE_PUSH_FAILED:None
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:23:18,825 WARNING: Uncaught Exception: NameError("global name 'parse_int' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 45, in oauth_list_members
+    offset = parse_int(offset)
+NameError: global name 'parse_int' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:23:18,832 WARNING: Uncaught Exception: NameError("global name 'parse_int' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 45, in oauth_list_members
+    offset = parse_int(offset)
+NameError: global name 'parse_int' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:23:18,839 WARNING: Uncaught Exception: NameError("global name 'parse_int' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 45, in oauth_list_members
+    offset = parse_int(offset)
+NameError: global name 'parse_int' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:23:18,845 WARNING: Uncaught Exception: NameError("global name 'parse_int' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 45, in oauth_list_members
+    offset = parse_int(offset)
+NameError: global name 'parse_int' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:23:48,027 WARNING: Uncaught Exception: NameError("global name 'parse_int' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 45, in oauth_list_members
+    offset = parse_int(offset)
+NameError: global name 'parse_int' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:23:48,036 WARNING: Uncaught Exception: NameError("global name 'parse_int' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 45, in oauth_list_members
+    offset = parse_int(offset)
+NameError: global name 'parse_int' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:23:48,042 WARNING: Uncaught Exception: NameError("global name 'parse_int' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 45, in oauth_list_members
+    offset = parse_int(offset)
+NameError: global name 'parse_int' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:23:48,048 WARNING: Uncaught Exception: NameError("global name 'parse_int' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 45, in oauth_list_members
+    offset = parse_int(offset)
+NameError: global name 'parse_int' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-03-25 16:46:39,454 WARNING: Uncaught Exception: NameError("global name 'output_role' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/member/controllers/oauth.py", line 33, in oauth_list_roles
+    role_list = [output_role(role) for role in roles]
+NameError: global name 'output_role' is not defined
+ [in /Users/majik/github/supmice/application.py:189]
+2016-04-07 15:19:12,115 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 76, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 19, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:183]
+2016-04-07 15:19:15,852 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 76, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 19, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:183]
+2016-04-07 15:19:18,633 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/blueprints/users/main.py", line 40, in before
+    open_api = open_api_endpoints
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 76, in verify_access
+    verify_jwt()
+  File "/Users/majik/github/supmice/blueprints/helpers.py", line 19, in verify_jwt
+    raise e
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:183]
+2016-04-07 15:20:46,035 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/users/controllers/base.py", line 85, in register_user
+    if current_app.redis.get("inactivated-{}".format(login)):
+  File "/Library/Python/2.7/site-packages/redis/client.py", line 807, in get
+    return self.execute_command('GET', name)
+  File "/Library/Python/2.7/site-packages/redis/client.py", line 534, in execute_command
+    connection.send_command(*args)
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 532, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 508, in send_packed_command
+    self.connect()
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 412, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:183]
+2016-04-07 15:47:13,485 WARNING: Uncaught Exception: TypeError("'NoneType' object has no attribute '__getitem__'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 152, in access_token
+    user_id = str(app["owner_id"])
+TypeError: 'NoneType' object has no attribute '__getitem__'
+ [in /Users/majik/github/supmice/application.py:183]
+2016-04-07 16:03:00,204 WARNING: Uncaught Exception: TypeError("'NoneType' object has no attribute '__getitem__'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 149, in access_token
+    user_id = str(app["owner_id"])
+TypeError: 'NoneType' object has no attribute '__getitem__'
+ [in /Users/majik/github/supmice/application.py:183]
+2016-04-13 16:21:02,497 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/users/controllers/base.py", line 85, in register_user
+    if current_app.redis.get("inactivated-{}".format(login)):
+  File "/Library/Python/2.7/site-packages/redis/client.py", line 807, in get
+    return self.execute_command('GET', name)
+  File "/Library/Python/2.7/site-packages/redis/client.py", line 534, in execute_command
+    connection.send_command(*args)
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 532, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 508, in send_packed_command
+    self.connect()
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 412, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/supmice/application.py:183]
+2016-05-03 16:45:33,819 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/throwcat/server/application.py:141]
+2016-05-03 16:47:37,222 WARNING: Uncaught Exception: TypeError("verify_access() got an unexpected keyword argument 'open_apis'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/throwcat/server/blueprints/user/main.py", line 36, in before
+    user_apis=user_api_endpoints)
+TypeError: verify_access() got an unexpected keyword argument 'open_apis'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 16:48:46,016 WARNING: Uncaught Exception: TypeError("verify_access() got an unexpected keyword argument 'user_apis'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/throwcat/server/blueprints/user/main.py", line 36, in before
+    user_apis=user_api_endpoints)
+TypeError: verify_access() got an unexpected keyword argument 'user_apis'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 16:49:33,181 WARNING: Uncaught Exception: TypeError("verify_access() got an unexpected keyword argument 'user_apis'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/throwcat/server/blueprints/user/main.py", line 36, in before
+    user_apis=user_api_endpoints)
+TypeError: verify_access() got an unexpected keyword argument 'user_apis'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 16:49:45,254 WARNING: Uncaught Exception: TypeError("verify_access() got an unexpected keyword argument 'user_apis'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/throwcat/server/blueprints/user/main.py", line 36, in before
+    user_apis=user_api_endpoints)
+TypeError: verify_access() got an unexpected keyword argument 'user_apis'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 16:53:46,249 WARNING: Uncaught Exception: ConnectionError('Error 61 connecting to 127.0.0.1:6379. Connection refused.',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 22, in get_captcha
+    captcha = send_captcha_by_email(email)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 214, in send_captcha_by_email
+    captcha = set_captcha(email)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 163, in set_captcha
+    current_app.redis.setex(key, num, EXPIRE)
+  File "/Library/Python/2.7/site-packages/redis/client.py", line 1925, in setex
+    return self.execute_command('SETEX', name, time, value)
+  File "/Library/Python/2.7/site-packages/redis/client.py", line 534, in execute_command
+    connection.send_command(*args)
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 532, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 508, in send_packed_command
+    self.connect()
+  File "/Library/Python/2.7/site-packages/redis/connection.py", line 412, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 16:56:45,362 WARNING: Uncaught Exception: Exception('Captcha Error',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 46, in regsister
+    raise Exception("Captcha Error")
+Exception: Captcha Error
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 16:57:39,218 WARNING: Uncaught Exception: Exception('Captcha Error',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 46, in regsister
+    raise Exception("Captcha Error")
+Exception: Captcha Error
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 16:59:48,825 WARNING: Uncaught Exception: Exception('Captcha Error',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 46, in regsister
+    raise Exception("Captcha Error")
+Exception: Captcha Error
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:01:08,829 WARNING: Uncaught Exception: Exception('Captcha Error',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 46, in regsister
+    raise Exception("Captcha Error")
+Exception: Captcha Error
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:01:37,322 WARNING: Uncaught Exception: Exception('Captcha Error',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 46, in regsister
+    raise Exception("Captcha Error")
+Exception: Captcha Error
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:02:31,455 WARNING: Uncaught Exception: Exception('Captcha Error',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 46, in regsister
+    raise Exception("Captcha Error")
+Exception: Captcha Error
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:07:56,534 WARNING: Uncaught Exception: Exception('Login exists',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 43, in regsister
+    raise Exception("Login exists")
+Exception: Login exists
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:09:09,218 WARNING: Uncaught Exception: InvalidDocument('Cannot encode object: <function login at 0x10b512230>',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 72, in get_recovery_captcha
+    if not User.find_one_by_login(login):
+  File "/Users/majik/github/throwcat/server/common_models/user.py", line 50, in find_one_by_login
+    "deleted": False
+  File "/Library/Python/2.7/site-packages/mongokit/document.py", line 300, in find_one
+    return self.collection.find_one(wrap=self._obj_class, *args, **kwargs)
+  File "/Library/Python/2.7/site-packages/pymongo/collection.py", line 721, in find_one
+    for result in cursor.limit(-1):
+  File "/Library/Python/2.7/site-packages/mongokit/cursor.py", line 42, in next
+    if len(self.__data) or self._refresh():
+  File "/Library/Python/2.7/site-packages/pymongo/cursor.py", line 982, in _refresh
+    self.__uuid_subtype))
+InvalidDocument: Cannot encode object: <function login at 0x10b512230>
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:16:08,384 WARNING: Uncaught Exception: TypeError("int() argument must be a string or a number, not 'NoneType'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 101, in recovery
+    if not check_recovery_captcha(login, captcha):
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 208, in check_recovery_captcha
+    num = int(current_app.redis.get(key))
+TypeError: int() argument must be a string or a number, not 'NoneType'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:17:07,958 WARNING: Uncaught Exception: TypeError("int() argument must be a string or a number, not 'NoneType'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 101, in recovery
+    if not check_recovery_captcha(login, captcha):
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 210, in check_recovery_captcha
+    num = int(current_app.redis.get(key))
+TypeError: int() argument must be a string or a number, not 'NoneType'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:22:57,202 WARNING: Uncaught Exception: KeyError('password_hashs',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 143, in login
+    if not check_hashed_password(str(user["password_hashs"]), password):
+KeyError: 'password_hashs'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:23:34,562 WARNING: Uncaught Exception: KeyError('password_hash',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 146, in login
+    return output_user_with_token(user)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 279, in output_user_with_token
+    user.update(token=generate_user_token(user))
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 232, in generate_user_token
+    sha = hmac_sha(user['login'], user['password_hash'])
+KeyError: 'password_hash'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:23:58,406 WARNING: Uncaught Exception: KeyError('password_hash',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 146, in login
+    return output_user_with_token(user)
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 279, in output_user_with_token
+    user.update(token=generate_user_token(user))
+  File "/Users/majik/github/throwcat/server/blueprints/user/controllers.py", line 232, in generate_user_token
+    sha = hmac_sha(user['login'], user['password_hash'])
+KeyError: 'password_hash'
+ [in /Users/majik/github/throwcat/server/application.py:164]
+2016-05-03 17:41:22,775 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/throwcat/server/application.py:141]
+2016-05-03 17:41:58,960 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/throwcat/server/application.py:141]
+2016-05-03 17:42:42,888 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/throwcat/server/application.py:141]

@@ -1,0 +1,676 @@
+2016-01-06 17:08:12,851 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/supmice/application.py:147]
+2016-01-06 17:08:13,044 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/supmice/application.py:147]
+2016-01-06 17:09:27,805 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/majik/github/supmice/application.py:147]
+2016-01-06 17:46:02,728 WARNING: Uncaught Exception: NameError("global name 'req' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 122, in access_token
+    code = req.get_params("code")
+NameError: global name 'req' is not defined
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-06 17:48:14,624 WARNING: Uncaught Exception: NameError("global name 'get_params' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 122, in access_token
+    code = get_params("code")
+NameError: global name 'get_params' is not defined
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-06 17:48:16,624 WARNING: Uncaught Exception: NameError("global name 'get_params' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 122, in access_token
+    code = get_params("code")
+NameError: global name 'get_params' is not defined
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-06 17:48:34,245 WARNING: Uncaught Exception: NameError("global name 'mongodb_conn' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 133, in access_token
+    trunk = mongodb_conn.AppTrunk.find_one_by_aid(open_id)
+NameError: global name 'mongodb_conn' is not defined
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-06 17:49:02,737 WARNING: Uncaught Exception: TypeError('character mapping must return integer, None or unicode',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 151, in access_token
+    ext_secret)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 40, in generate_oauth_token
+    sha = hmac.new(ext_secret, secret_key, sha1).hexdigest()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hmac.py", line 136, in new
+    return HMAC(key, msg, digestmod)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hmac.py", line 75, in __init__
+    self.outer.update(key.translate(trans_5C))
+TypeError: character mapping must return integer, None or unicode
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-06 17:50:24,820 WARNING: Uncaught Exception: TypeError('character mapping must return integer, None or unicode',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 152, in access_token
+    ext_secret)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 41, in generate_oauth_token
+    sha = hmac.new(ext_secret, secret_key, sha1).hexdigest()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hmac.py", line 136, in new
+    return HMAC(key, msg, digestmod)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hmac.py", line 75, in __init__
+    self.outer.update(key.translate(trans_5C))
+TypeError: character mapping must return integer, None or unicode
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-06 17:50:41,302 WARNING: Uncaught Exception: TypeError('character mapping must return integer, None or unicode',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 152, in access_token
+    ext_secret)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 41, in generate_oauth_token
+    sha = hmac.new(ext_secret, secret_key, sha1).hexdigest()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hmac.py", line 136, in new
+    return HMAC(key, msg, digestmod)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hmac.py", line 75, in __init__
+    self.outer.update(key.translate(trans_5C))
+TypeError: character mapping must return integer, None or unicode
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-06 17:57:23,930 WARNING: Uncaught Exception: TypeError('character mapping must return integer, None or unicode',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 152, in access_token
+    ext_secret)
+  File "/Users/majik/github/supmice/blueprints/oauth/controllers/base.py", line 41, in generate_oauth_token
+    sha = hmac.new(ext_secret, secret_key, sha1).hexdigest()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hmac.py", line 136, in new
+    return HMAC(key, msg, digestmod)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hmac.py", line 75, in __init__
+    self.outer.update(key.translate(trans_5C))
+TypeError: character mapping must return integer, None or unicode
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:29:56,732 ERROR: AttributeError("'list' object has no attribute 'iteritems'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 114, in rendering_page
+    type_list = curr_locked_ctypes + [k for k,v in cfg_types.iteritems()
+AttributeError: 'list' object has no attribute 'iteritems'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:37:57,376 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/website/preview.png'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:38:36,992 ERROR: KeyError('meta',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 148, in rendering_page
+    site_meta = curr_app["meta"]
+KeyError: 'meta'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:40:00,628 WARNING: Uncaught Exception: KeyError('meta',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/editor.py", line 129, in get_editor_context
+    site_meta = app["meta"]
+KeyError: 'meta'
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:40:06,693 ERROR: AttributeError("'list' object has no attribute 'iteritems'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 114, in rendering_page
+    type_list = curr_locked_ctypes + [k for k,v in cfg_types.iteritems()
+AttributeError: 'list' object has no attribute 'iteritems'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:40:49,319 ERROR: AttributeError("'list' object has no attribute 'iteritems'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 114, in rendering_page
+    type_list = curr_locked_ctypes + [k for k,v in cfg_types.iteritems()
+AttributeError: 'list' object has no attribute 'iteritems'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:41:27,150 ERROR: AttributeError("'list' object has no attribute 'iteritems'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 114, in rendering_page
+    type_list = curr_locked_ctypes + [k for k,v in cfg_types.iteritems()
+AttributeError: 'list' object has no attribute 'iteritems'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:42:29,779 ERROR: AttributeError("'list' object has no attribute 'iteritems'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 114, in rendering_page
+    type_list = curr_locked_ctypes + [k for k,v in cfg_types.iteritems()
+AttributeError: 'list' object has no attribute 'iteritems'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:45:25,685 WARNING: Uncaught Exception: KeyError('meta',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/editor.py", line 129, in get_editor_context
+    site_meta = app["meta"]
+KeyError: 'meta'
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:45:49,812 ERROR: AttributeError("'list' object has no attribute 'iteritems'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 114, in rendering_page
+    type_list = curr_locked_ctypes + [k for k,v in cfg_types.iteritems()
+AttributeError: 'list' object has no attribute 'iteritems'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:46:14,182 WARNING: Uncaught Exception: KeyError('meta',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/editor.py", line 129, in get_editor_context
+    site_meta = app["meta"]
+KeyError: 'meta'
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:46:37,555 WARNING: Uncaught Exception: KeyError('meta',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/editor.py", line 129, in get_editor_context
+    site_meta = app["meta"]
+KeyError: 'meta'
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:47:01,047 WARNING: Uncaught Exception: KeyError('meta',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/editor.py", line 129, in get_editor_context
+    site_meta = app["meta"]
+KeyError: 'meta'
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:49:55,123 WARNING: Uncaught Exception: KeyError('meta',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/editor.py", line 129, in get_editor_context
+    site_meta = app["meta"]
+KeyError: 'meta'
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:51:17,916 WARNING: Uncaught Exception: KeyError('meta',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/editor.py", line 130, in get_editor_context
+    site_meta = app["meta"]
+KeyError: 'meta'
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:53:06,466 WARNING: Uncaught Exception: StructureError("missed fields ['meta'] in App",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/utils/decorators.py", line 29, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/majik/github/supmice/blueprints/app/controllers/base.py", line 101, in remove_app
+    app.remove()
+  File "/Users/majik/github/supmice/common_models/app.py", line 121, in remove
+    self.save()
+  File "/Users/majik/github/supmice/common_models/app.py", line 115, in save
+    return super(App, self).save(*args, **kwargs)
+  File "/Users/majik/github/supmice/utils/models.py", line 28, in save
+    return super(BaseDocument, self).save(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/mongokit/document.py", line 420, in save
+    self.validate(auto_migrate=False)
+  File "/Library/Python/2.7/site-packages/mongokit/document.py", line 253, in validate
+    super(Document, self).validate()
+  File "/Library/Python/2.7/site-packages/mongokit/schema_document.py", line 390, in validate
+    self._validate_doc(self, self.structure)
+  File "/Library/Python/2.7/site-packages/mongokit/schema_document.py", line 598, in _validate_doc
+    "missed fields %s in %s" % (struct_doc_diff, type(doc).__name__))
+  File "/Library/Python/2.7/site-packages/mongokit/schema_document.py", line 553, in _raise_exception
+    raise exception(message)
+StructureError: missed fields ['meta'] in App
+ [in /Users/majik/github/supmice/application.py:171]
+2016-01-07 17:54:28,722 ERROR: AttributeError("'list' object has no attribute 'iteritems'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 114, in rendering_page
+    type_list = curr_locked_ctypes + [k for k,v in cfg_types.iteritems()
+AttributeError: 'list' object has no attribute 'iteritems'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:56:21,653 ERROR: AttributeError("'list' object has no attribute 'iteritems'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 117, in rendering_page
+    type_list = curr_locked_ctypes + [k for k,v in cfg_types.iteritems()
+AttributeError: 'list' object has no attribute 'iteritems'
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 17:59:20,777 ERROR: NameError("global name 'content_type_alias' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 141, in rendering_page
+    status_code)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 243, in _get_template_filename
+    template_name = content_type_alias
+NameError: global name 'content_type_alias' is not defined
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 18:04:46,586 ERROR: NameError("global name 'content_type_alias' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 140, in rendering_page
+    status_code)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 242, in _get_template_filename
+    template_name = content_type_alias
+NameError: global name 'content_type_alias' is not defined
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 18:06:47,139 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 224, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 18:06:53,182 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 224, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 18:07:09,662 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 224, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 18:13:58,386 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 224, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 18:14:18,390 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 224, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:230]
+2016-01-07 18:34:00,879 ERROR: NameError("global name 'content_type_alias' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 138, in rendering_page
+    status_code)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 240, in _get_template_filename
+    template_name = content_type_alias
+NameError: global name 'content_type_alias' is not defined
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:35:24,029 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 223, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:35:27,320 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 223, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,110 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/css/bootstrap.min.css'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,111 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/css/agency.css'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,112 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/font-awesome-4.1.0/css/font-awesome.min.css'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,113 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/js/jquery-1.11.0.js'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,116 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/js/bootstrap.min.js'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,120 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/js/cbpAnimatedHeader.js'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,120 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/js/classie.js'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,122 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/js/jqBootstrapValidation.js'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,123 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/js/agency.js'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:36:00,123 ERROR: OSError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1473, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1666, in preprocess_request
+    rv = func()
+  File "/Users/majik/github/supmice/pycoco/main.py", line 73, in before_request
+    headers["Content-Length"] = os.path.getsize(file_abs_path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py", line 57, in getsize
+    return os.stat(filename).st_size
+OSError: [Errno 2] No such file or directory: '/Users/majik/github/supmice/deployment_data/hive/themes/custom/majik/tt/asserts/js/contact_me.js'
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:42:49,084 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 223, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-07 18:43:17,201 ERROR: RenderingTemplateError('Rendering template:: maximum recursion depth exceeded while calling a Python object',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 223, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: maximum recursion depth exceeded while calling a Python object
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-11 23:52:27,929 ERROR: RenderingTemplateError('Rendering template:: gutter() takes exactly 2 arguments (1 given)',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 224, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: gutter() takes exactly 2 arguments (1 given)
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
+2016-01-12 00:06:04,749 ERROR: RenderingTemplateError('Rendering template:: <lambda>() takes exactly 1 argument (2 given)',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 54, in dominator
+    rendered = rendering_page(file_alias, content_type_alias)
+  File "/Users/majik/github/supmice/pycoco/controllers/dominator.py", line 224, in rendering_page
+    raise RenderingTemplateError(err.message)
+RenderingTemplateError: Rendering template:: <lambda>() takes exactly 1 argument (2 given)
+ [in /Users/majik/github/supmice/pycoco/main.py:226]
