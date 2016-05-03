@@ -4,6 +4,7 @@ angular.module 'throwCat'
   '$scope'
   '$location'
   'restUser'
+  'navService'
   'Auth'
   'flash'
   'Config'
@@ -12,11 +13,14 @@ angular.module 'throwCat'
     $scope
     $location
     restUser
+    navService
     Auth
     flash
     Config
     fsv
   ) ->
+    navService.section('register')
+
     $scope.reg = {}
     $scope.checked = false
     $scope.submitted = false

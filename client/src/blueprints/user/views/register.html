@@ -92,14 +92,14 @@
 
         <md-input-container>
           <label>{{_('User name')}}</label>
-          <input name="key"
+          <input name="slug"
                  type="text"
-                 ng-model="reg.key"
+                 ng-model="reg.slug"
                  ng-pattern="input_pattern.slug"
                  maxlength="50"
                  required/>
-          <ng-messages ng-if="reg_form.key.$touched"
-                       for="reg_form.key.$error">
+          <ng-messages ng-if="reg_form.slug.$touched"
+                       for="reg_form.slug.$error">
             <ng-message when="required">
               {{ _('This is required.') }}
             </ng-message>

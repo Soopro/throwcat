@@ -6,8 +6,8 @@ angular.module 'throwCat'
   'restUser'
   'navService'
   'Auth'
-  'flash'
   'Config'
+  'flash'
   'fsv'
   (
     $scope
@@ -15,15 +15,16 @@ angular.module 'throwCat'
     restUser
     navService
     Auth
-    flash
     Config
+    flash
     fsv
   ) ->
-    navService
-
+    navService.section('login')
 
     $scope.auth = {}
     $scope.submitted = false
+
+    $scope.input_pattern = Config.input_pattern
 
     $scope.login = ->
       if not fsv($scope.auth_form, ['log', 'pwd']) or $scope.submitted

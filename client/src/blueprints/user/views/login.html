@@ -42,11 +42,15 @@
           <input name="pwd"
                  type="password"
                  ng-model="auth.pwd"
+                 ng-pattern="input_pattern.pwd"
                  required/>
           <ng-messages ng-if="auth_form.pwd.$touched"
                        for="auth_form.pwd.$error">
             <ng-message when="required">
               {{ _('This is required.') }}
+            </ng-message>
+            <ng-message when="pattern">
+              {{ _('It is invalid.') }}
             </ng-message>
           </ng-messages>
         </md-input-container>

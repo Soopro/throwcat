@@ -1,31 +1,25 @@
 angular.module 'throwCat'
 
-.controller "userLoginCtrl", [
+.controller "userAccountCtrl", [
   '$scope'
   '$location'
   'restUser'
   'navService'
-  'Auth'
   'flash'
-  'Config'
   'fsv'
   (
     $scope
     $location
     restUser
     navService
-    Auth
     flash
-    Config
     fsv
   ) ->
-    navService
+    navService.section('account/profile')
 
-
-    $scope.auth = {}
     $scope.submitted = false
 
-    $scope.login = ->
+    $scope.save = ->
       if not fsv($scope.auth_form, ['log', 'pwd']) or $scope.submitted
         return
 

@@ -9,8 +9,8 @@ angular.module 'throwCat'
     gResolveProvider
     outerResolveProvider
   ) ->
-    dir = "blueprints/user/views"
-    bp = "user"
+    dir = 'blueprints/user/views'
+    bp = ''
 
     resolve =
       global: gResolveProvider.resolve
@@ -19,7 +19,7 @@ angular.module 'throwCat'
       outer: outerResolveProvider.resolve
 
 
-    # before login
+    # outter
     $routeProvider
     .when '/login',
       templateUrl: dir+'/login.html'
@@ -41,9 +41,9 @@ angular.module 'throwCat'
       controller: 'userExitCtrl'
 
     # logged
-    .when '/'+bp+'/profile',
-      templateUrl: dir+'/profile.html'
-      controller: 'userProfileCtrl'
+    .when '/account',
+      templateUrl: dir+'/account.html'
+      controller: 'userAccountCtrl'
       resolve: resolve
 
     return

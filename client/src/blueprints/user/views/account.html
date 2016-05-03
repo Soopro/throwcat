@@ -1,0 +1,105 @@
+<div class="view-animate">
+  <div>
+    <section layout-padding>
+      <!-- section header -->
+      <header layout-margin>
+        <h2 class="md-title">
+          {{_('Account')}}
+        </h2>
+      </header>
+
+      <div layout-gt-sm="row">
+        <!-- profile -->
+        <div flex-gt-sm="50">
+          <!-- info -->
+          <div layout="column"
+               layout-margin>
+
+            <md-input-container>
+              <label class="static">{{_('User Name')}}</label>
+              <p>{{user.username}}</p>
+            </md-input-container>
+
+            <md-input-container>
+              <label class="static">{{_('Login ID')}}</label>
+              <p>{{user.login}}</p>
+            </md-input-container>
+
+            <md-input-container>
+              <label class="static">{{_('Register Date')}}</label>
+              <p>{{user.creation | dateformat}}</p>
+            </md-input-container>
+
+          </div>
+        </div>
+
+        <!-- profile -->
+        <div flex-gt-sm="50">
+          <!-- form -->
+          <form name="security_form"
+                ng-submit="save_pwd()"
+                layout="column"
+                layout-margin
+                novalidate>
+
+            <md-input-container>
+              <label>{{_('Old Password')}}</label>
+              <input name="pwd"
+                     type="password"
+                     ng-model="user.pwd"
+                     ng-pattern="input_pattern.pwd"
+                     required/>
+              <ng-messages ng-if="security_form.pwd.$touched"
+                           for="security_form.pwd.$error">
+                <ng-message when="required">
+                  {{ _('This is required.') }}
+                </ng-message>
+                <ng-message when="pattern">
+                  {{ _('It is invalid.') }}
+                </ng-message>
+              </ng-messages>
+            </md-input-container>
+
+            <md-input-container>
+              <label>{{_('Password')}}</label>
+              <input name="new_pwd"
+                     type="password"
+                     ng-model="user.new_pwd"
+                     ng-pattern="input_pattern.pwd"
+                     required/>
+              <ng-messages ng-if="security_form.new_pwd.$touched"
+                           for="security_form.new_pwd.$error">
+                <ng-message when="required">
+                  {{ _('This is required.') }}
+                </ng-message>
+                <ng-message when="pattern">
+                  {{ _('It is invalid.') }}
+                </ng-message>
+              </ng-messages>
+            </md-input-container>
+
+            <md-input-container>
+              <label>{{_('Confirm Password')}}</label>
+              <input name="new_pwd2"
+                     type="password"
+                     ng-model="user.new_pwd2"
+                     ng-pattern="input_pattern.pwd"
+                     required/>
+              <ng-messages ng-if="security_form.new_pwd2.$touched"
+                           for="security_form.new_pwd2.$error">
+                <ng-message when="required">
+                  {{ _('This is required.') }}
+                </ng-message>
+                <ng-message when="pattern">
+                  {{ _('It is invalid.') }}
+                </ng-message>
+              </ng-messages>
+            </md-input-container>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>

@@ -22,18 +22,7 @@ angular.module 'throwCat'
         alias: "account"
         name: "Account"
         ico: "ic_account_box_24px"
-        nodes:[
-          {
-            alias: "profile"
-            name: "Profile"
-            path: "/user/profile"
-          }
-          {
-            alias: "security"
-            name: "Security"
-            path: "/user/security"
-          }
-        ]
+        path: "/account"
       }
       {
         alias: "about"
@@ -45,7 +34,7 @@ angular.module 'throwCat'
         alias: "exit"
         name: "Exit"
         ico: "ic_exit_24px"
-        path: "/user/exit"
+        path: "/exit"
       }
     ]
 
