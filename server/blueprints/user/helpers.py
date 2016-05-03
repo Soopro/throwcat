@@ -10,13 +10,13 @@ from flask import current_app
 from uuid import uuid4
 
 
-def set_register_capstcha(key):
+def set_register_captcha(key):
     EXPIRE = 5 * 60 * 60
-    num, captcha = random_string(length=6)
     key = "{}-register-captcha".format(key)
-    captcha = current_app.redis.get(key)
-    if not captcha:
-        captcha = current_app.redis.setex(key, num, EXPIRE)
+    stored_num = str2int(current_app.redis.get(key))
+    num, captcha = random_string(stored_num, length=6)
+    if not stored_num:
+        current_app.redis.setex(key, num, EXPIRE)
     return captcha
 
 

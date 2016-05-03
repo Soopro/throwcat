@@ -788,3 +788,171 @@ Traceback (most recent call last):
     captcha = set_register_captcha(email)
 NameError: global name 'set_register_captcha' is not defined
  [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:16:06,740 WARNING: Uncaught Exception: NameError("global name 'set_register_captcha' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 74, in send_register_captcha_by_email
+    captcha = set_register_captcha(email)
+NameError: global name 'set_register_captcha' is not defined
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:16:15,384 WARNING: Uncaught Exception: NameError("global name 'set_register_captcha' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 74, in send_register_captcha_by_email
+    captcha = set_register_captcha(email)
+NameError: global name 'set_register_captcha' is not defined
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:18:18,129 WARNING: Uncaught Exception: ValueError('substring not found',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 46, in register
+    if not check_register_captcha(login, captcha):
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 27, in check_register_captcha
+    return check_random_string(int(num), captcha)
+  File "/Users/redy/Sites/throwcat/server/utils/helpers.py", line 292, in check_random_string
+    return random_num == short_url.decode_url(random_str)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 135, in decode_url
+    return DEFAULT_ENCODER.decode_url(n)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 71, in decode_url
+    return self.decode(self.debase(n))
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 108, in debase
+    result += self.alphabet.index(c) * (n ** i)
+ValueError: substring not found
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:19:11,116 WARNING: Uncaught Exception: ValueError('substring not found',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 46, in register
+    if not check_register_captcha(login, captcha):
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 27, in check_register_captcha
+    return check_random_string(int(num), captcha)
+  File "/Users/redy/Sites/throwcat/server/utils/helpers.py", line 293, in check_random_string
+    return random_num == short_url.decode_url(random_str)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 135, in decode_url
+    return DEFAULT_ENCODER.decode_url(n)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 71, in decode_url
+    return self.decode(self.debase(n))
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 108, in debase
+    result += self.alphabet.index(c) * (n ** i)
+ValueError: substring not found
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:28:01,402 WARNING: Uncaught Exception: TypeError("unsupported operand type(s) for &: 'str' and 'int'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 74, in send_register_captcha_by_email
+    captcha = set_register_captcha(email)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 17, in set_register_captcha
+    num, captcha = random_string(stored_num, length=6)
+  File "/Users/redy/Sites/throwcat/server/utils/helpers.py", line 285, in random_string
+    random_str = short_url.encode_url(random_num, length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 131, in encode_url
+    return DEFAULT_ENCODER.encode_url(n, min_length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 68, in encode_url
+    return self.enbase(self.encode(n), min_length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 74, in encode
+    return (n & ~self.mask) | self._encode(n & self.mask)
+TypeError: unsupported operand type(s) for &: 'str' and 'int'
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:29:12,986 WARNING: Uncaught Exception: TypeError("unsupported operand type(s) for &: 'str' and 'int'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 74, in send_register_captcha_by_email
+    captcha = set_register_captcha(email)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 17, in set_register_captcha
+    num, captcha = random_string(stored_num, length=6)
+  File "/Users/redy/Sites/throwcat/server/utils/helpers.py", line 287, in random_string
+    random_str = short_url.encode_url(random_num, length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 131, in encode_url
+    return DEFAULT_ENCODER.encode_url(n, min_length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 68, in encode_url
+    return self.enbase(self.encode(n), min_length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 74, in encode
+    return (n & ~self.mask) | self._encode(n & self.mask)
+TypeError: unsupported operand type(s) for &: 'str' and 'int'
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:29:47,831 WARNING: Uncaught Exception: TypeError("unsupported operand type(s) for &: 'str' and 'int'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 74, in send_register_captcha_by_email
+    captcha = set_register_captcha(email)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 17, in set_register_captcha
+    num, captcha = random_string(stored_num, length=6)
+  File "/Users/redy/Sites/throwcat/server/utils/helpers.py", line 288, in random_string
+    random_str = short_url.encode_url(random_num, length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 131, in encode_url
+    return DEFAULT_ENCODER.encode_url(n, min_length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 68, in encode_url
+    return self.enbase(self.encode(n), min_length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 74, in encode
+    return (n & ~self.mask) | self._encode(n & self.mask)
+TypeError: unsupported operand type(s) for &: 'str' and 'int'
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:30:03,250 WARNING: Uncaught Exception: TypeError("unsupported operand type(s) for &: 'str' and 'int'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 74, in send_register_captcha_by_email
+    captcha = set_register_captcha(email)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 17, in set_register_captcha
+    num, captcha = random_string(stored_num, length=6)
+  File "/Users/redy/Sites/throwcat/server/utils/helpers.py", line 288, in random_string
+    random_str = short_url.encode_url(random_num, length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 131, in encode_url
+    return DEFAULT_ENCODER.encode_url(n, min_length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 68, in encode_url
+    return self.enbase(self.encode(n), min_length)
+  File "/Library/Python/2.7/site-packages/short_url/__init__.py", line 74, in encode
+    return (n & ~self.mask) | self._encode(n & self.mask)
+TypeError: unsupported operand type(s) for &: 'str' and 'int'
+ [in /Users/redy/Sites/throwcat/server/application.py:164]

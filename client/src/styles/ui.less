@@ -366,6 +366,17 @@ p {
   }
 }
 
+/* toast */
+md-toast.md-warn {
+  &,
+  & span {
+    color: @warn-color;
+  }
+  & md-icon {
+    fill: @warn-color;
+  }
+}
+
 /* fields */
 label.static {
   .transform(translate3d(0, 6px, 0) scale(0.75)) !important;

@@ -278,10 +278,13 @@ def str2int(text):
         return None
 
 
+def random_string(stored_num=None, length=6):
+    if not stored_num or not isinstance(stored_num, int):
+        end = len(short_url.DEFAULT_ALPHABET)**(length-1)
+        random_num = random.randint(0, end)
+    else:
+        random_num = stored_num
 
-def random_string(length=6):
-    end = len(short_url.DEFAULT_ALPHABET)**(length-1)
-    random_num = random.randint(0, end)
     random_str = short_url.encode_url(random_num, length)
     random_str = random_str.upper()
     return random_num, random_str
