@@ -19,7 +19,7 @@ def get_register_captcha():
     if User.find_one_by_login(login):
         raise UserHasExisted
 
-    captcha = send_captcha_by_email(login)
+    captcha = send_register_captcha_by_email(login)
 
     if current_app.debug is True:
         checked = captcha
@@ -27,6 +27,7 @@ def get_register_captcha():
         checked = True
 
     return {
+        "login": login,
         "checked": checked,
     }
 
@@ -36,13 +37,13 @@ def register():
     slug = get_param("slug", Struct.Slug, True)
     captcha = get_param("captcha", Struct.Token, True)
     login = get_param("login", Struct.Login, True)
-    password = get_param("password", Struct.Pwd, True)
+    passwd = get_param("passwd", Struct.Pwd, True)
 
     User = current_app.mongodb_conn.User
     if User.find_one_by_login(login):
         raise UserHasExisted
 
-    if not check_captcha(login, captcha):
+    if not check_register_captcha(login, captcha):
         raise CaptchaError
 
     display_name = slug
@@ -52,14 +53,15 @@ def register():
     user["slug"] = slug
     user["login"] = login
     user["display_name"] = display_name
-    user["password_hash"] = generate_hashed_password(password)
+    user["password_hash"] = generate_hashed_password(passwd)
     user["email"] = email
     user["app_key"] = generate_key(slug)
     user["app_secret"] = generate_secret()
     user.save()
 
-    del_captcha(login)
+    del_register_captcha(login)
 
     return {
+        "login": login,
         "updated": user["updated"],
     }

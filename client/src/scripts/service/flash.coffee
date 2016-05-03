@@ -13,7 +13,7 @@ angular.module 'throwCat'
       if not opts.pos
         opts.pos = "top right"
       if not opts.delay
-        opts.delay = 3600
+        opts.delay = 3600000
       if typeof(msg) is "string"
         msg = flashMsgGen(msg)
 

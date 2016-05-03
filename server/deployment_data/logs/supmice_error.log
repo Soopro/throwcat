@@ -736,3 +736,55 @@ Traceback (most recent call last):
     raise request.routing_exception
 NotFound: 404: Not Found
  [in /Users/majik/github/throwcat/server/application.py:141]
+2016-05-04 03:11:34,023 WARNING: Uncaught Exception: NameError("global name 'send_captcha_by_email' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_captcha_by_email(login)
+NameError: global name 'send_captcha_by_email' is not defined
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:12:39,334 WARNING: Uncaught Exception: NameError("global name 'send_register_captcha_by_email' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+NameError: global name 'send_register_captcha_by_email' is not defined
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:13:15,978 WARNING: Uncaught Exception: NameError("global name 'set_register_captcha' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 74, in send_register_captcha_by_email
+    captcha = set_register_captcha(email)
+NameError: global name 'set_register_captcha' is not defined
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 03:13:40,984 WARNING: Uncaught Exception: NameError("global name 'set_register_captcha' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/register.py", line 22, in get_register_captcha
+    captcha = send_register_captcha_by_email(login)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 74, in send_register_captcha_by_email
+    captcha = set_register_captcha(email)
+NameError: global name 'set_register_captcha' is not defined
+ [in /Users/redy/Sites/throwcat/server/application.py:164]

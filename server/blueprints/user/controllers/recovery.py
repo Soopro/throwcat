@@ -13,13 +13,13 @@ from ..errors import *
 
 @output_json
 def get_recovery_captcha():
-    email = get_param("email", Struct.Email, True)
+    login = get_param("login", Struct.Login, True)
 
     User = current_app.mongodb_conn.User
-    if not User.find_one_by_login(email):
+    if not User.find_one_by_login(login):
         raise UserNotFound
 
-    captcha = send_recovery_captcha_by_email(email)
+    captcha = send_recovery_captcha_by_email(login)
 
     if current_app.debug is True:
         recovered = captcha
@@ -27,15 +27,15 @@ def get_recovery_captcha():
         recovered = True
 
     return {
+        "login": login,
         "recovered": recovered,
-        "updated": user["updated"],
     }
 
 
 @output_json
 def recovery():
-    login = get_param("login", Struct.Email, True)
-    new_password = get_param("new_password", Struct.Pwd, True)
+    login = get_param("login", Struct.Login, True)
+    new_password = get_param("new_passwd", Struct.Pwd, True)
     captcha = get_param("captcha", Struct.Token, True)
 
     if not check_recovery_captcha(login, captcha):
@@ -50,5 +50,6 @@ def recovery():
     user.save()
 
     return {
+        "login": login,
         "updated": user["updated"],
     }

@@ -23,13 +23,13 @@
 
         <md-input-container>
           <label>{{_('Email for Account')}}</label>
-          <input name="log"
+          <input name="login"
                  type="email"
-                 ng-model="reg.log"
+                 ng-model="reg.login"
                  ng-disiabled="checked"
                  required />
-          <ng-messages ng-if="check_form.log.$touched"
-                       for="check_form.log.$error">
+          <ng-messages ng-if="check_form.login.$touched"
+                       for="check_form.login.$error">
             <ng-message when="email">
               {{ _('Must be an email address.') }}
             </ng-message>
@@ -69,7 +69,7 @@
             novalidate>
         <div>
           <h3>
-            {{_('%s is available.', reg.log)}}
+            {{_('%s is available.', reg.login)}}
           </h3>
           <p>
             {{_('A Register code has been sent to the email.')}}
@@ -77,13 +77,13 @@
         </div>
 
         <md-input-container>
-          <label>{{_('Enter the Register code')}}</label>
-          <input name="code"
+          <label>{{_('Enter the Register captcha')}}</label>
+          <input name="captcha"
                  type="text"
-                 ng-model="reg.code"
+                 ng-model="reg.captcha"
                  required/>
-          <ng-messages ng-if="reg_form.code.$touched"
-                       for="reg_form.code.$error">
+          <ng-messages ng-if="reg_form.captcha.$touched"
+                       for="reg_form.captcha.$error">
             <ng-message when="required">
               {{ _('This is required.') }}
             </ng-message>

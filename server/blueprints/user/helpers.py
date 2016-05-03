@@ -10,23 +10,25 @@ from flask import current_app
 from uuid import uuid4
 
 
-def set_captcha(key):
-    EXPIRE = 5 * 60
+def set_register_capstcha(key):
+    EXPIRE = 5 * 60 * 60
     num, captcha = random_string(length=6)
-    key = "{}-captcha".format(key)
-    current_app.redis.setex(key, num, EXPIRE)
+    key = "{}-register-captcha".format(key)
+    captcha = current_app.redis.get(key)
+    if not captcha:
+        captcha = current_app.redis.setex(key, num, EXPIRE)
     return captcha
 
 
-def check_captcha(key, captcha):
-    key = "{}-captcha".format(key)
+def check_register_captcha(key, captcha):
+    key = "{}-register-captcha".format(key)
     num = str2int(current_app.redis.get(key))
 
     return check_random_string(int(num), captcha)
 
 
-def del_captcha(key):
-    key = "{}-captcha".format(key)
+def del_register_captcha(key):
+    key = "{}-register-captcha".format(key)
     current_app.redis.delete(key)
 
 
@@ -34,7 +36,9 @@ def set_recovery_captcha(key):
     EXPIRE = 5 * 60
     num, captcha = random_string(length=6)
     key = "{}-recovery-captcha".format(key)
-    current_app.redis.setex(key, num, EXPIRE)
+    captcha = current_app.redis.get(key)
+    if not captcha:
+        current_app.redis.setex(key, num, EXPIRE)
     return captcha
 
 
@@ -66,8 +70,8 @@ def generate_user_token(user):
     })
 
 
-def send_captcha_by_email(email):
-    captcha = set_captcha(email)
+def send_register_captcha_by_email(email):
+    captcha = set_register_captcha(email)
 
     subject = ""
     template = ""

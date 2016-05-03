@@ -16,7 +16,7 @@ from ..errors import *
 @output_json
 def login():
     login = get_param("login", Struct.Email, True)
-    password = get_param("password", Struct.Pwd, True)
+    password = get_param("passwd", Struct.Pwd, True)
 
     User = current_app.mongodb_conn.User
     user = User.find_one_by_login(login)
@@ -38,17 +38,17 @@ def login():
 # for user
 @output_json
 def change_password():
-    old_password = get_param("old_password", Struct.Pwd, True)
-    new_password = get_param("new_password", Struct.Pwd, True)
-    new_password2 = get_param("new_password2", Struct.Pwd, True)
+    old_passwd = get_param("passwd", Struct.Pwd, True)
+    new_passwd = get_param("new_passwd", Struct.Pwd, True)
+    new_passwd2 = get_param("new_passwd2", Struct.Pwd, True)
 
     user = g.curr_user
-    if new_password != new_password2:
+    if new_passwd != new_passwd2:
         raise PasswordMismatchError
-    if not check_hashed_password(str(user["password_hash"]), old_password):
+    if not check_hashed_password(str(user["password_hash"]), old_passwd):
         raise PasswordError
 
-    user["password_hash"] = generate_hashed_password(new_password)
+    user["password_hash"] = generate_hashed_password(new_passwd)
     user.save()
 
     return {

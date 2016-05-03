@@ -28,7 +28,7 @@ angular.module 'throwCat'
     $scope.input_pattern = Config.input_pattern
 
     $scope.check = ->
-      if not fsv($scope.check_form, ['log']) or $scope.submitted
+      if not fsv($scope.check_form, ['login']) or $scope.submitted
         return
 
       # local develop only
@@ -45,7 +45,7 @@ angular.module 'throwCat'
         $scope.submitted = false
 
     $scope.recovery = ->
-      fields = ['code', 'pwd', 'pwd2']
+      fields = ['captcha', 'passwd', 'passwd2']
       if not fsv($scope.rec_form, fields) or $scope.submitted
         return
 

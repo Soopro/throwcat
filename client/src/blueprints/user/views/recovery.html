@@ -23,13 +23,13 @@
 
         <md-input-container>
           <label>{{_('Email for Account')}}</label>
-          <input name="log"
+          <input name="login"
                  type="email"
-                 ng-model="rec.log"
+                 ng-model="rec.login"
                  ng-disiabled="checked"
                  required />
-          <ng-messages ng-if="check_form.log.$touched"
-                       for="check_form.log.$error">
+          <ng-messages ng-if="check_form.login.$touched"
+                       for="check_form.login.$error">
             <ng-message when="email">
               {{ _('Must be an email address.') }}
             </ng-message>
@@ -74,13 +74,13 @@
         </div>
 
         <md-input-container>
-          <label>{{_('Enter the Recovery code')}}</label>
-          <input name="code"
+          <label>{{_('Enter the Recovery captcha')}}</label>
+          <input name="captcha"
                  type="text"
-                 ng-model="rec.code"
+                 ng-model="rec.captcha"
                  required/>
-          <ng-messages ng-if="rec_form.code.$touched"
-                       for="rec_form.code.$error">
+          <ng-messages ng-if="rec_form.captcha.$touched"
+                       for="rec_form.captcha.$error">
             <ng-message when="required">
               {{ _('This is required.') }}
             </ng-message>
@@ -91,14 +91,14 @@
              layout-gt-xs="row">
           <md-input-container flex>
             <label>{{_('New Password')}}</label>
-            <input name="pwd"
+            <input name="passwd"
                    type="password"
-                   ng-model="rec.pwd"
+                   ng-model="rec.passwd"
                    maxlength="50"
                    ng-pattern="input_pattern.passwd"
                    required/>
-            <ng-messages ng-if="rec_form.pwd.$touched"
-                         for="rec_form.pwd.$error">
+            <ng-messages ng-if="rec_form.passwd.$touched"
+                         for="rec_form.passwd.$error">
               <ng-message when="required">
                 {{ _('This is required.') }}
               </ng-message>
@@ -109,14 +109,14 @@
           </md-input-container>
           <md-input-container flex>
             <label>{{_('Confirm Password')}}</label>
-            <input name="pwd2"
+            <input name="passwd2"
                    type="password"
                    maxlength="50"
-                   ng-model="rec.pwd2"
-                   password-verify='rec.pwd'
+                   ng-model="rec.passwd2"
+                   password-verify='rec.passwd'
                    required/>
-            <ng-messages ng-if="rec_form.pwd2.$touched"
-                         for="rec_form.pwd2.$error">
+            <ng-messages ng-if="rec_form.passwd2.$touched"
+                         for="rec_form.passwd2.$error">
               <ng-message when="required">
                 {{ _('This is required.') }}
               </ng-message>
