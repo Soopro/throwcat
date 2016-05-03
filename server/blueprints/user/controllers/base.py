@@ -29,7 +29,6 @@ def login():
     token = generate_user_token(user)
 
     return {
-        "id": user["_id"],
         "slug": user["slug"],
         "token": token,
     }
@@ -50,10 +49,10 @@ def change_password():
 
     user["password_hash"] = generate_hashed_password(new_passwd)
     user.save()
-
+    token = generate_user_token(user)
     return {
-        'id': user['_id'],
         "slug": user["slug"],
+        "token": token,
         "updated": user["updated"],
     }
 
@@ -89,6 +88,8 @@ def output_user(user):
         "slug": user["slug"],
         "display_name": user["display_name"],
         "email": user["email"],
+        "updated": user["updated"],
+        "creation": user["creation"],
     }
 
 def output_secret(user):

@@ -1,6 +1,8 @@
 <div class="view-animate">
-  <div>
-    <section layout-padding>
+  <div layout-gt-sm="row">
+
+    <section flex-gt-sm="50"
+             layout-padding>
       <!-- section header -->
       <header layout-margin>
         <h2 class="md-title">
@@ -8,98 +10,150 @@
         </h2>
       </header>
 
-      <div layout-gt-sm="row">
-        <!-- profile -->
-        <div flex-gt-sm="50">
-          <!-- info -->
-          <div layout="column"
-               layout-margin>
+      <!-- profile -->
+      <div layout="column"
+           layout-margin>
 
-            <md-input-container>
-              <label class="static">{{_('User Name')}}</label>
-              <p>{{user.username}}</p>
-            </md-input-container>
+        <md-input-container>
+          <label class="static">{{_('User Name')}}</label>
+          <p>{{user.slug}}</p>
+        </md-input-container>
 
-            <md-input-container>
-              <label class="static">{{_('Login ID')}}</label>
-              <p>{{user.login}}</p>
-            </md-input-container>
+        <md-input-container>
+          <label class="static">{{_('Login ID')}}</label>
+          <p>{{user.login}}</p>
+        </md-input-container>
 
-            <md-input-container>
-              <label class="static">{{_('Register Date')}}</label>
-              <p>{{user.creation | dateformat}}</p>
-            </md-input-container>
-
-          </div>
-        </div>
-
-        <!-- profile -->
-        <div flex-gt-sm="50">
-          <!-- form -->
-          <form name="security_form"
-                ng-submit="save_pwd()"
-                layout="column"
-                layout-margin
-                novalidate>
-
-            <md-input-container>
-              <label>{{_('Old Password')}}</label>
-              <input name="pwd"
-                     type="password"
-                     ng-model="user.pwd"
-                     ng-pattern="input_pattern.passwd"
-                     required/>
-              <ng-messages ng-if="security_form.pwd.$touched"
-                           for="security_form.pwd.$error">
-                <ng-message when="required">
-                  {{ _('This is required.') }}
-                </ng-message>
-                <ng-message when="pattern">
-                  {{ _('It is invalid.') }}
-                </ng-message>
-              </ng-messages>
-            </md-input-container>
-
-            <md-input-container>
-              <label>{{_('Password')}}</label>
-              <input name="new_pwd"
-                     type="password"
-                     ng-model="user.new_pwd"
-                     ng-pattern="input_pattern.passwd"
-                     required/>
-              <ng-messages ng-if="security_form.new_pwd.$touched"
-                           for="security_form.new_pwd.$error">
-                <ng-message when="required">
-                  {{ _('This is required.') }}
-                </ng-message>
-                <ng-message when="pattern">
-                  {{ _('It is invalid.') }}
-                </ng-message>
-              </ng-messages>
-            </md-input-container>
-
-            <md-input-container>
-              <label>{{_('Confirm Password')}}</label>
-              <input name="new_pwd2"
-                     type="password"
-                     ng-model="user.new_pwd2"
-                     ng-pattern="input_pattern.passwd"
-                     required/>
-              <ng-messages ng-if="security_form.new_pwd2.$touched"
-                           for="security_form.new_pwd2.$error">
-                <ng-message when="required">
-                  {{ _('This is required.') }}
-                </ng-message>
-                <ng-message when="pattern">
-                  {{ _('It is invalid.') }}
-                </ng-message>
-              </ng-messages>
-            </md-input-container>
-
-          </form>
-        </div>
+        <md-input-container>
+          <label class="static">{{_('Register Date')}}</label>
+          <p>{{user.creation | dateformat}}</p>
+        </md-input-container>
 
       </div>
     </section>
+
+    <section flex-gt-sm="45"
+             layout-padding>
+
+      <!-- section header -->
+      <header layout-margin>
+        <h2 class="md-title">
+          {{_('Security')}}
+        </h2>
+      </header>
+
+      <!-- security -->
+      <form name="security_form"
+            ng-submit="save_pwd()"
+            layout="column"
+            layout-margin
+            novalidate>
+
+        <md-input-container>
+          <label>{{_('Old Password')}}</label>
+          <input name="passwd"
+                 type="password"
+                 ng-model="pwd.passwd"
+                 ng-pattern="input_pattern.passwd"
+                 required/>
+          <ng-messages ng-if="security_form.passwd.$touched"
+                       for="security_form.passwd.$error">
+            <ng-message when="required">
+              {{ _('This is required.') }}
+            </ng-message>
+            <ng-message when="pattern">
+              {{ _('It is invalid.') }}
+            </ng-message>
+          </ng-messages>
+        </md-input-container>
+
+        <md-input-container>
+          <label>{{_('New Password')}}</label>
+          <input name="new_passwd"
+                 type="password"
+                 ng-model="pwd.new_passwd"
+                 ng-pattern="input_pattern.passwd"
+                 required/>
+          <ng-messages ng-if="security_form.new_passwd.$touched"
+                       for="security_form.new_passwd.$error">
+            <ng-message when="required">
+              {{ _('This is required.') }}
+            </ng-message>
+            <ng-message when="pattern">
+              {{ _('It is invalid.') }}
+            </ng-message>
+          </ng-messages>
+        </md-input-container>
+
+        <md-input-container>
+          <label>{{_('Confirm Password')}}</label>
+          <input name="new_passwd2"
+                 type="password"
+                 ng-model="pwd.new_passwd2"
+                 ng-pattern="input_pattern.passwd"
+                 required/>
+          <ng-messages ng-if="security_form.new_passwd2.$touched"
+                       for="security_form.new_passwd2.$error">
+            <ng-message when="required">
+              {{ _('This is required.') }}
+            </ng-message>
+            <ng-message when="pattern">
+              {{ _('It is invalid.') }}
+            </ng-message>
+          </ng-messages>
+        </md-input-container>
+
+        <md-input-container>
+          <md-button class="btn md-raised md-accent"
+                     ng-disabled="submitted"
+                     type="submit">
+            {{_('Save')}}
+          </md-button>
+
+          <md-button class="btn md-raised"
+                     ng-disabled="submitted"
+                     ng-click="toggle_secret()"
+                     type="button">
+            {{show_secret?_('Hide Secret'):_('Show Secret')}}
+          </md-button>
+        </md-input-container>
+      </form>
+
+      <div class="md-padding"></div>
+
+      <div ng-show="show_secret"
+           layout="column"
+           layout-margin>
+
+        <md-input-container>
+          <label class="static">{{_('AppKey')}}</label>
+          <p class="text-break">
+            {{secret.app_key}}
+          </p>
+        </md-input-container>
+
+        <md-input-container>
+          <label class="static">{{_('AppSecret')}}</label>
+          <p class="text-break">
+            {{secret.app_secret}}
+          </p>
+        </md-input-container>
+
+        <p class="tip md-caption">
+          {{_('* AppKey and AppSecret is very important!! '+
+              'please do not tell the others.')}}
+        </p>
+        <md-input-container>
+          <md-button class="btn md-raised"
+                     ng-disabled="submitted"
+                     ng-click="reset_secret()"
+                     type="button">
+            {{_('Reset AppSecret')}}
+          </md-button>
+        </md-input-container>
+      </div>
+
+    </section>
+
   </div>
 </div>

@@ -33,12 +33,9 @@ angular.module 'throwCat'
       $scope.submitted = true
       restUser.doLogin($scope.auth)
       .then (data)->
-        do_login(data.token)
+        Auth.login data.token
+        $location.path '/'
       .finally ->
         $scope.submitted = false
-
-    do_login = (token)->
-      Auth.login token
-      $location.path '/'
 
 ]

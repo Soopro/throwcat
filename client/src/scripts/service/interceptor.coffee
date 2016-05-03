@@ -15,8 +15,9 @@ angular.module 'throwCat'
   ) ->
     request: (request) ->
       request.headers = request.headers or {}
-      if Auth.token() and not request.headers.AgentToken
-        request.headers.AgentToken = Auth.token()
+      token = Auth.token()
+      if token and not request.headers.Authorization
+        request.headers.Authorization = "Bearer "+token
       return request
 
     response: (response) ->
@@ -37,6 +38,7 @@ angular.module 'throwCat'
         if rejection.status is 401
           # handle the case where the user is not Authenticated
           Auth.logout()
+          $location.path Config.route.auth
         if rejection.data and rejection.data.errmsg \
         and rejection.status isnt 200
           flashMsgStack.set

@@ -34,16 +34,19 @@ angular.module 'throwCat'
       .post null, data
       .$promise
 
+    profile: do ->
+      supResource "#{api}/profile"
+
     password: do ->
-      supResource "#{api}/security/password"
+      supResource "#{api}/security/password", null
       ,
-       change:
-         method: "PUT"
+        change:
+          method: "PUT"
 
     secret: do ->
-      supResource "#{api}/security/secret"
+      supResource "#{api}/security/secret", null
       ,
-       reset:
-         method: "PUT"
+        reset:
+          method: "PUT"
 
 ]
