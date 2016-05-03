@@ -40,7 +40,7 @@ class UserLoginOccupied(ConflictError):
     response_code = 305006
 
 
-class UserAliasOccupied(ConflictError):
+class UserNameOccupied(ConflictError):
     status_message = "USER_NAME_TAKEN"
     response_code = 305007
 

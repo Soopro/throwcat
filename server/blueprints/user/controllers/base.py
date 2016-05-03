@@ -8,8 +8,8 @@ from utils.auth import (generate_hashed_password,
                         check_hashed_password)
 from flask import current_app, g
 
-from .helpers import *
-from .errors import *
+from ..helpers import *
+from ..errors import *
 
 
 # open apis
@@ -26,7 +26,13 @@ def login():
     if not check_hashed_password(str(user["password_hash"]), password):
         raise PasswordError
 
-    return output_user_with_token(user)
+    token = generate_user_token(user)
+
+    return {
+        "id": user["_id"],
+        "slug": user["slug"],
+        "token": token,
+    }
 
 
 # for user
@@ -34,16 +40,22 @@ def login():
 def change_password():
     old_password = get_param("old_password", Struct.Pwd, True)
     new_password = get_param("new_password", Struct.Pwd, True)
+    new_password2 = get_param("new_password2", Struct.Pwd, True)
 
     user = g.curr_user
-
+    if new_password != new_password2:
+        raise PasswordMismatchError
     if not check_hashed_password(str(user["password_hash"]), old_password):
         raise PasswordError
 
     user["password_hash"] = generate_hashed_password(new_password)
     user.save()
 
-    return output_user(user)
+    return {
+        'id': user['_id'],
+        "slug": user["slug"],
+        "updated": user["updated"],
+    }
 
 
 @output_json
@@ -54,23 +66,35 @@ def get_profile():
 
 
 @output_json
-def update_profile():
-    display_name = get_param("display_name", Struct.Text, True)
-    email = get_param("email", Struct.Email, True)
-
+def get_secret():
     user = g.curr_user
-    user["display_name"] = display_name
-    user["email"] = email
-    user.save()
 
-    return output_user(user)
-
+    return output_secret(user)
 
 @output_json
-def recovery_secret():
+def reset_secret():
     user = g.curr_user
 
     user["app_secret"] = generate_secret()
     user.save()
 
-    return output_user(user)
+    return output_secret(user)
+
+
+# output
+def output_user(user):
+    return {
+        "id": user["_id"],
+        "login": user["login"],
+        "slug": user["slug"],
+        "display_name": user["display_name"],
+        "email": user["email"],
+    }
+
+def output_secret(user):
+    return {
+        "id": user["_id"],
+        "slug": user["slug"],
+        "app_key": user["app_key"],
+        "app_secret": user["app_secret"],
+    }

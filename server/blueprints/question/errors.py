@@ -29,18 +29,18 @@ class PlanInvalid(ValidationError):
     response_code = 305004
     status_message = "PLAN_INVALID"
 
-    
+
 class InviteCodeDuplicate(ConflictError):
     response_code = 305005
     status_message = "INVITE_CODE_DUPLICATE"
 
-    
+
 class UserLoginOccupied(ConflictError):
     status_message = "USER_LOG_TAKEN"
     response_code = 305006
 
 
-class UserAliasOccupied(ConflictError):
+class UserNameOccupied(ConflictError):
     status_message = "USER_NAME_TAKEN"
     response_code = 305007
 
@@ -59,7 +59,7 @@ class InviteCodeUsed(ConflictError):
     response_code = 305010
     status_message = "INVITE_CODE_USED"
 
-    
+
 class UserWrongPassword(BadRequest):
     response_code = 305012
     status_message = "WRONG_PASSWORD"

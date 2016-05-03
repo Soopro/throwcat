@@ -22,7 +22,7 @@ from apiresps.errors import (NotFound,
                              UncaughtException)
 
 from services.cdn import qiniu, ufile
-from common_models import (User, Profile)
+from common_models import (User)
 
 from services.mail_push import MailQueuePusher
 from envs import CONFIG_NAME

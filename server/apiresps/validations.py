@@ -33,7 +33,7 @@ class ValidationParameterInvalidEmail(ValidationError):
     status_message = "INVALID_EMAIL_ADDRESS"
 
 
-class ValidationParameterInvalidAlias(ValidationError):
+class ValidationParameterInvalidSlug(ValidationError):
     response_code = 200006
     status_message = "INVALID_ALIAS"
 
@@ -87,10 +87,10 @@ class ParamStructure(object):
             self._validate_non_empty()
         elif not self.value:
             return
-        
+
         if self.type is not None:
             self._validate_type()
-        
+
         self.value = self.pre_handler()
 
         if self.len_min is not None:
@@ -140,28 +140,26 @@ class ParamStructure(object):
 
     def pre_handler(self):
         return self.value
-        
-# Parameter structure preset 
+
+# Parameter structure preset
 
 class ObjectIdStructure(ParamStructure):
-    format_ObjectId = True
     def validator(self):
         if self.value and not ObjectId.is_valid(self.value):
             raise ValidationParameterInvalidObjectId(self.name)
 
-class AliasStructure(ParamStructure):
+class SlugStructure(ParamStructure):
     len_max = 100
-    format_alias = True
     type = unicode
     def validator(self):
         alias_pattern = re.compile(r'^[a-z0-9_\-]+$')
         if not self.value or not alias_pattern.match(self.value.lower()):
-            raise ValidationParameterInvalidAlias(self.name)
+            raise ValidationParameterInvalidSlug(self.name)
 
 class IDStructure(ParamStructure):
     len_max = 500
     type = unicode
-    
+
 class SIDStructure(ParamStructure):
     len_max = 500
     type = unicode
@@ -223,16 +221,16 @@ class EmailStructure(ParamStructure):
     def validator(self):
         if not self.value or '@' not in self.value:
             raise ValidationParameterInvalidEmail(self.name)
-        
+
 class FlagBitStructure(ParamStructure):
     value_min = 0
     value_max = 100
     type = int
-    
+
 class LoginStructure(ParamStructure):
     len_max = 200
     type = unicode
-    
+
 class PasswordStructure(ParamStructure):
     len_max = 50
     type = unicode
@@ -255,14 +253,13 @@ class Struct(object):
     Id = IDStructure
     MD5 = MD5Structure
     ObjectId = ObjectIdStructure
-    Alias = AliasStructure
-    
+    Slug = SlugStructure
+
     Dict = DictStructure
     Bool = BoolStructure
     Flag = FlagBitStructure
     Int = IntegerStructure
     List = ListStructure
-    
+
     File = FileStructure
     Filename = FilenameStructure
-    

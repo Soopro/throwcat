@@ -77,7 +77,6 @@ def send_captcha_by_email(email):
                                                     subject,
                                                     template,
                                                     context)
-
     return captcha
 
 
@@ -92,24 +91,4 @@ def send_recovery_captcha_by_email(email):
                                                     subject,
                                                     template,
                                                     context)
-
     return captcha
-
-
-def output_user(user):
-    return {
-        "id": user["_id"],
-        "login": user["login"],
-        "slug": user["slug"]
-        "display_name": user["display_name"],
-        "email": user["email"],
-        "app_key": user["app_key"],
-        "app_secret": user["app_secret"]
-    }
-
-
-def output_user_with_token(user):
-    token = generate_user_token(user)
-    user = output_user(user)
-    user["token"] = token
-    return user

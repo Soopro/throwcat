@@ -7,8 +7,8 @@ from apiresps.validations import Struct
 from utils.auth import generate_hashed_password
 from flask import current_app
 
-from .helpers import *
-from .errors import *
+from ..helpers import *
+from ..errors import *
 
 
 @output_json
@@ -22,13 +22,14 @@ def get_recovery_captcha():
     captcha = send_recovery_captcha_by_email(email)
 
     if current_app.debug is True:
-        return {
-            "captcha": captcha
-        }
+        recovered = captcha
     else:
-        return {
-            "result": "success"
-        }
+        recovered = True
+
+    return {
+        "recovered": recovered,
+        "updated": user["updated"],
+    }
 
 
 @output_json
@@ -48,4 +49,6 @@ def recovery():
     user["password_hash"] = generate_hashed_password(new_password)
     user.save()
 
-    return output_user(user)
+    return {
+        "updated": user["updated"],
+    }
