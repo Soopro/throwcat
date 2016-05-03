@@ -27,13 +27,13 @@ angular.module 'throwCat'
     $scope.input_pattern = Config.input_pattern
 
     $scope.login = ->
-      if not fsv($scope.auth_form, ['log', 'pwd']) or $scope.submitted
+      if not fsv($scope.auth_form, ['login', 'passwd']) or $scope.submitted
         return
 
       $scope.submitted = true
       restUser.doLogin($scope.auth)
       .then (data)->
-        do_login()
+        do_login(data.token)
       .finally ->
         $scope.submitted = false
 

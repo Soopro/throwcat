@@ -31,15 +31,11 @@ angular.module 'throwCat'
       if not fsv($scope.check_form, ['login']) or $scope.submitted
         return
 
-      # local develop only
-      # remove it after backend is ready.
-      $scope.checked = true
-      return
-
       $scope.submitted = true
-      do_auth = new restUser.check($scope.rec)
-      do_auth.$post()
+      restUser.doRecoveryCaptcha($scope.rec)
       .then (data)->
+        if Config.debug
+          console.log data
         $scope.checked = true
       .finally ->
         $scope.submitted = false
@@ -50,8 +46,7 @@ angular.module 'throwCat'
         return
 
       $scope.submitted = true
-      do_auth = new restUser.recovery($scope.rec)
-      do_auth.$post()
+      restUser.doRecovery($scope.rec)
       .then (data)->
         $location.path Config.route.auth
       .finally ->

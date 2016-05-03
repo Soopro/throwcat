@@ -956,3 +956,63 @@ Traceback (most recent call last):
     return (n & ~self.mask) | self._encode(n & self.mask)
 TypeError: unsupported operand type(s) for &: 'str' and 'int'
  [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 04:05:37,145 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 04:13:36,511 WARNING: Uncaught Exception: TypeError("int() argument must be a string or a number, not 'NoneType'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/recovery.py", line 46, in recovery
+    if not check_recovery_captcha(login, captcha):
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 50, in check_recovery_captcha
+    return check_random_string(int(num), captcha)
+TypeError: int() argument must be a string or a number, not 'NoneType'
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 04:14:23,153 WARNING: Uncaught Exception: TypeError("int() argument must be a string or a number, not 'NoneType'",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/recovery.py", line 46, in recovery
+    if not check_recovery_captcha(login, captcha):
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/helpers.py", line 50, in check_recovery_captcha
+    return check_random_string(int(num), captcha)
+TypeError: int() argument must be a string or a number, not 'NoneType'
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 04:19:13,562 WARNING: Uncaught Exception: NameError("global name 'new_password' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/user/controllers/recovery.py", line 54, in recovery
+    user["password_hash"] = generate_hashed_password(new_password)
+NameError: global name 'new_password' is not defined
+ [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 04:20:18,281 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]

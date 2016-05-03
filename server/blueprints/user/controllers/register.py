@@ -38,6 +38,10 @@ def register():
     captcha = get_param("captcha", Struct.Token, True)
     login = get_param("login", Struct.Login, True)
     passwd = get_param("passwd", Struct.Pwd, True)
+    passwd2 = get_param("passwd2", Struct.Pwd, True)
+
+    if passwd != passwd2:
+        raise PasswordMismatchError
 
     User = current_app.mongodb_conn.User
     if User.find_one_by_login(login):

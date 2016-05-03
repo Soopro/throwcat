@@ -35,8 +35,13 @@ def get_recovery_captcha():
 @output_json
 def recovery():
     login = get_param("login", Struct.Login, True)
-    new_password = get_param("new_passwd", Struct.Pwd, True)
     captcha = get_param("captcha", Struct.Token, True)
+
+    passwd = get_param("passwd", Struct.Pwd, True)
+    passwd2 = get_param("passwd2", Struct.Pwd, True)
+
+    if passwd != passwd2:
+        raise PasswordMismatchError
 
     if not check_recovery_captcha(login, captcha):
         raise CaptchaError
@@ -46,7 +51,7 @@ def recovery():
     if not user:
         raise UserNotFound
 
-    user["password_hash"] = generate_hashed_password(new_password)
+    user["password_hash"] = generate_hashed_password(passwd)
     user.save()
 
     return {

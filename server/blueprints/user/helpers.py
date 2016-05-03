@@ -23,8 +23,7 @@ def set_register_captcha(key):
 def check_register_captcha(key, captcha):
     key = "{}-register-captcha".format(key)
     num = str2int(current_app.redis.get(key))
-
-    return check_random_string(int(num), captcha)
+    return check_random_string(num, captcha)
 
 
 def del_register_captcha(key):
@@ -33,11 +32,12 @@ def del_register_captcha(key):
 
 
 def set_recovery_captcha(key):
-    EXPIRE = 5 * 60
+    EXPIRE = 15 * 60
     num, captcha = random_string(length=6)
     key = "{}-recovery-captcha".format(key)
-    captcha = current_app.redis.get(key)
-    if not captcha:
+    stored_num = str2int(current_app.redis.get(key))
+    num, captcha = random_string(stored_num, length=6)
+    if not stored_num:
         current_app.redis.setex(key, num, EXPIRE)
     return captcha
 
@@ -45,8 +45,7 @@ def set_recovery_captcha(key):
 def check_recovery_captcha(key, captcha):
     key = "{}-recovery-captcha".format(key)
     num = str2int(current_app.redis.get(key))
-
-    return check_random_string(int(num), captcha)
+    return check_random_string(num, captcha)
 
 
 def del_recovery_captcha(key):

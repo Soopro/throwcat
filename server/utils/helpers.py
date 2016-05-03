@@ -291,5 +291,7 @@ def random_string(stored_num=None, length=6):
 
 
 def check_random_string(random_num, random_str):
+    if not random_num:
+        return False
     random_str = random_str.lower()
     return random_num == short_url.decode_url(random_str)

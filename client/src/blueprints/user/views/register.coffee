@@ -32,7 +32,6 @@ angular.module 'throwCat'
         return
 
       $scope.submitted = true
-      console.log $scope.reg
       restUser.doRegisterCaptcha($scope.reg)
       .then (data)->
         if Config.debug
@@ -42,19 +41,17 @@ angular.module 'throwCat'
         $scope.submitted = false
 
     $scope.register = ->
-      fields = ['captcha', 'key', 'passwd', 'passwd2']
+      fields = ['captcha', 'slug', 'passwd', 'passwd2']
       if not fsv($scope.reg_form, fields) or $scope.submitted
         return
 
       $scope.submitted = true
       restUser.doRegister($scope.reg)
       .then (data)->
-        do_login()
+        $location.path Config.route.auth
       .finally ->
         $scope.submitted = false
 
-    do_login = (token)->
-      Auth.login token
-      $location.path '/'
+
 
 ]
