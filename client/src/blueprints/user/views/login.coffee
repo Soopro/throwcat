@@ -30,14 +30,8 @@ angular.module 'throwCat'
       if not fsv($scope.auth_form, ['log', 'pwd']) or $scope.submitted
         return
 
-      # local develop only
-      # remove it after backend is ready.
-      do_login('xxx')
-      return
-
       $scope.submitted = true
-      do_auth = new restUser.auth($scope.auth)
-      do_auth.$post()
+      restUser.doLogin($scope.auth)
       .then (data)->
         do_login()
       .finally ->

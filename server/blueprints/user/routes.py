@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
+from __future__ import absolute_import
 from .controllers import *
 
 urlpatterns = [
@@ -12,7 +12,7 @@ urlpatterns = [
 
     # for uesr
     ('/profile', get_profile, 'GET'),
-    ('/security/password', change_password, 'POST'),
+    ('/security/password', change_password, 'PUT'),
 
     ('/security/secret', get_secret, 'GET'),
     ('/security/secret', reset_secret, 'PUT'),
