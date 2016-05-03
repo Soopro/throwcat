@@ -14,7 +14,7 @@ angular.module 'throwCat'
       global: gResolveProvider.resolve
 
     $routeProvider
-    .when bp,
+    .when '/'+bp,
       templateUrl: dir+'/media.html'
       controller: 'mediaCtrl'
       resolve: resolve

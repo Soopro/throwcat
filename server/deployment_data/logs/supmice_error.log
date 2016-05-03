@@ -1256,3 +1256,23 @@ Traceback (most recent call last):
     raise request.routing_exception
 NotFound: 404: Not Found
  [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 06:25:02,015 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
+2016-05-04 06:26:20,812 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:141]
