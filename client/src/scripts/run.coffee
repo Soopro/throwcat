@@ -42,9 +42,5 @@ angular.module 'throwCat'
       else
         $location.path Config.route.auth if not isInPathList('outer')
 
-    $rootScope.root =
-      is_error_page: ->
-        return Boolean(isInPathList('error'))
-
 ]
 
