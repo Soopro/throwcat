@@ -9,13 +9,13 @@ angular.module 'throwCat'
       {
         alias: "login"
         name: "Login"
-        path: "/user/login"
+        path: "/login"
         ico: "ic_account_circle_24px"
       }
       {
         alias: "register"
         name: "Register"
-        path: "/user/register"
+        path: "/register"
         ico: "ic_person_add_24px"
       }
       {
