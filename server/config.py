@@ -25,9 +25,9 @@ class Config(object):
 
     PROTOCOL = 'http'
     API_DOMAIN = 'sup.local:5000'
+    UPLOADS_DOMAIN = '7xqqrw.com1.z0.glb.clouddn.com'
 
-    APPS_PREFIX = 'site'
-
+    UPLOADS_URL = '{}://{}'.format(PROTOCOL, UPLOADS_DOMAIN)
     API_URL = '{}://{}'.format(PROTOCOL, API_DOMAIN)
 
     # default data
@@ -196,9 +196,9 @@ class ProductionConfig(Config):
 
     PROTOCOL = 'http'
     API_DOMAIN = 'api.soopro.com'
+    UPLOADS_DOMAIN = '7xqqrw.com1.z0.glb.clouddn.com'
 
-    APPS_PREFIX = 'site'
-
+    UPLOADS_URL = '{}://{}'.format(PROTOCOL, UPLOADS_DOMAIN)
     API_URL = '{}://{}'.format(PROTOCOL, API_DOMAIN)
 
     DEPLOY_DIR = '/data/deployment_data'
@@ -236,12 +236,9 @@ class TestingConfig(Config):
 
     PROTOCOL = 'http'
     API_DOMAIN = 'api.sup.farm'
+    UPLOADS_DOMAIN = '7xqqrw.com1.z0.glb.clouddn.com'
 
-    THEMES_DOMAIN = 'static.sup.farm'
-    UPLOADS_DOMAIN = 'media.sup.farm'
-
-    APPS_PREFIX = 'site'
-
+    UPLOADS_URL = '{}://{}'.format(PROTOCOL, UPLOADS_DOMAIN)
     API_URL = '{}://{}'.format(PROTOCOL, API_DOMAIN)
 
     MONGODB_DATABASE = 'throwcat_beta'

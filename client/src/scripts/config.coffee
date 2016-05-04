@@ -36,3 +36,12 @@ angular.module 'throwCat'
   input_pattern:
     slug: /^[a-zA-Z0-9_-]{3,50}$/
     passwd: /^[\~!@#$%^&*()-_=+|{}\[\],.?\/:;\'\'\d\w]{3,50}$/
+
+
+  media_mimetypes:
+    image: [
+      'image/png', 'image/jpeg', 'image/svg+xml', 'image/gif', 'image/bmp'
+    ]
+    video: ['video/mp4', 'video/quicktime']
+    audio: ['audio/mpeg', 'audio/mp3']
+    application: ['application/zip', 'application/pdf']

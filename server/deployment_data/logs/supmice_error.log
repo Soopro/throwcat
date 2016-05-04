@@ -1426,3 +1426,103 @@ Traceback (most recent call last):
 TypeError: 'Collection' object is not callable. If you meant to call the 'find_by_oid_scope' method on a 'Collection' object it is failing because no such method exists.
 If 'find_by_oid_scope' is a Document then you may have forgotten to register it to the connection.
  [in /Users/redy/Sites/throwcat/server/application.py:164]
+2016-05-04 07:55:57,905 WARNING: Uncaught Exception: TypeError('join() takes exactly one argument (3 given)',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 135, in save_media
+    return output_media(media)
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 251, in output_media
+    src = _media_src(scope, media['key'])
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 231, in _media_src
+    return '/'.join(apps_static_url, scope, key)
+TypeError: join() takes exactly one argument (3 given)
+ [in /Users/redy/Sites/throwcat/server/application.py:162]
+2016-05-04 07:56:06,177 WARNING: Uncaught Exception: TypeError('join() takes exactly one argument (3 given)',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 135, in save_media
+    return output_media(media)
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 251, in output_media
+    src = _media_src(scope, media['key'])
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 231, in _media_src
+    return '/'.join(apps_static_url, scope, key)
+TypeError: join() takes exactly one argument (3 given)
+ [in /Users/redy/Sites/throwcat/server/application.py:162]
+2016-05-04 07:58:35,112 WARNING: Uncaught Exception: TypeError('sequence item 0: expected string, NoneType found',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 37, in list_media
+    media_list = [output_media(media) for media in medias]
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 251, in output_media
+    src = _media_src(scope, media['key'])
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 231, in _media_src
+    return '/'.join([apps_static_url, scope, key])
+TypeError: sequence item 0: expected string, NoneType found
+ [in /Users/redy/Sites/throwcat/server/application.py:162]
+2016-05-04 08:04:39,719 WARNING: Uncaught Exception: TypeError('sequence item 0: expected string, NoneType found',)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 37, in list_media
+    media_list = [output_media(media) for media in medias]
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 251, in output_media
+    src = _media_src(scope, media['key'])
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 231, in _media_src
+    return '/'.join([apps_static_url, scope, key])
+TypeError: sequence item 0: expected string, NoneType found
+ [in /Users/redy/Sites/throwcat/server/application.py:162]
+2016-05-04 08:35:43,743 WARNING: Uncaught Exception: NameError("global name 'static_url' is not defined",)
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/redy/Sites/throwcat/server/utils/api_utils.py", line 22, in decorate
+    result = f(*args, **kwargs)
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 37, in list_media
+    media_list = [output_media(media) for media in medias]
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 251, in output_media
+    src = _media_src(scope, media['key'])
+  File "/Users/redy/Sites/throwcat/server/blueprints/media/controllers/base.py", line 231, in _media_src
+    return '/'.join([static_url, scope, key])
+NameError: global name 'static_url' is not defined
+ [in /Users/redy/Sites/throwcat/server/application.py:162]
+2016-05-04 09:00:53,076 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:139]
+2016-05-04 09:35:07,238 WARNING: Error: 404
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1453, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1436, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+ [in /Users/redy/Sites/throwcat/server/application.py:139]

@@ -97,8 +97,7 @@ def get_remote_addr():
 
 
 def get_request_path(user_alias, app_alias):
-    apps_prefix = current_app.config.get("APPS_PREFIX")
-    app_base_path = "/{0}/{1}/{2}".format(apps_prefix, user_alias, app_alias)
+    app_base_path = "/{1}/{2}".format(user_alias, app_alias)
     return request.path.replace(app_base_path, '', 1) or '/'
 
 

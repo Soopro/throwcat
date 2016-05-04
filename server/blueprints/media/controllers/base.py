@@ -227,8 +227,8 @@ def _get_media_mimetype(filename):
 
 
 def _media_src(scope, key):
-    apps_static_url = current_app.config.get('APPS_STATIC_URL')
-    return '/'.join(apps_static_url, scope, key)
+    uploads_url = current_app.config.get('UPLOADS_URL')
+    return '/'.join([uploads_url, scope, key])
 
 
 def _media_original(src, suffix='original'):

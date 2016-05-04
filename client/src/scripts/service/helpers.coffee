@@ -33,29 +33,25 @@ angular.module 'throwCat'
     window.confirm(confirm_msg)
 
 # MIME types
-.service 'MIMETypes', [
-  'Config'
-  (
-    Config
-  )->
-    (types)->
+.service 'MIMETypes', ->
+  (types, mimetypes)->
 
-      if typeof(types) is 'string'
-        types = [types]
+    if typeof(types) is 'string'
+      types = [types]
 
-      if not angular.isArray(types) or types.length is 0
-        return []
+    if not angular.isArray(types) or types.length is 0
+      return []
 
-      mimetypes = []
+    mimetypes = []
 
-      for k,v of Config.media_mimetypes
-        for type in types
-          if k == type
-            mimetypes = mimetypes.concat(v)
+    for k,v of mimetypes
+      for type in types
+        if k == type
+          mimetypes = mimetypes.concat(v)
 
-          # support use mimetypes directly.
-          else if type in v
-           mimetypes.push(type)
+        # support use mimetypes directly.
+        else if type in v
+         mimetypes.push(type)
 
-      return mimetypes
-]
+    return mimetypes
+

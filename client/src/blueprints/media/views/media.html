@@ -13,8 +13,8 @@
 
         <md-list>
           <md-subheader class="md-no-sticky">
-            <span ng-bind-html="_('You have <span class=text-primary>'+
-                               '%s</span> media.', mediafiles.length)">
+            <span ng-bind-html="_('You have %s media.',
+                                mediafiles.length)">
             </span>
           </md-subheader>
           <md-divider></md-divider>
@@ -22,21 +22,21 @@
           <div class="anim-item"
                ng-repeat="media in mediafiles">
             <md-list-item class="md-2-line"
-                          ng-class="{'selected': media._seleted}"
+                          ng-class="{'md-whiteframe-1dp': media._seleted,
+                                     'bg-dark': media._seleted}"
                           ng-click="select(media)">
+              <img class="md-avatar"
+                 ng-src="{{media.thumbnail}}"
+                 ng-click="open(media, $event)"
+                 ng-class="{'t50':media._seleted}"
+                 alt="{{media.filename}}"/>
               <div class="md-list-item-text"
                    layout="column">
-                <h3 class="text-nowrap"
-                    vw-max="65">
-                  {{ media.title }}
-                </h3>
                 <p class="text-nowrap"
-                   vw-max="65">
-                  {{ media.time }}
+                   vw-max="60">
+                  {{ media.filename }}
                 </p>
               </div>
-              <md-icon md-svg-icon="ic_event_24px">
-              </md-icon>
             </md-list-item>
           </div>
         </md-list>
@@ -44,9 +44,38 @@
       </div>
     </section>
   </div>
-  <!-- add -->
-  <md-button class="md-accent md-fab md-fab-bottom-right fixed"
-             aria-label="{{_('Add')}}">
-    <md-icon md-svg-icon="ic_add_24px"></md-icon>
-  </md-button>
+  <!-- fab -->
+  <div class="fab-container-fixed">
+    <md-button class="md-accent md-fab md-fab-bottom-right"
+               aria-label="{{_('Upload New Media')}}"
+               ngf-select="onFileSelect($files)"
+               data-multiple="true"
+               accept="{{mimetypes_str}}"
+               ng-disabled="upload_status == 1">
+
+      <md-icon md-svg-icon="ic_file_upload_24px"
+               ng-show="upload_status != 1"></md-icon>
+
+      <md-icon md-svg-icon="ic_cached_24px"
+               class="rotating noleave"
+               ng-show="upload_status == 1"></md-icon>
+
+    </md-button>
+    <md-button class="md-accent md-fab md-fab-bottom-right"
+               aria-label="{{_('Upload New Media')}}"
+               ngf-select="onFileSelect($files)"
+               data-multiple="true"
+               accept="{{mimetypes_str}}"
+               ng-disabled="upload_status == 1">
+
+      <md-icon md-svg-icon="ic_file_upload_24px"
+               ng-show="upload_status != 1"></md-icon>
+
+      <md-icon md-svg-icon="ic_cached_24px"
+               class="rotating noleave"
+               ng-show="upload_status == 1"></md-icon>
+
+    </md-button>
+  </div>
+
 </div>

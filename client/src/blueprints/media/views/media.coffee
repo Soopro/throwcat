@@ -2,6 +2,7 @@ angular.module 'throwCat'
 
 .controller 'mediaCtrl', [
   '$scope'
+  '$window'
   'restMedia'
   'MediaService'
   'navService'
@@ -12,6 +13,7 @@ angular.module 'throwCat'
   'Config'
   (
     $scope
+    $window
     restMedia
     MediaService
     navService
@@ -34,7 +36,8 @@ angular.module 'throwCat'
     resizeFileStack = []
 
     # get supported mime types
-    $scope.mimetypes_str = MIMETypes().join(', ')
+    mimetypes = MIMETypes('image', Config.media_mimetypes)
+    $scope.mimetypes_str = mimetypes.join(', ')
 
     # create now for prevent cached image
     refresh_now = ->
@@ -78,6 +81,14 @@ angular.module 'throwCat'
       else
         $scope.upload_status = 0
 
+    $scope.select = (media) ->
+      media._seleted = not Boolean(media._seleted)
+
+    $scope.open = (media, e) ->
+      e.preventDefault()
+      e.stopPropagation()
+      $window.open(media.src)
+      return false
 
     $scope.onFileSelect = ($files, re_media) ->
       if not $files or $files.length <= 0
@@ -103,7 +114,7 @@ angular.module 'throwCat'
     upload = (media) ->
       if not media
         return
-      restMedia.doMediaAuth $scope.app.alias,
+      restMedia.doMediaAuth
         filename: media.filename or media.name
         mimetype: media.type
         is_new: not media.filename
@@ -138,7 +149,6 @@ angular.module 'throwCat'
         $scope.percent = parseInt(100.0 * evt.loaded / evt.total);
       .success (data) ->
         data.mimetype = media.type
-        data.app_alias = $scope.app.alias
         data.id = media_id
         data.filename = media_filename
         data.name = media_name
