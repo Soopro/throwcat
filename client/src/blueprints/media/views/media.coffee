@@ -3,6 +3,7 @@ angular.module 'throwCat'
 .controller 'mediaCtrl', [
   '$scope'
   '$window'
+  '$filter'
   'restMedia'
   'MediaService'
   'navService'
@@ -14,6 +15,7 @@ angular.module 'throwCat'
   (
     $scope
     $window
+    $filter
     restMedia
     MediaService
     navService
@@ -32,8 +34,11 @@ angular.module 'throwCat'
     $scope.uploadedMediafiles = []
     $scope.upload_status = 0
     $scope.percent = 0
+    $scope.paged = 1
     uploadStack = []
     resizeFileStack = []
+    selectedMedia = []
+
 
     # get supported mime types
     mimetypes = MIMETypes('image', Config.media_mimetypes)
@@ -82,7 +87,22 @@ angular.module 'throwCat'
         $scope.upload_status = 0
 
     $scope.select = (media) ->
-      media._seleted = not Boolean(media._seleted)
+      idx = selectedMedia.indexOf(media)
+      if idx > -1
+        selectedMedia.splice(idx, 1)
+        media._seleted = false
+      else
+        selectedMedia.push(media)
+        media._seleted = true
+
+    $scope.has_selected = ->
+      return selectedMedia.length > 0
+
+    $scope.clean = (mediafiles)->
+      console.log 'fuck'
+      for media in mediafiles
+        media._seleted = false
+      selectedMedia.length = 0
 
     $scope.open = (media, e) ->
       e.preventDefault()
@@ -90,9 +110,28 @@ angular.module 'throwCat'
       $window.open(media.src)
       return false
 
+    $scope.trash = ->
+      remain = selectedMedia.length
+      angular.forEach selectedMedia, (entry) ->
+        console.log entry.filename
+        entry.$remove()
+        .then (data)->
+          angular.removeFromList($scope.mediafiles, data)
+          if remain <= 1
+            flash "Media files have been deleted."
+        .finally ->
+          remain -= 1
+      selectedMedia.length = 0
+
+    $scope.has_more = (mediafiles, paged, prepage)->
+      curr_list = $filter('paginator')(mediafiles, paged, prepage)
+      return curr_list.length < mediafiles.length
+
+
     $scope.onFileSelect = ($files, re_media) ->
       if not $files or $files.length <= 0
         return
+      $scope.clean selectedMedia
       $scope.upload_status = 1
       uploadStack = []
       for media in $files
@@ -175,13 +214,5 @@ angular.module 'throwCat'
         $scope.upload_status = 2
       .finally ->
         refresh_now()
-
-
-    $scope.copyURL = (url)->
-      msg = 'Please use the native replication function '+
-            'to copy the content in the textbox.'
-      prompt(msg, url)
-
-      # flash "Media files have been deleted."
 
 ]
