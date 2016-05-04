@@ -22,14 +22,13 @@
           <div class="anim-item"
                ng-repeat="media in mediafiles|paginator:paged">
             <md-list-item class="md-2-line"
-                          ng-class="{'md-whiteframe-1dp': media._seleted,
-                                     'bg-dark-trans': media._seleted}"
-                          ng-click="select(media)"
+                          ng-class="{'md-whiteframe-1dp': media._selected,
+                                     'bg-dark-trans': media._selected}"
+                          ng-click="select(media, mediafiles)"
                           ng-disabled="upload_status == 1">
               <img class="md-avatar"
                  ng-src="{{media.thumbnail}}"
                  ng-click="open(media, $event)"
-                 ng-class="{'t50':media._seleted}"
                  alt="{{media.filename}}"/>
               <div class="md-list-item-text"
                    layout="column">
@@ -41,13 +40,15 @@
             </md-list-item>
           </div>
           <!-- more -->
-          <div class="anim-item">
+          <div class="anim-item"
+               ng-show="has_more(mediafiles, paged)">
             <md-list-item class="md-2-line"
-                          ng-click="select(media)">
+                          ng-click="more(mediafiles, paged)">
               <div class="md-avatar"
                    layout="row"
                    layout-align="center center">
-                <md-icon md-svg-icon="ic_expand_more_24px"></md-icon>
+                <md-icon class="md-primary"
+                         md-svg-icon="ic_expand_more_24px"></md-icon>
               </div>
               <div class="md-list-item-text"
                    layout="column">
@@ -66,14 +67,14 @@
 
   <!-- overlay -->
   <md-toolbar class="bg-dark show-hide fixed-top"
-              ng-show="has_selected()">
+              ng-show="has_selected">
     <div class="md-toolbar-tools">
       <!-- nav menu -->
       <div layout="row"
            layout-align="center center">
         <md-button class="md-icon-button"
                    aria-label="{{_('Cancel')}}"
-                   ng-click="clean(mediafiles)">
+                   ng-click="clean_selected(mediafiles)">
           <md-icon md-svg-icon="ic_arrow_back_24px"></md-icon>
         </md-button>
       </div>
@@ -84,7 +85,7 @@
            layout-align="center center">
         <md-button class="md-icon-button"
                    aria-label="{{_('Trash')}}"
-                   ng-click="trash()">
+                   ng-click="trash_selected(mediafiles)">
           <md-icon md-svg-icon="ic_delete_24px"></md-icon>
         </md-button>
       </div>
@@ -92,20 +93,20 @@
     </div>
   </md-toolbar>
 
-    <md-button class="md-accent md-fab md-fab-bottom-right fixed"
-               aria-label="{{_('Upload New Media')}}"
-               ngf-select="onFileSelect($files)"
-               data-multiple="true"
-               accept="{{mimetypes_str}}"
-               ng-disabled="upload_status == 1">
+  <md-button class="md-accent md-fab md-fab-bottom-right fixed"
+             aria-label="{{_('Upload New Media')}}"
+             ngf-select="onFileSelect($files, mediafiles)"
+             data-multiple="true"
+             accept="{{mimetypes_str}}"
+             ng-disabled="upload_status == 1">
 
-      <md-icon md-svg-icon="ic_file_upload_24px"
-               ng-show="upload_status != 1"></md-icon>
+    <md-icon md-svg-icon="ic_file_upload_24px"
+             ng-show="upload_status != 1"></md-icon>
 
-      <md-icon md-svg-icon="ic_cached_24px"
-               class="rotating noleave"
-               ng-show="upload_status == 1"></md-icon>
+    <md-icon md-svg-icon="ic_cached_24px"
+             class="rotating noleave"
+             ng-show="upload_status == 1"></md-icon>
 
-    </md-button>
+  </md-button>
 
 </div>

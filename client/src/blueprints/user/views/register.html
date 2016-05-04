@@ -49,10 +49,7 @@
                      type="submit">
             {{_('Check')}}
           </md-button>
-          <span flex></span>
-          <div class="md-padding"
-               hide-gt-xs>
-          </div>
+          <span class="md-padding" flex></span>
           <md-button class="btn"
                      ng-disabled="submitted"
                      ng-href="/#/login">
@@ -77,19 +74,33 @@
           </p>
         </div>
 
-        <md-input-container>
-          <label>{{_('Enter the Register captcha')}}</label>
-          <input name="captcha"
-                 type="text"
-                 ng-model="reg.captcha"
-                 required/>
-          <ng-messages ng-if="reg_form.captcha.$touched"
-                       for="reg_form.captcha.$error">
-            <ng-message when="required">
-              {{ _('This is required.') }}
-            </ng-message>
-          </ng-messages>
-        </md-input-container>
+        <div layout="column"
+             layout-gt-xs="row">
+
+          <md-input-container flex>
+            <label>{{_('Enter the Register captcha')}}</label>
+            <input name="captcha"
+                   type="text"
+                   ng-model="reg.captcha"
+                   required/>
+            <ng-messages ng-if="reg_form.captcha.$touched"
+                         for="reg_form.captcha.$error">
+              <ng-message when="required">
+                {{ _('This is required.') }}
+              </ng-message>
+            </ng-messages>
+          </md-input-container>
+
+          <md-input-container flex>
+            <md-button class="btn"
+                       ng-disabled="submitted"
+                       ng-click="captcha()"
+                       type="button">
+              {{_('Get Captcha Again')}}
+            </md-button>
+          </md-input-container>
+
+        </div>
 
         <md-input-container>
           <label>{{_('User name')}}</label>
@@ -160,15 +171,16 @@
                      type="submit">
             {{_('Register')}}
           </md-button>
-          <span flex></span>
-          <div class="md-padding"
-               hide-gt-xs>
-          </div>
+
+          <span class="md-padding" flex></span>
+
           <md-button class="btn"
                      ng-disabled="submitted"
                      ng-href="/#/login">
             {{_('Go back to Login')}}
           </md-button>
+
+
         </md-input-container>
 
       </form>

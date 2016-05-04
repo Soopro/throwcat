@@ -29,7 +29,8 @@ angular.module 'throwCat'
       if not is_api_reject
         console.log ('Request is rejected by remote.')
       else
-        if rejection.status is 0 and rejection.data is null
+        console.log rejection.status, rejection.data
+        if rejection.status <= 0 and rejection.data is null
           $location.path("/404")
           msg = 'Error! No connection to server.'
           flashMsgStack.set

@@ -37,7 +37,62 @@ angular.module 'throwCat'
     $scope.paged = 1
     uploadStack = []
     resizeFileStack = []
-    selectedMedia = []
+
+
+    # select
+    count_selected = (list)->
+      count = 0
+      for item in list
+        if item._selected
+          count += 1
+      return count
+
+    update_selected = (mediafiles)->
+      if angular.isArray(mediafiles)
+        $scope.has_selected = count_selected(mediafiles) > 0
+      else
+        $scope.has_selected = false
+
+    $scope.select = (media, mediafiles) ->
+      media._selected = not Boolean(media._selected)
+      update_selected(mediafiles)
+
+    $scope.clean_selected = (mediafiles)->
+      for media in mediafiles
+        media._selected = false
+      update_selected(mediafiles)
+
+    $scope.trash_selected = (mediafiles)->
+      remain = count_selected(mediafiles)
+      angular.forEach mediafiles, (entry) ->
+        if entry._selected
+          entry.$remove()
+          .then (data)->
+            angular.removeFromList(mediafiles, data)
+            if remain <= 1
+              flash "Media files have been deleted."
+          .finally ->
+            remain -= 1
+      $scope.clean_selected(mediafiles)
+
+    # open media
+    $scope.open = (media, e) ->
+      e.preventDefault()
+      e.stopPropagation()
+      $window.open(media.src)
+      return false
+
+
+    # more
+    $scope.has_more = (mediafiles, paged, prepage)->
+      curr_list = $filter('paginator')(mediafiles, paged, prepage)
+      return curr_list.length < mediafiles.length
+
+    $scope.more = (mediafiles, paged, prepage)->
+      if $scope.has_more(mediafiles, paged)
+        $scope.paged += 1
+      else
+        return false
 
 
     # get supported mime types
@@ -86,52 +141,16 @@ angular.module 'throwCat'
       else
         $scope.upload_status = 0
 
-    $scope.select = (media) ->
-      idx = selectedMedia.indexOf(media)
-      if idx > -1
-        selectedMedia.splice(idx, 1)
-        media._seleted = false
-      else
-        selectedMedia.push(media)
-        media._seleted = true
 
-    $scope.has_selected = ->
-      return selectedMedia.length > 0
+    $scope.onFileSelect = ($files, mediafiles, re_media) ->
+      # clean before uploads
+      $scope.clean_selected(mediafiles)
 
-    $scope.clean = (mediafiles)->
-      console.log 'fuck'
-      for media in mediafiles
-        media._seleted = false
-      selectedMedia.length = 0
-
-    $scope.open = (media, e) ->
-      e.preventDefault()
-      e.stopPropagation()
-      $window.open(media.src)
-      return false
-
-    $scope.trash = ->
-      remain = selectedMedia.length
-      angular.forEach selectedMedia, (entry) ->
-        console.log entry.filename
-        entry.$remove()
-        .then (data)->
-          angular.removeFromList($scope.mediafiles, data)
-          if remain <= 1
-            flash "Media files have been deleted."
-        .finally ->
-          remain -= 1
-      selectedMedia.length = 0
-
-    $scope.has_more = (mediafiles, paged, prepage)->
-      curr_list = $filter('paginator')(mediafiles, paged, prepage)
-      return curr_list.length < mediafiles.length
-
-
-    $scope.onFileSelect = ($files, re_media) ->
+      # check upload files
       if not $files or $files.length <= 0
         return
-      $scope.clean selectedMedia
+
+      # ready to upload
       $scope.upload_status = 1
       uploadStack = []
       for media in $files

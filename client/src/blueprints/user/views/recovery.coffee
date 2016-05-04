@@ -30,7 +30,9 @@ angular.module 'throwCat'
     $scope.check = ->
       if not fsv($scope.check_form, ['login']) or $scope.submitted
         return
+      $scope.captcha()
 
+    $scope.captcha = ->
       $scope.submitted = true
       restUser.doRecoveryCaptcha($scope.rec)
       .then (data)->
