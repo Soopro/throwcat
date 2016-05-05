@@ -8,6 +8,7 @@ bower_components
 build
 server_conf.js
 
+
 .tmp
 trash
 
@@ -35,3 +36,11 @@ trash
 .DS_Store
 /build
 /captures
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+server/deployment_data/.*
