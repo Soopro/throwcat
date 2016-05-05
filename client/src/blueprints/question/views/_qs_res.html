@@ -1,0 +1,40 @@
+<div layout-margin>
+  <md-card ng-repeat="entry in [1,2]">
+    <img ng-src="{{image.trans_cover}}"
+         class="md-card-image img-cover"
+         style="background-image:
+                url(http://media.soopro.com/devin/dp/folio10.jpg)"
+         alt="{{_('Img Title')}}"
+         ng-click="edit(entry)">
+    <md-card-actions layout="row"
+                     layout-align="end center">
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Remove')}}">
+        <md-icon md-svg-icon="ic_clear_24px"></md-icon>
+      </md-button>
+      <span flex></span>
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Up')}}">
+        <md-icon md-svg-icon="ic_arrow_drop_up_24px"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Down')}}">
+        <md-icon md-svg-icon="ic_arrow_drop_down_24px"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Edit')}}">
+        <md-icon md-svg-icon="ic_create_24px"></md-icon>
+      </md-button>
+    </md-card-actions>
+  </md-card>
+
+  <div class="md-padding"
+       layout="row"
+       layout-align="center center">
+    <md-button class="btn md-primary"
+               ng-click="add()">
+      {{_('Add New Resource')}}
+    </md-button>
+  </div>
+
+</div>

@@ -6,6 +6,7 @@ angular.module 'throwCat'
   '$routeParams'
   'restCat'
   'navService'
+  'ConfigQs'
   'dialog'
   'image'
   (
@@ -14,10 +15,11 @@ angular.module 'throwCat'
     $routeParams
     restCat
     navService
+    ConfigQs
     dialog
     image
   ) ->
-    navService.section('dashboard')
+    navService.section('question', '/')
     question_id = $routeParams.question_id
 
     $scope.image = image
@@ -27,5 +29,6 @@ angular.module 'throwCat'
     else
       $scope.question = restCat.question.get()
 
+    $scope.question_types = ConfigQs.question_types
 
 ]

@@ -1,5 +1,6 @@
 <md-toolbar ng-class="{'md-hue-3': !is_logged(),
                        'bg-trans': !is_logged(),
+                       'md-accent': is_logged() && navs.currBackward,
                        'md-whiteframe-1dp': is_logged()}">
   <div class="md-toolbar-tools">
     <!-- nav menu -->
@@ -7,8 +8,15 @@
          layout-align="center center">
       <md-button class="md-icon-button"
                  aria-label="{{_('Toggle main nav')}}"
+                 ng-if="!navs.currBackward"
                  ng-click="toggle_nav('main_nav')">
         <md-icon md-svg-icon="ic_menu_24px"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Backward')}}"
+                 ng-if="navs.currBackward"
+                 ng-click="go(navs.currBackward)">
+        <md-icon md-svg-icon="ic_arrow_back_24px"></md-icon>
       </md-button>
       <span>ThrowCat</span>
     </div>

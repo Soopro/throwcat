@@ -11,71 +11,8 @@
       </header>
 
       <!-- info -->
-      <form name="info_form"
-            ng-submit="save()"
-            layout="column"
-            layout-margin
-            novalidate>
+      {% include '_qs_info.html' %}
 
-        <md-input-container>
-          <label>{{_('Title')}}</label>
-          <input name="title"
-                 type="text"
-                 ng-model="question.title"
-                 md-maxlength="30"
-                 required/>
-          <ng-messages ng-if="info_form.title.$touched"
-                       for="info_form.title.$error">
-            <ng-message when="required">
-              {{ _('This is required.') }}
-            </ng-message>
-            <ng-message when="md-maxlength">
-              {{ _('It is too long.') }}
-            </ng-message>
-          </ng-messages>
-        </md-input-container>
-
-        <md-input-container>
-          <label>{{_('Description')}}</label>
-          <textarea name="description"
-                    ng-model="question.description"
-                    md-maxlength="360"></textarea>
-          <ng-messages ng-if="info_form.description.$touched"
-                       for="info_form.description.$error">
-            <ng-message when="md-maxlength">
-              {{ _('It is too long.') }}
-            </ng-message>
-          </ng-messages>
-        </md-input-container>
-
-        <md-input-container>
-          <label class="static">{{_('Publish')}}</label>
-          <md-switch ng-model="question.status"
-                     aria-label="{{_('Publish')}}"
-                     ng-true-value="1"
-                     ng-false-value="0">
-              {{question.status?_('Published'):_('Draft')}}
-            </md-switch>
-        </md-input-container>
-
-        <div layout="row">
-          <md-button class="btn md-raised md-accent"
-                     ng-disabled="submitted"
-                     type="submit">
-            {{_('Save')}}
-          </md-button>
-
-          <span flex></span>
-          <md-button class="md-icon-button"
-                     aria-label="{{_('Trash')}}"
-                     ng-disabled="submitted"
-                     ng-click="trash(question)"
-                     type="button">
-            <md-icon md-svg-icon="ic_delete_24px"></md-icon>
-          </md-button>
-        </div>
-
-      </form>
     </section>
 
     <section flex-gt-sm="45"
@@ -84,120 +21,12 @@
       <!-- section header -->
       <header layout-margin>
         <h2 class="md-title">
-          {{_('Security')}}
+          {{_('Resources')}}
         </h2>
       </header>
 
-      <!-- security -->
-      <form name="security_form"
-            ng-submit="save_pwd()"
-            layout="column"
-            layout-margin
-            novalidate>
-
-        <md-input-container>
-          <label>{{_('Old Password')}}</label>
-          <input name="passwd"
-                 type="password"
-                 ng-model="pwd.passwd"
-                 ng-pattern="input_pattern.passwd"
-                 required/>
-          <ng-messages ng-if="security_form.passwd.$touched"
-                       for="security_form.passwd.$error">
-            <ng-message when="required">
-              {{ _('This is required.') }}
-            </ng-message>
-            <ng-message when="pattern">
-              {{ _('It is invalid.') }}
-            </ng-message>
-          </ng-messages>
-        </md-input-container>
-
-        <md-input-container>
-          <label>{{_('New Password')}}</label>
-          <input name="new_passwd"
-                 type="password"
-                 ng-model="pwd.new_passwd"
-                 ng-pattern="input_pattern.passwd"
-                 required/>
-          <ng-messages ng-if="security_form.new_passwd.$touched"
-                       for="security_form.new_passwd.$error">
-            <ng-message when="required">
-              {{ _('This is required.') }}
-            </ng-message>
-            <ng-message when="pattern">
-              {{ _('It is invalid.') }}
-            </ng-message>
-          </ng-messages>
-        </md-input-container>
-
-        <md-input-container>
-          <label>{{_('Confirm Password')}}</label>
-          <input name="new_passwd2"
-                 type="password"
-                 ng-model="pwd.new_passwd2"
-                 ng-pattern="input_pattern.passwd"
-                 required/>
-          <ng-messages ng-if="security_form.new_passwd2.$touched"
-                       for="security_form.new_passwd2.$error">
-            <ng-message when="required">
-              {{ _('This is required.') }}
-            </ng-message>
-            <ng-message when="pattern">
-              {{ _('It is invalid.') }}
-            </ng-message>
-          </ng-messages>
-        </md-input-container>
-
-        <div>
-          <md-button class="btn md-raised md-accent"
-                     ng-disabled="submitted"
-                     type="submit">
-            {{_('Save')}}
-          </md-button>
-
-          <md-button class="btn md-raised"
-                     ng-disabled="submitted"
-                     ng-click="toggle_secret()"
-                     type="button">
-            {{show_secret?_('Hide Secret'):_('Show Secret')}}
-          </md-button>
-        </div>
-      </form>
-
-      <div class="md-padding"></div>
-
-      <div ng-show="show_secret"
-           layout="column"
-           layout-margin>
-
-        <md-input-container>
-          <label class="static">{{_('AppKey')}}</label>
-          <p class="text-break">
-            {{secret.app_key}}
-          </p>
-        </md-input-container>
-
-        <md-input-container>
-          <label class="static">{{_('AppSecret')}}</label>
-          <p class="text-break">
-            {{secret.app_secret}}
-          </p>
-        </md-input-container>
-
-        <p class="tip md-caption">
-          {{_('* AppKey and AppSecret is very important!! '+
-              'please do not tell the others.')}}
-        </p>
-        <md-input-container>
-          <md-button class="btn md-raised"
-                     ng-disabled="submitted"
-                     ng-click="reset_secret()"
-                     type="button">
-            {{_('Reset AppSecret')}}
-          </md-button>
-        </md-input-container>
-      </div>
+      <!-- resouces -->
+      {% include '_qs_res.html' %}
 
     </section>
 

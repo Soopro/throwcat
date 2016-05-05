@@ -10,6 +10,7 @@ angular.module 'throwCat'
   @currSubTitle = ''
   @currSection = ''
   @currApp = null
+  @currBackward = null
 
   @load = (navs, title, icon, app) ->
     if not angular.equals(self.data, navs)
@@ -23,7 +24,11 @@ angular.module 'throwCat'
       if element.alias == alias
         return element
 
-  @section = (sec) ->
+
+  @section = (sec, backward) ->
+    if typeof sec isnt 'string'
+      return
+
     idx = sec.indexOf('/')
     if idx > -1
       main_sec = sec[0...idx]
@@ -32,6 +37,10 @@ angular.module 'throwCat'
       main_sec = sec
 
     self.currSection = main_sec or ''
+    if typeof backward is 'string'
+      self.currBackward = backward
+    else
+      self.currBackward = null
     self.activatedMenus = []
 
     for nav in self.data
@@ -71,5 +80,6 @@ angular.module 'throwCat'
     self.currSubTitle = ''
     self.currSection = ''
     self.currApp = null
+    self.currBackward = null
 
   return @

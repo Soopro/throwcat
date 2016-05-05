@@ -1,0 +1,84 @@
+<form name="info_form"
+      ng-submit="save()"
+      layout="column"
+      layout-margin
+      novalidate>
+
+  <md-input-container>
+    <label>{{_('Title')}}</label>
+    <input name="title"
+           type="text"
+           ng-model="question.title"
+           md-maxlength="30"
+           required/>
+    <ng-messages ng-if="info_form.title.$touched"
+                 for="info_form.title.$error">
+      <ng-message when="required">
+        {{ _('This is required.') }}
+      </ng-message>
+      <ng-message when="md-maxlength">
+        {{ _('It is too long.') }}
+      </ng-message>
+    </ng-messages>
+  </md-input-container>
+
+  <md-input-container class="select-container">
+    <label>{{_('Type')}}</label>
+    <md-select name="type"
+               ng-model="question.type"
+               required>
+      <md-option ng-repeat="type in question_types"
+                 value="{{type.key}}">
+        {{type.name}}
+      </md-option>
+    </md-select>
+    <ng-messages ng-if="info_form.type.$touched"
+                 for="info_form.type.$error">
+      <ng-message when="required">
+        {{ _('This is required.') }}
+      </ng-message>
+      </ng-message>
+    </ng-messages>
+  </md-input-container>
+
+  <md-input-container>
+    <label>{{_('Description')}}</label>
+    <textarea name="description"
+              ng-model="question.description"
+              md-maxlength="360"></textarea>
+    <ng-messages ng-if="info_form.description.$touched"
+                 for="info_form.description.$error">
+      <ng-message when="md-maxlength">
+        {{ _('It is too long.') }}
+      </ng-message>
+    </ng-messages>
+  </md-input-container>
+
+  <md-input-container>
+    <label class="static">{{_('Publish')}}</label>
+    <md-switch ng-model="question.status"
+               aria-label="{{_('Publish')}}"
+               ng-true-value="1"
+               ng-false-value="0">
+        {{question.status?_('Published'):_('Draft')}}
+      </md-switch>
+  </md-input-container>
+
+  <div layout="row">
+    <md-button class="btn md-raised md-primary"
+               ng-disabled="submitted"
+               type="submit">
+      {{_('Save')}}
+    </md-button>
+
+    <span flex></span>
+    <md-button class="md-icon-button"
+               aria-label="{{_('Trash')}}"
+               ng-disabled="submitted"
+               ng-click="trash(question)"
+               type="button">
+      <md-icon md-svg-icon="ic_delete_24px"></md-icon>
+    </md-button>
+  </div>
+
+</form>
