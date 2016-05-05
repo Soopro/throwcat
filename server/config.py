@@ -14,8 +14,8 @@ class Config(object):
 
     # path
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-    DEPLOY_DIR = os.path.join(BASE_DIR, 'deployment_data')
 
+    DEPLOY_DIR = os.path.join(BASE_DIR, 'deployment_data')
     LOG_FOLDER = os.path.join(DEPLOY_DIR, 'logs')
 
     # url
@@ -35,49 +35,6 @@ class Config(object):
     DEFAULT_INPUT_DATE_FORMAT = DEFAULT_DATE_FORMAT
     DEFAULT_LOCALE = u'en'
     DEFAULT_PROTOCOL = u'http'
-
-    # analytics
-    ONLINE_LAST_MINUTES = 30
-    # ANALYTICS_FILE = 'sup-analytics.js'
-    # ANALYTICS_CODE = """<script>
-    #     (function(w,d,o,r,s,m){{
-    #         s=d.createElement(o),
-    #         m=d.getElementsByTagName(o)[0],
-    #         s.async=1,
-    #         s.src='{}';
-    #         m.parentNode.insertBefore(s,m);
-    #         w[r]={{app:'{}', id:'{}', api:'{}'}};
-    #     }})(window,document,'script','sa');</script>"""
-
-    # invite register
-    INVITE_CODE_LIMIT = 10
-
-    # secret rate
-    SECRET_RATE_LIMIT = 1000
-    SECRET_RATE_EXPIRATION = 3600 * 24
-    SECRET_RISK_LIMIT = 100
-
-    # in GFW
-    GFW = True
-
-    # register and invited register
-    DENY_PUBLIC_REGISTER = False
-    # access from apps host without bind domain
-    DENY_PUBLIC_FREE_ACCESS = False
-
-    # content limit
-    CONTENT_LIMIT = DottedImmutableDict({
-        'xs': 20,
-        'sm': 100,
-        'md': 200,
-        'lg': 500,
-    })
-
-    # file uploads
-    ALLOWED_EXTENSIONS = ('jpg', 'pdf', 'png', 'jpeg', 'gif',
-                          'mp4', 'mp3', 'mov', 'zip', 'svg')
-
-    MAX_CONTENT_LENGTH = 20 * 1024 * 1024
 
     # JWT
     JWT_SECRET_KEY = SECRET_KEY  # SECRET_KEY
@@ -146,10 +103,12 @@ class Config(object):
     if os.environ.get('REDIS_PORT_6379_TCP_PORT') is not None:
         REDIS_PORT_ENV = int(os.environ.get('REDIS_PORT_6379_TCP_PORT'))
 
+    # mongodb
     MONGODB_HOST = EXT_MONGODB_HOST = MONGODB_HOST_ENV
     MONGODB_PORT = EXT_MONGODB_PORT = MONGODB_PORT_ENV
     MONGODB_MAX_POOL_SIZE = 10
     MONGODB_DATABASE = 'sup_db'
+
     # redis
     REDIS_URL = "redis://redis"
     REDIS_HOST = REDIS_HOST_ENV
@@ -170,7 +129,6 @@ class Config(object):
     CDN_CONNECTION_MAX_POOL = 20
     CDN_CONNECTION_RETRIES = 3
     CDN_UPLOADS_BUCKET = 'uploads'
-    CDN_THEMES_BUCKET = 'themes'
 
     CDN = 'qiniu'
     CDN_ACCOUNT = 'r@supmice.com'
@@ -191,8 +149,9 @@ class TestCaseConfig(Config):
 
 class ProductionConfig(Config):
     DEBUG = False
-    DENY_PUBLIC_REGISTER = True
-    DENY_PUBLIC_FREE_ACCESS = True
+
+    DEPLOY_DIR = '/data/deployment_data'
+    LOG_FOLDER = os.path.join(DEPLOY_DIR, "logs")
 
     PROTOCOL = 'http'
     API_DOMAIN = 'api.soopro.com'
@@ -200,9 +159,6 @@ class ProductionConfig(Config):
 
     UPLOADS_URL = '{}://{}'.format(PROTOCOL, UPLOADS_DOMAIN)
     API_URL = '{}://{}'.format(PROTOCOL, API_DOMAIN)
-
-    DEPLOY_DIR = '/data/deployment_data'
-    LOG_FOLDER = os.path.join(DEPLOY_DIR, "logs")
 
     MONGODB_DATABASE = 'throwcat_beta'
 
@@ -227,12 +183,9 @@ class ProductionConfig(Config):
 
 
 class TestingConfig(Config):
-    DENY_PUBLIC_REGISTER = True
 
     DEPLOY_DIR = '/data/deployment_data'
     LOG_FOLDER = os.path.join(DEPLOY_DIR, "logs")
-    TEMPORARY_FOLDER = os.path.join(DEPLOY_DIR, 'tmp')
-    THEMES_FOLDER = os.path.join(DEPLOY_DIR, 'hive', 'themes')
 
     PROTOCOL = 'http'
     API_DOMAIN = 'api.sup.farm'

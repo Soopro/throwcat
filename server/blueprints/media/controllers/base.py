@@ -18,14 +18,6 @@ from apiresps.validations import Struct
 from ..errors import *
 
 
-def allowed_file(filename):
-    file_ext = ''
-    allowed_exts = current_app.config.get('ALLOWED_EXTENSIONS')
-    if '.' in filename:
-        file_ext = filename.rsplit('.', 1)[1]
-    return file_ext.lower() in allowed_exts
-
-
 @output_json
 def list_media():
     user = g.curr_user
