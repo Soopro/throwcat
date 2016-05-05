@@ -128,8 +128,6 @@ def rate_limit(key, remote_addr=None, limit=600, expires_in=3600):
         print "-----------------"
     p = redis.pipeline(transaction=False)
     if curr and int(curr) > limit:
-        if bad_addr >= bad_addr_limit:
-            record_bad_remote_addr(bad_addr, rate_key)
         p.incr(bad_addr_key)
         p.expire(bad_addr_key, bad_addr_expire)
         raise RequestMaxLimited
@@ -137,22 +135,3 @@ def rate_limit(key, remote_addr=None, limit=600, expires_in=3600):
         p.setex(rate_key, 0, expires_in)
     p.incr(rate_key)
     p.execute()
-
-
-def record_bad_remote_addr(bad_addr, rate_key):
-    bad_addr = current_app.mongodb_conn.\
-        BadRemoteAddr.find_one_by_addr(bad_addr)
-    if not bad_addr:
-        bad_addr = current_app.mongodb_conn.BadRemoteAddr()
-        bad_addr["requests"] = []
-        bad_addr["risk"] = 0
-
-    bad_addr["remote_addr"] = bad_addr
-    bad_addr["requests"].append({
-        'url': request.url,
-        'referrer': request.referrer,
-        'user_agent': request.user_agent.string,
-        'rate_key': rate_key,
-    })
-    bad_addr["risk"] += 1
-    bad_addr.save()
