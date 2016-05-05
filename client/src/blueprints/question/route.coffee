@@ -19,4 +19,10 @@ angular.module 'throwCat'
       controller: 'dashboardCtrl'
       resolve: resolve
 
+    $routeProvider
+    .when '/'+bp+'/:question_id',
+      templateUrl: dir+'/question.html'
+      controller: 'questionCtrl'
+      resolve: resolve
+
 ]

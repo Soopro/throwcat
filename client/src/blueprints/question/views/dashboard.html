@@ -17,7 +17,7 @@
         <div flex-gt-md="25"
              flex-md="33"
              flex-sm="50"
-             ng-repeat="i in [1,2,3,4]">
+             ng-repeat="entry in [1,2,3,4]">
           <md-card>
             <md-card-header>
               <md-card-avatar>
@@ -34,7 +34,8 @@
                  class="md-card-image img-cover"
                  style="background-image:
                         url(http://media.soopro.com/devin/dp/folio10.jpg)"
-                 alt="{{_('Img Title')}}">
+                 alt="{{_('Img Title')}}"
+                 ng-click="go(entry.id)">
             <md-card-title>
               <md-card-title-text>
                 <span class="md-headline">
@@ -53,7 +54,7 @@
             </md-card-content>
             <md-card-actions layout="row" layout-align="start center">
               <md-button class="btn md-primary"
-                         ng-href="/#/member">
+                         ng-click="go(entry.id)">
                 {{_('Enter')}}
               </md-button>
             </md-card-actions>
@@ -66,7 +67,8 @@
 
   <!-- fab -->
   <md-button class="md-accent md-fab md-fab-bottom-right fixed"
-             aria-label="{{_('Add')}}">
+             aria-label="{{_('Add')}}"
+             ng-click="go('new')">
     <md-icon md-svg-icon="ic_add_24px"></md-icon>
   </md-button>
 </div>

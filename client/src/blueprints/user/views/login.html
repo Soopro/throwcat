@@ -55,9 +55,9 @@
           </ng-messages>
         </md-input-container>
 
-        <md-input-container layout="column"
-                            layout-gt-xs="row"
-                            layout-align-gt-xs="center center">
+        <div layout="column"
+             layout-gt-xs="row"
+             layout-align-gt-xs="center center">
           <md-button class="btn md-raised md-accent"
                      ng-disabled="submitted"
                      type="submit">
@@ -77,7 +77,7 @@
                      ng-href="/#/recovery">
             {{_('Forget password?')}}
           </md-button>
-        </md-input-container>
+        </div>
 
       </form>
     </section>

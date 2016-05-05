@@ -39,9 +39,9 @@
           </ng-messages>
         </md-input-container>
 
-        <md-input-container layout="column"
-                            layout-gt-xs="row"
-                            layout-align-gt-xs="center center">
+        <div layout="column"
+             layout-gt-xs="row"
+             layout-align-gt-xs="center center">
 
           <md-button class="btn md-raised md-accent"
                      ng-disabled="submitted"
@@ -54,8 +54,8 @@
                      ng-href="/#/login">
             {{_('Go back to Login')}}
           </md-button>
+        </div>
 
-        </md-input-container>
       </form>
 
       <!-- recovery -->
@@ -137,9 +137,9 @@
           </md-input-container>
         </div>
 
-        <md-input-container layout="column"
-                            layout-gt-xs="row"
-                            layout-align-gt-xs="center center">
+        <div layout="column"
+             layout-gt-xs="row"
+             layout-align-gt-xs="center center">
 
           <md-button class="btn md-raised md-accent"
                      ng-disabled="submitted"
@@ -152,7 +152,7 @@
                      ng-href="/#/login">
             {{_('Go back to Login')}}
           </md-button>
-        </md-input-container>
+        </div>
 
       </form>
     </section>

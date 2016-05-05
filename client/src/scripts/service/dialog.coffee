@@ -10,7 +10,8 @@ angular.module 'throwCat'
     self = @
 
     parse_options = (options) ->
-      if options.clickOutsideToClose is undefined
+      outside_close = options.outside or options.clickOutsideToClose
+      if outside_close is undefined
         options.clickOutsideToClose = true
       if options.hasBackdrop is undefined
         options.hasBackdrop = true
@@ -25,7 +26,7 @@ angular.module 'throwCat'
     @confirm = ->
       $mdDialog.confirm()
 
-    @show = (options, force) ->
+    @show = (options) ->
       return $mdDialog.show(parse_options(options))
 
 

@@ -1,8 +1,9 @@
 angular.module 'throwCat'
 
-.controller "dashboardCtrl", [
+.controller "questionCtrl", [
   '$scope'
   '$location'
+  '$routeParams'
   'restCat'
   'navService'
   'dialog'
@@ -10,16 +11,21 @@ angular.module 'throwCat'
   (
     $scope
     $location
+    $routeParams
     restCat
     navService
     dialog
     image
   ) ->
     navService.section('dashboard')
+    question_id = $routeParams.question_id
 
-    $scope.questions = restCat.question.query()
     $scope.image = image
 
-    $scope.go = (entry_id)->
-      $location.path '/question/'+entry_id
+    if question_id == 'new'
+      $scope.question = new restCat.question()
+    else
+      $scope.question = restCat.question.get()
+
+
 ]
