@@ -60,13 +60,8 @@ def create_app(config_name="development"):
             if not os.path.isdir(folder):
                 os.makedirs(folder)
 
-    clear_folders(
-        app.config.get('TEMPORARY_FOLDER')
-    )
-
     ensure_dirs(
-        app.config.get('LOG_FOLDER'),
-        app.config.get('TEMPORARY_FOLDER')
+        app.config.get('LOG_FOLDER')
     )
 
 

@@ -43,11 +43,11 @@
 
   <md-input-container>
     <label>{{_('Description')}}</label>
-    <textarea name="description"
+    <textarea name="desc"
               ng-model="question.description"
               md-maxlength="360"></textarea>
-    <ng-messages ng-if="info_form.description.$touched"
-                 for="info_form.description.$error">
+    <ng-messages ng-if="info_form.desc.$touched"
+                 for="info_form.desc.$error">
       <ng-message when="md-maxlength">
         {{ _('It is too long.') }}
       </ng-message>
@@ -75,7 +75,7 @@
     <md-button class="md-icon-button"
                aria-label="{{_('Trash')}}"
                ng-disabled="submitted"
-               ng-click="trash(question)"
+               ng-click="trash()"
                type="button">
       <md-icon md-svg-icon="ic_delete_24px"></md-icon>
     </md-button>

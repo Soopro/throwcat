@@ -27,7 +27,7 @@ angular.module 'throwCat'
       is_api_reject = angular.startswith(rejection.config.url,
                                          Config.baseURL.api)
       if not is_api_reject
-        console.log ('Request is rejected by remote.')
+        console.log ('Request is rejected by non api remote.')
       else
         console.log rejection.status, rejection.data
         if rejection.status <= 0 and rejection.data is null
