@@ -20,6 +20,7 @@ angular.module 'throwCat'
     console.log "-----------------------------"
     console.log "ThrowCat:", App.version
     console.log "Developers:", App.artisan.join(', ')
+    console.log "Github:", App.github
     console.log "-----------------------------"
 
     # flash

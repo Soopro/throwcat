@@ -18,3 +18,4 @@ angular.module 'throwCat'
   artisan: [
     'Redyyu'
   ]
+  github: 'https://github.com/soopro/throwcat'

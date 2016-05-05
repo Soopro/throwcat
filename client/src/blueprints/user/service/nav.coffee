@@ -22,7 +22,7 @@ angular.module 'throwCat'
         alias: "about"
         name: "About"
         ico: "ic_info_outline_24px"
-        path: "/about"
+        path: "/info-open/about"
       }
     ]
 

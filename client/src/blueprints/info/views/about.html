@@ -1,0 +1,38 @@
+<div class="view-animate"
+     layout="column"
+     layout-margin
+     layout-padding
+     flex>
+  <div layout="row"
+       layout-align-gt-sm="center center"
+       flex>
+    <section flex-gt-sm="60"
+             flex>
+      <!-- section header -->
+      <header>
+        <h1 class="md-display-1">
+          {{_('About')}}
+        </h1>
+      </header>
+      <!-- article -->
+      <div>
+        <p>
+          {{_('This is a remote anti robot authentication program. '+
+              'It is designed for RESTFUL web application. '+
+              'Feel free to deploy it by yourself.')}}
+        </p>
+        <p class="md-caption">{{_('Version: %s', app.version)}}</p>
+        <p class="md-caption">{{_('Artisan: %s', app.artisan.join(', '))}}</p>
+        <p>
+          <a ng-href="{{app.github}}"
+             target="_blank">
+            <!-- build:[md-svg-src] github.svg -->
+            <md-icon class="s60"
+                     md-svg-src="styles/github.svg"></md-icon>
+            <!-- /build-->
+          </a>
+        </p>
+      </div>
+    </section>
+  </div>
+</div>

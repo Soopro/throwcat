@@ -27,6 +27,7 @@ angular.module 'throwCat'
       '/login'
       '/register'
       '/recovery'
+      '/info-open/about'
     ]
     error: [
       '/404'
