@@ -30,8 +30,34 @@
       </md-tab>
       <md-tab label="{{_('Media Repository')}}">
         <md-content class="md-padding">
-          <h3 class="md-display-1">{{_('Media Repository')}}</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+          <div layout="row"
+               layout-xs="none"
+               layout-wrap>
+
+            <div class="show-hide"
+                 flex-gt-md="20"
+                 flex-md="25"
+                 flex-sm="33"
+                 flex-xs="50"
+                 ng-repeat="media in mediafiles|paginator:paged">
+              <md-card>
+                <img ng-src="{{image.trans}}"
+                     class="md-card-image img-cover"
+                     style="background-image:url({{media.thumbnail}})"
+                     alt="{{media.filename}}">
+              </md-card>
+            </div>
+          </div>
+          <!-- more -->
+          <div class="anim-item md-padding"
+               layout="row"
+               layout-align="center center"
+               ng-show="has_more(mediafiles, paged)">
+            <md-button class="btn"
+                       ng-click="more(mediafiles, paged)">
+              {{_('Get More')}}
+            </md-button>
+          </div>
         </md-content>
       </md-tab>
     </md-tabs>

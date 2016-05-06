@@ -34,7 +34,6 @@ angular.module 'throwCat'
     $scope.uploadedMediafiles = []
     $scope.upload_status = 0
     $scope.percent = 0
-    $scope.paged = 1
     uploadStack = []
     resizeFileStack = []
 
@@ -84,6 +83,8 @@ angular.module 'throwCat'
 
 
     # more
+    $scope.paged = 1
+
     $scope.has_more = (mediafiles, paged, prepage)->
       curr_list = $filter('paginator')(mediafiles, paged, prepage)
       return curr_list.length < mediafiles.length
