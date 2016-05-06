@@ -3,11 +3,10 @@
     <md-card-content layout="column"
                      flex
                      ng-if="curr_media.src">
-      <div layout="column"
-           layout-align="center center"
-           flex>
-        <img class="recipe-img"
-           ng-src="{{curr_media.src}}">
+      <div class="img-editor"
+           bagua-image-editor
+           img-src-url="curr_media.src"
+           img-recipe="media.recipe">
       </div>
     </md-card-content>
     <md-card-content layout="column"

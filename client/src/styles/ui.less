@@ -6,8 +6,12 @@ http://www.soopro.io
 Author:   redy
 ----------------------------------------------- */
 
-@import "_variables_.less";
 @import "_mixins_.less";
+
+@color-warn: rgb(255,87,34);
+@color-gray: rgb(158,158,158);
+@color-gray-trans: rgba(158,158,158,0.2);
+
 
 /* utils
 ----------------------------------------------- */
@@ -283,10 +287,10 @@ p {
   background-color: transparent !important;
 }
 .bg-dark-trans {
-  background-color: rgba(158,158,158,0.1) !important;
+  background-color: lighten(@color-gray-trans, 20%) !important;
 }
 .bg-dark {
-  background-color: #999 !important;
+  background-color: darken(@color-gray, 20%) !important;
 }
 
 /* button */
@@ -332,7 +336,7 @@ p {
   }
 
   &[disabled]{
-    background-color: lighten(@gray-bg-color, 25%);
+    background-color: lighten(@color-gray-trans, 20%);
   }
   &.main-nav-btn{
     & md-icon:first-child {
@@ -364,7 +368,7 @@ p {
   transition-property: max-height;
 
   &.active{
-    background-color: lighten(@gray-bg-color, 25%);
+    background-color: lighten(@color-gray-trans, 20%);
   }
   & .md-button,
   & a.md-button {
@@ -396,17 +400,17 @@ p {
 md-toast.md-warn {
   &,
   & span {
-    color: @warn-color;
+    color: @color-warn;
   }
   & md-icon {
-    fill: @warn-color;
+    fill: @color-warn;
   }
 }
 
 /* card */
 md-card {
   &[ng-click]:active {
-    background-color: rgba(158,158,158,0.15);
+    background-color: lighten(@color-gray-trans, 15%);
   }
   &.recipe-card {
     min-height: 300px;
@@ -455,34 +459,23 @@ label.static {
 }
 .img-contain {
   width: 100%;
-  background-color: rgba(158,158,158,0.1);
+  background-color: lighten(@color-gray-trans, 20%);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .img-center {
   width: 100%;
-  background-color: rgba(158,158,158,0.1);
+  background-color: lighten(@color-gray-trans, 20%);
   background-repeat: no-repeat;
   background-position: center center;
 }
 .img-half {
   width: 100%;
-  background-color: rgba(158,158,158,0.1);
+  background-color: lighten(@color-gray-trans, 20%);
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-.uploadbox {
-  max-width: 100%;
-  width: 240px;
-  height: 120px;
-  border-radius: 8px;
-  margin: 16px auto;
-  border: 2px dotted darken(@gray-bg-color, 50%);
-  text-align: center;
-  line-height: 120px;
 }
 
 

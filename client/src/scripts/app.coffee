@@ -10,6 +10,7 @@ angular.module 'throwCat', [
   'supLocales'
   'supResource'
   'ngFileUpload'
+  'baguaImageEditor'
 ]
 
 angular.module 'throwCat'
