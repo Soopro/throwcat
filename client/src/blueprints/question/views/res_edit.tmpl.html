@@ -1,0 +1,55 @@
+<md-dialog class="full md-content-overflow"
+           aria-label="{{_('Resource')}}"
+           flex>
+  <md-toolbar class="dialog md-hue-3 bg-trans">
+    <div class="md-toolbar-tools">
+      <span>
+        {{resource._new?_('Add Resource'):_('Edit Resource')}}
+      </span>
+      <span flex></span>
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Close')}}"
+                 ng-click="close()">
+        <md-icon md-svg-icon="ic_close_24px">
+        </md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content class="md-dialog-content"
+                     flex>
+    <md-tabs md-dynamic-height
+             md-border-bottom>
+      <md-tab label="{{_('Recipe')}}">
+        <md-content class="md-padding">
+          <h3 class="md-display-1">{{_('Recipe')}}</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="{{_('Media Repository')}}">
+        <md-content class="md-padding">
+          <h3 class="md-display-1">{{_('Media Repository')}}</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-dialog-content>
+  <md-dialog-actions
+       layout="row"
+       layout-align="center center"
+       flex-order="3">
+    <md-button class="md-icon-button"
+               aria-label="{{_('Trash')}}"
+               ng-show="!resource._new"
+               ng-click="trash(resource)">
+      <md-icon md-svg-icon="ic_delete_24px"></md-icon>
+    </md-button>
+    <span flex></span>
+    <md-button class="md-primary"
+               ng-click="save(resource)">
+      {{_('Save')}}
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

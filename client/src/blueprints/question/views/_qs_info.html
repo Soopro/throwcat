@@ -28,7 +28,7 @@
                ng-model="question.type"
                required>
       <md-option ng-repeat="type in question_types"
-                 value="{{type.key}}">
+                 ng-value="{{type.key}}">
         {{type.name}}
       </md-option>
     </md-select>
@@ -58,8 +58,8 @@
     <label class="static">{{_('Publish')}}</label>
     <md-switch ng-model="question.status"
                aria-label="{{_('Publish')}}"
-               ng-true-value="1"
-               ng-false-value="0">
+               ng-true-value="{{1}}"
+               ng-false-value="{{0}}">
         {{question.status?_('Published'):_('Draft')}}
       </md-switch>
   </md-input-container>
@@ -75,6 +75,7 @@
     <md-button class="md-icon-button"
                aria-label="{{_('Trash')}}"
                ng-disabled="submitted"
+               ng-show="!is_new"
                ng-click="trash()"
                type="button">
       <md-icon md-svg-icon="ic_delete_24px"></md-icon>

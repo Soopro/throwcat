@@ -33,8 +33,11 @@ angular.module 'throwCat'
     $scope.image = image
 
     if question_id == 'new'
+      $scope.is_new = true
       $scope.question = new restCat.question
         resources: []
+        type: 0
+        stauts: 0
     else
       $scope.question = restCat.question.get()
       $scope.question.$promise
@@ -66,31 +69,60 @@ angular.module 'throwCat'
       if $scope.submitted
         return
       $scope.submitted = true
-      $.scope.question.$remove()
+      $scope.question.$remove()
       .then ->
+        $location.path '/'
         flash 'Question has been deleted.'
         return
       .finally ->
         $scope.submitted = false
 
     # resources
-    $scope.move_res_up = (entry, question)->
+    $scope.move_res_up = (question, entry)->
       return
 
-    $scope.move_res_down = (entry, question)->
+    $scope.move_res_down = (question, entry)->
       return
 
-    $scope.remove_res = (entry, question)->
+    $scope.remove_res = (question, entry)->
       return
 
-    $scope.edit_res =(entry, question)->
+    $scope.edit_res =(question, entry)->
+      question_type = prepare_res_type(question)
+      if not question_type
+        flash 'Question type invalid.', true
+        return
+
+      if entry
+        resource = entry
+      else
+        resource =
+          src: ''
+          recipe: {}
+          _new: true
+
       dialog.show
-        controller: 'questionEditCtrl'
-        templateUrl: 'blueprints/question/views/edit.tmpl.html'
+        controller: 'questionResEditCtrl'
+        templateUrl: 'blueprints/question/views/res_edit.tmpl.html'
         locals:
-          entry: entry
-          question: question
+          type: question_type
+          resource: resource
+      .then (res) ->
+        if res._deleted
+          angular.removeFromList(question, res, 'deleted')
+        else if res._new
+          delete res._new
+          question.resource.push(res)
 
-      return
+
+    prepare_res_type = (question)->
+      question_type = null
+      for type in ConfigQs.question_types
+        if type.key == question.type
+          question_type =
+            key: type.key
+            name: type.name
+          break
+      return question_type
 
 ]
