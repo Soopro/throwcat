@@ -44,6 +44,7 @@ angular.module 'throwCat'
 
     @resize = (media)->
       console.log "Auto Resize: ", media.name
+      console.log "Original Size: ", media.size
       deferred = $q.defer()
 
       if media.type.indexOf('image') < 0 or media.type.indexOf('svg') > -1
@@ -72,6 +73,7 @@ angular.module 'throwCat'
       img.onload = (e)->
         width = img.width
         height = img.height
+
         if width > height
           if width > max_image_size.width
             height *= max_image_size.width / width
@@ -81,8 +83,8 @@ angular.module 'throwCat'
             width *= max_image_size.height / height
             height = max_image_size.height
 
-        canvas.width = width;
-        canvas.height = height;
+        canvas.width = parseInt(width);
+        canvas.height = parseInt(height);
         try
           ctx = canvas.getContext("2d")
           ctx.drawImage(img, 0, 0, width, height)
@@ -96,6 +98,8 @@ angular.module 'throwCat'
           deferred.reject(media)
           throw err
 
+        console.log "Resized Size: ", new_media.size
+        console.log "--------------------------"
         if self.checkfile new_media
           deferred.resolve(new_media)
         else

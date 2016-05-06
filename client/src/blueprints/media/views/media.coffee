@@ -9,7 +9,6 @@ angular.module 'throwCat'
   'navService'
   'dialog'
   'flash'
-  'prompt'
   'MIMETypes'
   'Config'
   (
@@ -21,7 +20,6 @@ angular.module 'throwCat'
     navService
     dialog
     flash
-    prompt
     MIMETypes
     Config
   ) ->
@@ -36,7 +34,6 @@ angular.module 'throwCat'
     $scope.percent = 0
     uploadStack = []
     resizeFileStack = []
-
 
     # select
     count_selected = (list)->
@@ -95,7 +92,6 @@ angular.module 'throwCat'
       else
         return false
 
-
     # get supported mime types
     mimetypes = MIMETypes('image', Config.media_mimetypes)
     $scope.mimetypes_str = mimetypes.join(', ')
@@ -103,6 +99,32 @@ angular.module 'throwCat'
     # create now for prevent cached image
     refresh_now = ->
       $scope.now = Date.now()
+
+    # upload media
+    $scope.onFileSelect = ($files, mediafiles, re_media) ->
+      # clean before uploads
+      $scope.clean_selected(mediafiles)
+
+      # check upload files
+      if not $files or $files.length <= 0
+        return
+
+      # ready to upload
+      $scope.upload_status = 1
+      uploadStack = []
+      for media in $files
+        if re_media
+          media.id = re_media.id
+          media.filename = re_media.filename
+        unless MediaService.checkfile(media)
+          if media.type.indexOf('image') > -1
+            resizeFileStack.push(media)
+          else
+            flashFileInvalid(media.name)
+          continue
+        uploadStack.push(media)
+      startUpload()
+
 
     flashFileInvalid = (filename)->
       if filename.length > 20
@@ -141,31 +163,6 @@ angular.module 'throwCat'
         upload(uploadStack[0])
       else
         $scope.upload_status = 0
-
-
-    $scope.onFileSelect = ($files, mediafiles, re_media) ->
-      # clean before uploads
-      $scope.clean_selected(mediafiles)
-
-      # check upload files
-      if not $files or $files.length <= 0
-        return
-
-      # ready to upload
-      $scope.upload_status = 1
-      uploadStack = []
-      for media in $files
-        if re_media
-          media.id = re_media.id
-          media.filename = re_media.filename
-        unless MediaService.checkfile(media)
-          if media.type.indexOf('image') > -1
-            resizeFileStack.push(media)
-          else
-            flashFileInvalid(media.name)
-          continue
-        uploadStack.push(media)
-      startUpload()
 
 
     count_uploads = 0

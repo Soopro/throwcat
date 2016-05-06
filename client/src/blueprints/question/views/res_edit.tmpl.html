@@ -1,5 +1,4 @@
-<md-dialog class="full md-content-overflow"
-           aria-label="{{_('Resource')}}"
+<md-dialog aria-label="{{_('Resource')}}"
            flex>
   <md-toolbar class="dialog md-hue-3 bg-trans">
     <div class="md-toolbar-tools">
@@ -28,6 +27,7 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
         </md-content>
       </md-tab>
+
       <md-tab label="{{_('Media Repository')}}">
         <md-content class="md-padding">
           <div layout="row"
@@ -39,12 +39,36 @@
                  flex-md="25"
                  flex-sm="33"
                  flex-xs="50"
+                 layout="column"
                  ng-repeat="media in mediafiles|paginator:paged">
-              <md-card>
+              <md-card ng-click="select(media)"
+                       ng-if="!media._empty">
                 <img ng-src="{{image.trans}}"
-                     class="md-card-image img-cover"
+                     class="img-half"
                      style="background-image:url({{media.thumbnail}})"
                      alt="{{media.filename}}">
+              </md-card>
+              <md-card ng-if="media._empty"
+                       ng-click="onFileSelect()"
+                       ngf-select="onFileSelect($files)"
+                       accept="{{mimetypes_str}}"
+                       ng-disabled="upload_status == 1"
+                       layout="column"
+                       layout-align="center center"
+                       flex>
+                <md-icon class="s48 md-primary"
+                         ng-show="upload_status == 0"
+                         md-svg-icon="ic_add_24px"></md-icon>
+                <md-icon class="s48 md-warn"
+                         ng-show="upload_status == 2"
+                         md-svg-icon="ic_warning_24px"></md-icon>
+                <div layout="row"
+                     layout-align="center center">
+                  <md-progress-circular md-mode="indeterminate"
+                                        md-diameter="100"
+                                        ng-show="upload_status == 1">
+                  </md-progress-circular>
+                </div>
               </md-card>
             </div>
           </div>
@@ -60,6 +84,7 @@
           </div>
         </md-content>
       </md-tab>
+
     </md-tabs>
   </md-dialog-content>
   <md-dialog-actions

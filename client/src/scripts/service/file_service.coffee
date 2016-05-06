@@ -8,7 +8,7 @@ angular.module 'throwCat'
     Upload
   ) ->
     max_file_size =
-      image: 600*1024
+      image: 900*1024
       video: 18*1024*1024
       audio: 8*1024*1024
       zip: 18*1024*1024

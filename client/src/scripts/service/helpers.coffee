@@ -34,17 +34,16 @@ angular.module 'throwCat'
 
 # MIME types
 .service 'MIMETypes', ->
-  (types, mimetypes)->
+  (types, allowed_mimetypes)->
 
     if typeof(types) is 'string'
       types = [types]
-
     if not angular.isArray(types) or types.length is 0
       return []
 
     mimetypes = []
 
-    for k,v of mimetypes
+    for k,v of allowed_mimetypes
       for type in types
         if k == type
           mimetypes = mimetypes.concat(v)

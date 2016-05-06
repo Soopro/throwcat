@@ -69,27 +69,6 @@ Author:   redy
   }
 }
 
-/* image */
-.img-cover {
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.img-contain {
-  width: 100%;
-  background-color: rgba(158,158,158,0.1);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.img-center {
-  width: 100%;
-  background-color: rgba(158,158,158,0.1);
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 
 /* transparent */
 .t75 {
@@ -424,6 +403,13 @@ md-toast.md-warn {
   }
 }
 
+/* card */
+md-card {
+  &[ng-click]:active {
+    background-color: rgba(158,158,158,0.15);
+  }
+}
+
 /* dialog */
 md-dialog{
   &.full{
@@ -449,6 +435,44 @@ label.static {
   min-height: 54px;
 }
 
+/* image */
+.img-cover {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.img-contain {
+  width: 100%;
+  background-color: rgba(158,158,158,0.1);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.img-center {
+  width: 100%;
+  background-color: rgba(158,158,158,0.1);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.img-half {
+  width: 100%;
+  background-color: rgba(158,158,158,0.1);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.uploadbox {
+  max-width: 100%;
+  width: 240px;
+  height: 120px;
+  border-radius: 8px;
+  margin: 16px auto;
+  border: 2px dotted darken(@gray-bg-color, 50%);
+  text-align: center;
+  line-height: 120px;
+}
 
 /* Animation
 ----------------------------------------------- */
