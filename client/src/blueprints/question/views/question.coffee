@@ -104,6 +104,7 @@ angular.module 'throwCat'
       dialog.show
         controller: 'questionResEditCtrl'
         templateUrl: 'blueprints/question/views/res_edit.tmpl.html'
+        fullscreen: true
         locals:
           type: question_type
           resource: resource

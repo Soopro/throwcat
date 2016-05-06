@@ -1,5 +1,5 @@
-<md-dialog aria-label="{{_('Resource')}}"
-           flex>
+<md-dialog class="fullscreen"
+           aria-label="{{_('Resource')}}">
   <md-toolbar class="dialog md-hue-3 bg-trans">
     <div class="md-toolbar-tools">
       <span>
@@ -16,73 +16,14 @@
   </md-toolbar>
   <md-dialog-content class="md-dialog-content"
                      flex>
-    <md-tabs md-dynamic-height
-             md-border-bottom>
+    <md-tabs md-selected="selected_tab"
+             md-dynamic-height>
       <md-tab label="{{_('Recipe')}}">
-        <md-content class="md-padding">
-          <h3 class="md-display-1">{{_('Recipe')}}</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-        </md-content>
+        {% include '_res_edit_recipe.html' %}
       </md-tab>
 
       <md-tab label="{{_('Media Repository')}}">
-        <md-content class="md-padding">
-          <div layout="row"
-               layout-xs="none"
-               layout-wrap>
-
-            <div class="show-hide"
-                 flex-gt-md="20"
-                 flex-md="25"
-                 flex-sm="33"
-                 flex-xs="50"
-                 layout="column"
-                 ng-repeat="media in mediafiles|paginator:paged">
-              <md-card ng-click="select(media)"
-                       ng-if="!media._empty">
-                <img ng-src="{{image.trans}}"
-                     class="img-half"
-                     style="background-image:url({{media.thumbnail}})"
-                     alt="{{media.filename}}">
-              </md-card>
-              <md-card ng-if="media._empty"
-                       ng-click="onFileSelect()"
-                       ngf-select="onFileSelect($files)"
-                       accept="{{mimetypes_str}}"
-                       ng-disabled="upload_status == 1"
-                       layout="column"
-                       layout-align="center center"
-                       flex>
-                <md-icon class="s48 md-primary"
-                         ng-show="upload_status == 0"
-                         md-svg-icon="ic_add_24px"></md-icon>
-                <md-icon class="s48 md-warn"
-                         ng-show="upload_status == 2"
-                         md-svg-icon="ic_warning_24px"></md-icon>
-                <div layout="row"
-                     layout-align="center center">
-                  <md-progress-circular md-mode="indeterminate"
-                                        md-diameter="100"
-                                        ng-show="upload_status == 1">
-                  </md-progress-circular>
-                </div>
-              </md-card>
-            </div>
-          </div>
-          <!-- more -->
-          <div class="anim-item md-padding"
-               layout="row"
-               layout-align="center center"
-               ng-show="has_more(mediafiles, paged)">
-            <md-button class="btn"
-                       ng-click="more(mediafiles, paged)">
-              {{_('Get More')}}
-            </md-button>
-          </div>
-        </md-content>
+        {% include '_res_edit_media.html' %}
       </md-tab>
 
     </md-tabs>

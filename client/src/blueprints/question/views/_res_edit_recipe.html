@@ -1,0 +1,22 @@
+<md-content class="md-padding">
+  <md-card class="recipe-card">
+    <md-card-content layout="column"
+                     flex
+                     ng-if="curr_media.src">
+      <div layout="column"
+           layout-align="center center"
+           flex>
+        <img class="recipe-img"
+           ng-src="{{curr_media.src}}">
+      </div>
+    </md-card-content>
+    <md-card-content layout="column"
+                     layout-align="center center"
+                     ng-if="!curr_media.src"
+                     ng-click="tab(1)"
+                     flex>
+      <md-icon class="s48"
+               md-svg-icon="ic_photo_24px"></md-icon>
+    </md-card-content>
+  </md-card>
+</md-content>

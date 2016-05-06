@@ -15,7 +15,7 @@ angular.module 'throwCat'
       {
         alias: "media"
         name: "Media Library"
-        ico: "ic_photo_24px"
+        ico: "ic_collections_24px"
         path: "/media"
       }
       {

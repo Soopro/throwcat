@@ -31,7 +31,11 @@ angular.module 'throwCat'
     $scope.image = image
     $scope.resource = resource
     $scope.resource_type = type
-    $scope.curr_media = null
+    $scope.selected_tab = 0
+    $scope.curr_media = {}
+
+    $scope.tab = (tab_order)->
+      $scope.selected_tab = tab_order
 
     $scope.trash = (resource)->
       resource._deleted = true
@@ -45,6 +49,7 @@ angular.module 'throwCat'
 
     $scope.select = (media)->
       $scope.curr_media = media
+      $scope.tab(0)
 
     # more
     $scope.paged = 1
