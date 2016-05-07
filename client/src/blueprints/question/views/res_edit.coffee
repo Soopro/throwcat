@@ -61,7 +61,6 @@ angular.module 'throwCat'
           return false
 
 
-
     # more
     $scope.paged = 1
     $scope.has_more = (mediafiles, paged, prepage)->

@@ -14,6 +14,15 @@
           'The *Tip* field will tell people where to look at on the photo, '+
           'and you have to put the right answer into *Answer* field.')}}
     </p>
+    <p ng-if="match_type('slide', resource_type)">
+      {{_('People must slide the object to the right position. '+
+          'The *Tip* field will tell people where to go. ')}}
+    </p>
+    <p ng-if="match_type('jigsaw', resource_type)">
+      {{_('People must move the piece to finish the puzzle. '+
+          'The *Tip* field will tell people what to do, ')}}
+    </p>
+
 
     <md-input-container>
       <label>{{_('Tip')}}</label>

@@ -8,6 +8,7 @@ angular.module 'throwCat'
   'navService'
   'Config'
   'ConfigQs'
+  'helpModal'
   'fsv'
   'image'
   'dialog'
@@ -20,6 +21,7 @@ angular.module 'throwCat'
     navService
     Config
     ConfigQs
+    helpModal
     fsv
     image
     dialog
@@ -77,8 +79,9 @@ angular.module 'throwCat'
       .finally ->
         $scope.submitted = false
 
-    $scope.show_tips = ->
-      console.log 'tips'
+    $scope.help = (content)->
+      console.log content
+      helpModal(content)
 
     # resources
 

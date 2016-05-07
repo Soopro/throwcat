@@ -1,0 +1,20 @@
+<md-dialog aria-label="{{_('Help')}}">
+  <md-dialog-content layout-padding>
+    <h3 class="md-subhead">{{_('Help')}}</h3>
+    <div layout-padding>
+      <div>
+        <div ng-if="!tmpl"
+             ng-bind-html="content">
+        </div>
+        <ng-include src="tmpl"
+                    ng-if="tmpl"></ng-include>
+      </div>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button class="btn md-primary"
+               ng-click="ok()">
+      {{_('Ok, I understand.')}}
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

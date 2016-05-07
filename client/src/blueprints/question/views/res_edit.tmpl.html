@@ -1,5 +1,4 @@
-<md-dialog class="fullscreen"
-           aria-label="{{_('Resource')}}">
+<md-dialog aria-label="{{_('Resource')}}">
   <md-toolbar class="md-hue-3 bg-trans">
     <div class="md-toolbar-tools">
       <span>
@@ -35,7 +34,7 @@
   </md-dialog-content>
   <md-dialog-actions
        layout="row"
-       layout-align="center center"
+       layout-align="end center"
        flex-order="3">
     <md-button class="md-icon-button"
                aria-label="{{_('Trash')}}"
@@ -44,7 +43,7 @@
       <md-icon md-svg-icon="ic_delete_24px"></md-icon>
     </md-button>
     <span flex></span>
-    <md-button class="md-primary"
+    <md-button class="btn md-primary"
                ng-click="save(resource)">
       {{_('Save')}}
     </md-button>

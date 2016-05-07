@@ -54,13 +54,13 @@
 
   <!-- ng-templates -->
 
-  <ng-include src="'blueprints/common/views/mainnav.tmpl.html'"
+  <ng-include src="'common/views/mainnav.tmpl.html'"
               ng-controller="mainNavCtrl"
               layout="column">
   </ng-include>
 
   <div flex layout="column">
-    <ng-include src="'blueprints/common/views/topnav.tmpl.html'"
+    <ng-include src="'common/views/topnav.tmpl.html'"
                 ng-controller="topNavCtrl">
     </ng-include>
     <md-content class="ng-view"
@@ -75,6 +75,8 @@
 
   <!-- build:js app.min.js?md5=null -->
   {% include 'scripts/_r_app_.html' %}
+  {% include 'common/_r_scripts_.html' %}
+  {% include 'modals/_r_scripts_.html' %}
   {% include 'blueprints/_r_scripts_.html' %}
   <!-- /build-->
   <!-- build:js locale.min.js?md5=null -->

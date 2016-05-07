@@ -8,14 +8,15 @@ angular.module 'throwCat'
     }
     {
       key: 1
-      name: 'Slide'
+      name: 'Reading'
     }
     {
       key: 2
-      name: 'Jigsaw'
+      name: 'Slide'
     }
     {
       key: 3
-      name: 'Reading'
+      name: 'Jigsaw'
     }
+
   ]
