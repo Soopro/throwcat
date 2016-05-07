@@ -1,0 +1,51 @@
+/* Animation
+----------------------------------------------- */
+@duration: 0.9s;
+
+.keyframes(@name; @frames) {
+  @-webkit-keyframes @name { @frames(); }
+	   @-moz-keyframes @name { @frames(); }
+       @-o-keyframes @name { @frames(); }
+	        @keyframes @name { @frames(); }
+}
+
+.animixin(@arguments) {
+	-webkit-animation: @arguments;
+	   -moz-animation: @arguments;
+       -o-animation: @arguments;
+	        animation: @arguments;
+  pointer-events: none;
+  backface-visibility: hidden;
+}
+
+.ng-enter.noenter,
+.ng-leave.noleave,
+.ng-hide-add.noleave,
+.ng-hide-remove.noenter {
+  display: none !important;
+}
+.ng-enter,
+.ng-leave {
+  pointer-events: none !important;
+}
+
+.keyframes(
+  @name: Rotate;
+  @frames: {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(-359deg);}
+  }
+);
+.rotating{
+  .animixin(Rotate @duration linear);
+  animation-iteration-count: infinite;
+}
+
+
+.show-hide {
+  .transition(all linear 0.2s);
+}
+
+.show-hide.ng-hide {
+  opacity:0;
+}

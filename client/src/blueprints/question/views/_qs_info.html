@@ -29,7 +29,7 @@
                required>
       <md-option ng-repeat="type in question_types"
                  ng-value="{{type.key}}">
-        {{type.name}}
+        {{_(type.name)}}
       </md-option>
     </md-select>
     <ng-messages ng-if="info_form.type.$touched"

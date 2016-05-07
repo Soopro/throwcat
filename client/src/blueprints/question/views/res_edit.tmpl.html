@@ -1,9 +1,13 @@
 <md-dialog class="fullscreen"
            aria-label="{{_('Resource')}}">
-  <md-toolbar class="dialog md-hue-3 bg-trans">
+  <md-toolbar class="md-hue-3 bg-trans">
     <div class="md-toolbar-tools">
       <span>
-        {{resource._new?_('Add Resource'):_('Edit Resource')}}
+        {{
+          resource._new
+          ?_('Add %s Resource', resource_type.name)
+          :_('Edit %s Resource', resource_type.name)
+        }}
       </span>
       <span flex></span>
       <md-button class="md-icon-button"
@@ -18,6 +22,7 @@
                      flex>
     <md-tabs md-selected="selected_tab"
              md-dynamic-height>
+
       <md-tab label="{{_('Recipe')}}">
         {% include '_res_edit_recipe.html' %}
       </md-tab>

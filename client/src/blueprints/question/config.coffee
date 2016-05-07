@@ -5,13 +5,17 @@ angular.module 'throwCat'
     {
       key: 0
       name: 'Photo'
-    },
+    }
     {
       key: 1
       name: 'Slide'
-    },
+    }
     {
       key: 2
       name: 'Jigsaw'
-    },
+    }
+    {
+      key: 3
+      name: 'Reading'
+    }
   ]

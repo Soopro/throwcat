@@ -51,6 +51,17 @@ angular.module 'throwCat'
       $scope.curr_media = media
       $scope.tab(0)
 
+    $scope.match_type = (subject, type)->
+      switch subject
+        when 'photo'
+          return type.key is 0
+        when 'reading'
+          return type.key is 3
+        else
+          return false
+
+
+
     # more
     $scope.paged = 1
     $scope.has_more = (mediafiles, paged, prepage)->
