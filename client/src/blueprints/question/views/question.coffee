@@ -120,7 +120,7 @@ angular.module 'throwCat'
           angular.removeFromList(question, res, 'deleted')
         else if res._new
           delete res._new
-          question.resource.push(res)
+          question.resources.push(res)
 
 
     prepare_res_type = (question)->

@@ -62,7 +62,7 @@
 
   </form>
 
-  <div ng-if="!curr_media.src"
+  <div ng-if="!resource.src"
        layout-margin>
     <p class="md-caption tip">
       {{_('* Please select one image from media repository. '+
@@ -70,20 +70,20 @@
     </p>
   </div>
   <md-card class="recipe-card"
-           ng-if="curr_media.src">
+           ng-if="resource.src">
     <md-card-content layout="column"
                      layout-align="center center"
                      flex>
       <div class="recipe-editor"
            bagua-image-editor
-           img-src-url="curr_media.src"
-           img-recipe="media.recipe">
+           img-src-url="resource.src"
+           img-recipe="resource.recipe">
       </div>
     </md-card-content>
   </md-card>
 
   <md-card class="recipe-card"
-           ng-if="!curr_media.src"
+           ng-if="!resource.src"
            ng-click="tab(1)">
     <md-card-content layout="column"
                      layout-align="center center"

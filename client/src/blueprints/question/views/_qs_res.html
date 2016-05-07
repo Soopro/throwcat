@@ -3,8 +3,8 @@
     <img ng-src="{{image.trans_cover}}"
          class="md-card-image img-center"
          style="background-image:
-                url(http://media.soopro.com/sup/soopro/qr.png)"
-         alt="{{_('Img Title')}}"
+                url({{entry.src}})"
+         alt="{{$index}}"
          ng-click="edit(question, entry)">
     <md-card-actions layout="row"
                      layout-align="end center">

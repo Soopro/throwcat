@@ -2,6 +2,7 @@ angular.module 'throwCat'
 
 .controller "questionResEditCtrl", [
   '$scope'
+  '$rootScope'
   '$filter'
   'restMedia'
   'MediaService'
@@ -14,6 +15,7 @@ angular.module 'throwCat'
   'resource'
   (
     $scope
+    $rootScope
     $filter
     restMedia
     MediaService
@@ -32,7 +34,6 @@ angular.module 'throwCat'
     $scope.resource = resource
     $scope.resource_type = type
     $scope.selected_tab = 0
-    $scope.curr_media = {}
 
     $scope.tab = (tab_order)->
       $scope.selected_tab = tab_order
@@ -42,13 +43,17 @@ angular.module 'throwCat'
       dialog.hide(resource)
 
     $scope.save = (resource)->
+      if current_img_editor
+        $scope.media.recipe = current_img_editor.recipe()
+      console.log resource
       dialog.hide(resource)
 
     $scope.close = ->
       dialog.cancel()
 
-    $scope.select = (media)->
-      $scope.curr_media = media
+    $scope.select = (media, resource)->
+      console.log media, resource
+      resource.src = media.src
       $scope.tab(0)
 
     $scope.match_type = (subject, type)->
@@ -60,6 +65,17 @@ angular.module 'throwCat'
         else
           return false
 
+
+    # bagua image
+    current_img_editor = null
+    aspect_ratio = resource.recipe.aspect_ratio or 100
+    clean_bagua = $rootScope.$on 'bagua.loaded', (e, img_editor, reload)->
+      current_img_editor = img_editor
+      current_img_editor.scale(aspect_ratio)
+      $scope.$apply()
+
+    $scope.$on '$destroy', ->
+      clean_bagua() if clean_bagua
 
     # more
     $scope.paged = 1

@@ -10,7 +10,7 @@
          flex-xs="100"
          layout="column"
          ng-repeat="media in mediafiles|paginator:paged">
-      <md-card ng-click="select(media)"
+      <md-card ng-click="select(media, resource)"
                ng-if="!media._empty">
         <img ng-src="{{image.trans}}"
              class="img-half"
