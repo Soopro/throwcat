@@ -22,7 +22,7 @@
     </ng-messages>
   </md-input-container>
 
-  <md-input-container class="select-container">
+  <md-input-container class="select-container ignore-md-icon">
     <label>{{_('Type')}}</label>
     <md-select name="type"
                ng-model="question.type"
@@ -39,6 +39,14 @@
       </ng-message>
       </ng-message>
     </ng-messages>
+    <p class="md-caption tip"
+       ng-click="help('type')">
+      <span>
+        {{_('Question type will define how is the question work.')}}
+      </span>
+      <md-icon class="ico"
+               md-svg-icon="ic_help_24px"></md-icon>
+    </p>
   </md-input-container>
 
   <md-input-container>

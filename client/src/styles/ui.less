@@ -207,11 +207,17 @@ md-dialog {
 label.static {
   .transform(translate3d(0, 6px, 0) scale(0.75)) !important;
   color: rgba(0,0,0,0.54) !important;
-
-  // & + md-select {
-  //   padding-top: 2px;
-  // }
 }
+label span {
+  margin-right:4px;
+}
+md-input-container.ignore-md-icon {
+  padding: 2px;
+  & > label {
+    left: 0;
+  }
+}
+
 
 /* containers */
 .select-container {

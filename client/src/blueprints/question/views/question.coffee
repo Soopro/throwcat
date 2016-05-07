@@ -77,12 +77,16 @@ angular.module 'throwCat'
       .finally ->
         $scope.submitted = false
 
-    # resources
-    $scope.move_res_up = (question, entry)->
-      return
+    $scope.show_tips = ->
+      console.log 'tips'
 
-    $scope.move_res_down = (question, entry)->
-      return
+    # resources
+
+    # $scope.move_res_up = (question, entry)->
+    #   return
+    #
+    # $scope.move_res_down = (question, entry)->
+    #   return
 
     $scope.remove_res = (question, entry)->
       return
