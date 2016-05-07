@@ -8,6 +8,7 @@ angular.module 'throwCat'
   'Auth'
   'Config'
   'flashWatcher'
+  'MediaService'
   (
     $rootScope
     $location
@@ -16,12 +17,19 @@ angular.module 'throwCat'
     Auth
     Config
     flashWatcher
+    MediaService
   ) ->
     console.log "-----------------------------"
     console.log "ThrowCat:", App.version
     console.log "Developers:", App.artisan.join(', ')
     console.log "Github:", App.github
     console.log "-----------------------------"
+
+    # MediaService
+    MediaService.config
+      max_file_size: Config.max_file_size
+      max_image_size: Config.max_image_size
+      encoder_options: Config.media_encoder_options
 
     # flash
     flashWatcher.init()

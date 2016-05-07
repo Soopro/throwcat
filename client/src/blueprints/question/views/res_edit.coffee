@@ -10,6 +10,7 @@ angular.module 'throwCat'
   'Config'
   'dialog'
   'flash'
+  'fsv'
   'image'
   'type'
   'resource'
@@ -23,6 +24,7 @@ angular.module 'throwCat'
     Config
     dialog
     flash
+    fsv
     image
     type
     resource
@@ -33,6 +35,7 @@ angular.module 'throwCat'
     $scope.image = image
     $scope.resource = resource
     $scope.resource_type = type
+    $scope.forms = {}
     $scope.selected_tab = 0
 
     $scope.tab = (tab_order)->
@@ -43,16 +46,16 @@ angular.module 'throwCat'
       dialog.hide(resource)
 
     $scope.save = (resource)->
+      if not fsv($scope.forms.recipe_form, ['tip', 'answer'])
+        return
       if current_img_editor
-        $scope.media.recipe = current_img_editor.recipe()
-      console.log resource
+        resource.recipe = current_img_editor.recipe()
       dialog.hide(resource)
 
     $scope.close = ->
       dialog.cancel()
 
     $scope.select = (media, resource)->
-      console.log media, resource
       resource.src = media.src
       $scope.tab(0)
 
@@ -61,7 +64,7 @@ angular.module 'throwCat'
         when 'photo'
           return type.key is 0
         when 'reading'
-          return type.key is 3
+          return type.key is 1
         else
           return false
 

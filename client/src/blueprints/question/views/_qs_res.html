@@ -1,35 +1,20 @@
 <div layout-margin>
-  <md-card ng-repeat="entry in question.resources">
-    <img ng-src="{{image.trans_cover}}"
-         class="md-card-image img-center"
-         style="background-image:
-                url({{entry.src}})"
-         alt="{{$index}}"
-         ng-click="edit(question, entry)">
-    <md-card-actions layout="row"
-                     layout-align="end center">
-      <md-button class="md-icon-button"
-                 aria-label="{{_('Remove')}}"
-                 ng-click="remove_res(question, entry)">
-        <md-icon md-svg-icon="ic_clear_24px"></md-icon>
-      </md-button>
-      <span flex></span>
-      <!-- <md-button class="md-icon-button"
-                 aria-label="{{_('Up')}}"
-                 ng-click="move_res_up(question, entry)">
-        <md-icon md-svg-icon="ic_arrow_drop_up_24px"></md-icon>
-      </md-button>
-      <md-button class="md-icon-button"
-                 aria-label="{{_('Down')}}"
-                 ng-click="move_res_down(equestion, entry)">
-        <md-icon md-svg-icon="ic_arrow_drop_down_24px"></md-icon>
-      </md-button> -->
-      <md-button class="md-icon-button"
-                 aria-label="{{_('Edit')}}"
-                 ng-click="edit_res(question, entry)">
-        <md-icon md-svg-icon="ic_create_24px"></md-icon>
-      </md-button>
-    </md-card-actions>
+  <md-card ng-repeat="entry in question.resources"
+           ng-click="edit_res(question, entry)">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-body-2">{{entry.tip}}</span>
+        <span class="md-subhead">{{entry.answer}}</span>
+      </md-card-title-text>
+      <md-card-title-media>
+        <div class="md-media-sm res-media">
+          <img class="img-cover"
+               style="background-image:url({{entry.src}})"
+               ng-src="{{image.trans}}"
+               alt="{{$index}}">
+        </div>
+      </md-card-title-media>
+    </md-card-title>
   </md-card>
 
   <md-card class="md-padding"

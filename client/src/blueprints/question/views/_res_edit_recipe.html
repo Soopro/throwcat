@@ -1,38 +1,38 @@
 <md-content class="md-padding">
-  <form name="res_form"
+  <form name="forms.recipe_form"
         ng-submit="save()"
         layout="column"
         layout-margin
         novalidate>
-
-    <p ng-if="match_type('photo', resource_type)">
-      {{_('People must click the right spot on this photo. '+
-          'The *Tip* field will tell people where to click on the photo.')}}
-    </p>
-    <p ng-if="match_type('reading', resource_type)">
-      {{_('People must Reading the photo then give a right answer. '+
-          'The *Tip* field will tell people where to look at on the photo, '+
-          'and you have to put the right answer into *Answer* field.')}}
-    </p>
-    <p ng-if="match_type('slide', resource_type)">
-      {{_('People must slide the object to the right position. '+
-          'The *Tip* field will tell people where to go. ')}}
-    </p>
-    <p ng-if="match_type('jigsaw', resource_type)">
-      {{_('People must move the piece to finish the puzzle. '+
-          'The *Tip* field will tell people what to do, ')}}
-    </p>
-
+    <div>
+      <p ng-if="match_type('photo', resource_type)">
+        {{_('People must click the right spot on this photo. '+
+            'The *Tip* field will tell people where to click on the photo.')}}
+      </p>
+      <p ng-if="match_type('reading', resource_type)">
+        {{_('People must Reading the photo then give a right answer. '+
+            'The *Tip* field will tell people where to look at on the photo, '+
+            'and you have to put the right answer into *Answer* field.')}}
+      </p>
+      <p ng-if="match_type('slide', resource_type)">
+        {{_('People must slide the object to the right position. '+
+            'The *Tip* field will tell people where to go. ')}}
+      </p>
+      <p ng-if="match_type('jigsaw', resource_type)">
+        {{_('People must move the piece to finish the puzzle. '+
+            'The *Tip* field will tell people what to do, ')}}
+      </p>
+    </div>
 
     <md-input-container>
       <label>{{_('Tip')}}</label>
       <input name="tip"
              type="text"
-             ng-model="resource.tips"
+             ng-model="resource.tip"
              md-maxlength="60"
              required/>
-      <ng-messages ng-if="res_form.tip.$touched"
-                   for="res_form.tip.$error">
+      <ng-messages ng-if="forms.recipe_form.tip.$touched"
+                   for="forms.recipe_form.tip.$error">
         <ng-message when="required">
           {{ _('This is required.') }}
         </ng-message>
@@ -49,8 +49,8 @@
              ng-model="resource.answer"
              md-maxlength="60"
              required/>
-      <ng-messages ng-if="res_form.answer.$touched"
-                   for="res_form.answer.$error">
+      <ng-messages ng-if="forms.recipe_form.answer.$touched"
+                   for="forms.recipe_form.answer.$error">
         <ng-message when="required">
           {{ _('This is required.') }}
         </ng-message>
@@ -70,7 +70,7 @@
     </p>
   </div>
   <md-card class="recipe-card"
-           ng-if="resource.src">
+           ng-if="resource.src && match_type('photo', resource_type)">
     <md-card-content layout="column"
                      layout-align="center center"
                      flex>
@@ -79,6 +79,15 @@
            img-src-url="resource.src"
            img-recipe="resource.recipe">
       </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="recipe-card"
+           ng-if="resource.src && match_type('reading', resource_type)">
+    <md-card-content layout="column"
+                     layout-align="center center"
+                     flex>
+      <img ng-src="{{resource.src}}"
+           alt="{{_('Reading')}}">
     </md-card-content>
   </md-card>
 
