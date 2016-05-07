@@ -26,6 +26,7 @@
     <label>{{_('Type')}}</label>
     <md-select name="type"
                ng-model="question.type"
+               ng-disabled="!is_new"
                required>
       <md-option ng-repeat="type in question_types"
                  ng-value="{{type.key}}">
@@ -39,42 +40,8 @@
       </ng-message>
     </ng-messages>
 
-    <script type="text/ng-template" id="question_help.tmpl.html">
-      <div>
-        <h4 class="md-title">{{_('Photo')}}</h4>
-        <p>
-          {{_('People must click the right spot on this photo. '+
-              'The *Tip* field will tell people where to click '+
-              'on the photo.')}}
-        </p>
-      </div>
-      <md-divider></md-divider>
-      <div>
-        <h4 class="md-title">{{_('Reading')}}</h4>
-        <p>
-          {{_('People must Reading the photo then give a right answer. '+
-              'The *Tip* field will tell people where to look at '+
-              'on the photo, and you have to put the right answer '+
-              'into *Answer* field.')}}
-        </p>
-      </div>
-      <md-divider></md-divider>
-      <div>
-        <h4 class="md-title">{{_('Slide')}}</h4>
-        <p>
-          {{_('People must slide the object to the right position. '+
-              'The *Tip* field will tell people where to go.')}}
-        </p>
-      </div>
-      <md-divider></md-divider>
-      <div>
-        <h4 class="md-title">{{_('Jigsaw')}}</h4>
-        <p>
-          {{_('People must move the piece to finish the puzzle. '+
-              'The *Tip* field will tell people what to do.')}}
-        </p>
-      </div>
-    </script>
+    {% include '_qs_info_help.html' %}
+
     <p class="md-caption tip"
        ng-click="help('question_help.tmpl.html')">
       <span>
@@ -98,15 +65,15 @@
     </ng-messages>
   </md-input-container>
 
-  <md-input-container>
-    <label class="static">{{_('Publish')}}</label>
-    <md-switch ng-model="question.status"
-               aria-label="{{_('Publish')}}"
-               ng-true-value="{{1}}"
-               ng-false-value="{{0}}">
-        {{question.status?_('Published'):_('Draft')}}
-      </md-switch>
-  </md-input-container>
+  <div layout="column"
+       layout-margin>
+    <md-switch ng-model="show_scripts"
+               aria-label="{{_('Scripts')}}">
+      {{show_scripts?_('Hide Scripts'):_('Show Scripts')}}
+    </md-switch>
+    <textarea class="scripts"
+              ng-show="show_scripts">{{scripts}}</textarea>
+  </div>
 
   <div layout="row">
     <md-button class="btn md-raised md-primary"

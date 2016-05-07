@@ -39,10 +39,18 @@ angular.module 'throwCat'
       $scope.question = new restCat.question
         resources: []
         type: 0
-        stauts: 0
+      $scope.scripts = '
+        <div id="trhow-cat-plugin" app-key="DSFSDF">
+        </div><script src="http://libs.throwcat.com"></script>
+      '
     else
       $scope.question = restCat.question.get()
       $scope.question.$promise
+      .then ()->
+        $scope.scripts = '
+          <div id="trhow-cat-plugin" app-key="DSFSDF">
+          </div><script src="http://libs.throwcat.com"></script>
+        '
       .catch (data)->
         $location.path Config.route.error
 
@@ -80,7 +88,6 @@ angular.module 'throwCat'
         $scope.submitted = false
 
     $scope.help = (content)->
-      console.log content
       helpModal(content)
 
     # resources

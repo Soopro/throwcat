@@ -1,20 +1,18 @@
 <div layout-margin>
   <md-card ng-repeat="entry in question.resources"
            ng-click="edit_res(question, entry)">
-    <md-card-title>
-      <md-card-title-text>
-        <span class="md-body-2">{{entry.tip}}</span>
-        <span class="md-subhead">{{entry.answer}}</span>
-      </md-card-title-text>
-      <md-card-title-media>
-        <div class="md-media-sm res-media">
-          <img class="img-cover"
-               style="background-image:url({{entry.src}})"
-               ng-src="{{image.trans}}"
-               alt="{{$index}}">
-        </div>
-      </md-card-title-media>
-    </md-card-title>
+    <md-card-content layout="row">
+      <div flex>
+        <h3 class="md-body-1 text-nowrap">{{entry.tip}}</h3>
+        <p class="md-caption text-nowrap">{{entry.answer}}</p>
+      </div>
+      <div class="res-media">
+        <img class="img-cover"
+             style="background-image:url({{entry.src}})"
+             ng-src="{{image.trans}}"
+             alt="{{$index}}">
+      </div>
+    </md-card-content>
   </md-card>
 
   <md-card class="md-padding"

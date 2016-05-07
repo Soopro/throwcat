@@ -186,9 +186,15 @@ md-card {
       }
     }
   }
-  & .res-media img{
-    max-width: 100%;
+  & .res-media {
+    padding-left: 24px;
+    width: 80px;
+    height: 80px;
+    & img{
+      max-width: 100%;
+    }
   }
+
 }
 
 /* dialog */
@@ -214,6 +220,14 @@ label.static {
 label span {
   margin-right:4px;
 }
+textarea.scripts {
+  padding: 8px;
+  min-height: 100px;
+  border-radius: 2px;
+  border-color: darken(@color-gray-trans, 25%);
+  resize: vertical;
+}
+
 md-input-container.ignore-md-icon {
   padding: 2px;
   & > label {

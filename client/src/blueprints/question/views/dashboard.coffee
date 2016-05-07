@@ -20,6 +20,13 @@ angular.module 'throwCat'
     $scope.questions = restCat.question.query()
     $scope.image = image
 
+    $scope.create = ->
+      dialog.show
+        controller: 'questionCreateCtrl'
+        templateUrl: 'blueprints/question/views/create.tmpl.html'
+      .then (quesiton) ->
+        questions.unshift(question)
+
     $scope.go = (entry_id)->
       $location.path '/question/'+entry_id
 ]
