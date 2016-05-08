@@ -28,7 +28,7 @@
 baguaImageEditor = (editor, opt, is_debug)->
   # ---------------- Variables --------------
   project_name = 'BaguaImgEditor'
-  ver = '0.3.5'
+  ver = '0.4.0'
   now = Date.now()
   debug = false
 
@@ -328,11 +328,11 @@ baguaImageEditor = (editor, opt, is_debug)->
       return
 
     if recipe and typeof(recipe) == 'object'
-      if recipe.cropper_area
-        _crop_top = px(recipe.cropper_area[0])
-        _crop_right = px(recipe.cropper_area[1])
-        _crop_bottom = px(recipe.cropper_area[2])
-        _crop_left = px(recipe.cropper_area[3])
+      if recipe.crop_precent
+        _crop_top = px($current_img.clientHeight * recipe.crop_precent[0])
+        _crop_right = px($current_img.clientWidth * recipe.crop_precent[1])
+        _crop_bottom = px($current_img.clientHeight * recipe.crop_precent[2])
+        _crop_left = px($current_img.clientWidth * recipe.crop_precent[3])
 
       if recipe.aspect_ratio and recipe.aspect_ratio <= 1 \
       and typeof recipe.aspect_ratio is 'number'
@@ -535,7 +535,7 @@ baguaImageEditor = (editor, opt, is_debug)->
 
     percent = width / $current_img.clientWidth
 
-    crop_w = int((parseInt($crop_container.style.width) or 0)* percent)
+    crop_w = int((parseInt($crop_container.style.width) or 0) * percent)
     crop_h = int((parseInt($crop_container.style.height) or 0) * percent)
     crop_x = int((parseInt($crop_container.style.left) or 0) * percent)
     crop_y = int((parseInt($crop_container.style.top) or 0) * percent)
@@ -543,11 +543,16 @@ baguaImageEditor = (editor, opt, is_debug)->
     crop_w = min(crop_w, width)
     crop_h = min(crop_h, height)
 
-    cropper_area = [
-      parseInt($img_cropper.style.top) or 0
-      parseInt($img_cropper.style.right) or 0
-      parseInt($img_cropper.style.bottom) or 0
-      parseInt($img_cropper.style.left) or 0
+    a_top = parseInt($img_cropper.style.top)
+    a_right = parseInt($img_cropper.style.right)
+    a_bottom = parseInt($img_cropper.style.bottom)
+    a_left = parseInt($img_cropper.style.left)
+
+    crop_precent = [
+      a_top / $current_img.clientHeight
+      a_right / $current_img.clientWidth
+      a_bottom / $current_img.clientHeight
+      a_left / $current_img.clientWidth
     ]
 
     return {
@@ -561,7 +566,7 @@ baguaImageEditor = (editor, opt, is_debug)->
         h: crop_h
         x: crop_x
         y: crop_y
-      cropper_area: cropper_area
+      crop_precent: crop_precent
       aspect_ratio: $aspect_ratio_num
       aw: rw
       ah: rh
