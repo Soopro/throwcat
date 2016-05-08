@@ -1,19 +1,21 @@
-<md-toolbar ng-class="{'md-hue-3 bg-trans': !is_logged(),
+<md-toolbar class="topnav"
+            ng-class="{'md-hue-3 ': !is_logged(),
                        'md-accent': is_logged() && navs.currBackward,
+                       'md-primary': is_logged() && !navs.currBackward,
                        'md-whiteframe-1dp': is_logged()}">
   <div class="md-toolbar-tools">
     <!-- nav menu -->
     <div layout="row"
          layout-align="center center">
-      <md-button class="md-icon-button"
+      <md-button class="md-icon-button show-hide noleave"
                  aria-label="{{_('Toggle main nav')}}"
-                 ng-if="!navs.currBackward"
+                 ng-show="!navs.currBackward"
                  ng-click="toggle_nav('main_nav')">
         <md-icon md-svg-icon="ic_menu_24px"></md-icon>
       </md-button>
-      <md-button class="md-icon-button"
+      <md-button class="md-icon-button show-hide noleave"
                  aria-label="{{_('Backward')}}"
-                 ng-if="navs.currBackward"
+                 ng-show="navs.currBackward"
                  ng-click="go(navs.currBackward)">
         <md-icon md-svg-icon="ic_arrow_back_24px"></md-icon>
       </md-button>

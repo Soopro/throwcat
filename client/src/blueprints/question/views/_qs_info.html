@@ -45,7 +45,8 @@
     <p class="md-caption tip"
        ng-click="help('question_help.tmpl.html')">
       <span>
-        {{_('Question type will define how is the question work.')}}
+        {{_('Question type define how is the question work. '+
+            'Can not be modified after the save.')}}
       </span>
       <md-icon class="ico"
                md-svg-icon="ic_help_24px"></md-icon>
@@ -68,8 +69,11 @@
   <div layout="column"
        layout-margin>
     <md-switch ng-model="show_scripts"
+               ng-disabled="!scripts"
                aria-label="{{_('Scripts')}}">
-      {{show_scripts?_('Hide Scripts'):_('Show Scripts')}}
+      <span ng-class="{'t33': !scripts}">
+        {{_('Show Plugin Scripts')}}
+      </span>
     </md-switch>
     <textarea class="scripts"
               ng-show="show_scripts">{{scripts}}</textarea>

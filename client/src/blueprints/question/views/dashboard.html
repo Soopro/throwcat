@@ -36,9 +36,9 @@
               </md-card-header-text>
             </md-card-header>
             <img ng-src="{{image.trans_cover}}"
-                 class="img-cover"
+                 class="img-cover bg-dark-trans"
                  style="background-image:
-                        url(http://media.soopro.com/devin/dp/folio10.jpg)"
+                        url({{question.resources[0].src || image.default}})"
                  alt="{{entry.title}}"
                  ng-click="go(entry.id)">
             <md-card-title layout="column">
@@ -55,7 +55,7 @@
             </md-card-content>
             <md-card-actions layout="row" layout-align="start center">
               <md-button class="btn md-primary"
-                         ng-click="go(entry.id)">
+                         ng-click="enter(entry.id)">
                 {{_('Enter')}}
               </md-button>
             </md-card-actions>
@@ -69,7 +69,7 @@
   <!-- fab -->
   <md-button class="md-accent md-fab md-fab-bottom-right fixed"
              aria-label="{{_('Add')}}"
-             ng-click="go('new')">
+             ng-click="create()">
     <md-icon md-svg-icon="ic_add_24px"></md-icon>
   </md-button>
 </div>

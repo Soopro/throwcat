@@ -1,4 +1,9 @@
 <script type="text/ng-template" id="question_help.tmpl.html">
+  <header>
+  <h2 class="md-headline">
+    {{_('There is several differnt type you should learn:')}}
+  </h2>
+  </header>
   <div>
     <h4 class="md-title">{{_('Photo')}}</h4>
     <p>
@@ -10,7 +15,7 @@
   <md-divider></md-divider>
   <div>
     <h4 class="md-title">{{_('Reading')}}</h4>
-    <p>
+    <p class="md-body-1">
       {{_('People must Reading the photo then give a right answer. '+
           'The *Tip* field will tell people where to look at '+
           'on the photo, and you have to put the right answer '+
@@ -20,7 +25,7 @@
   <md-divider></md-divider>
   <div>
     <h4 class="md-title">{{_('Slide')}}</h4>
-    <p>
+    <p class="md-body-1">
       {{_('People must slide the object to the right position. '+
           'The *Tip* field will tell people where to go.')}}
     </p>
@@ -28,7 +33,15 @@
   <md-divider></md-divider>
   <div>
     <h4 class="md-title">{{_('Jigsaw')}}</h4>
-    <p>
+    <p class="md-body-1">
+      {{_('People must move the piece to finish the puzzle. '+
+          'The *Tip* field will tell people what to do.')}}
+    </p>
+  </div>
+  <md-divider></md-divider>
+  <div>
+    <h4 class="md-title">{{_('Jigsaw')}}</h4>
+    <p class="md-body-1">
       {{_('People must move the piece to finish the puzzle. '+
           'The *Tip* field will tell people what to do.')}}
     </p>

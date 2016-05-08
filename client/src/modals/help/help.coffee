@@ -20,6 +20,9 @@ angular.module 'throwCat'
     else
       $scope.tmpl = help
 
+    $scope.close = ->
+      dialog.cancel()
+
     $scope.ok = ->
       dialog.hide()
 ]

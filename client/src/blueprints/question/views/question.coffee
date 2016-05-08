@@ -39,12 +39,11 @@ angular.module 'throwCat'
       $scope.question = new restCat.question
         resources: []
         type: 0
-      $scope.scripts = '
-        <div id="trhow-cat-plugin" app-key="DSFSDF">
-        </div><script src="http://libs.throwcat.com"></script>
-      '
+      $scope.scripts = null
     else
-      $scope.question = restCat.question.get()
+      $scope.question = restCat.question.get
+        id: question_id
+
       $scope.question.$promise
       .then ()->
         $scope.scripts = '

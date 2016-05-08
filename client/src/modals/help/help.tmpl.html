@@ -1,14 +1,27 @@
 <md-dialog aria-label="{{_('Help')}}">
-  <md-dialog-content layout-padding>
-    <h3 class="md-subhead">{{_('Help')}}</h3>
-    <div layout-padding>
-      <div>
+  <md-toolbar class="md-hue-3 bg-trans">
+    <div class="md-toolbar-tools">
+      <md-subheader class="md-primary">{{_('Help')}}</md-subheader>
+      <!-- <span>{{_('Help')}}</span>
+      <span flex></span>
+      <md-button class="md-icon-button"
+                 aria-label="{{_('Close')}}"
+                 ng-click="close()">
+        <md-icon md-svg-icon="ic_close_24px">
+        </md-icon>
+      </md-button> -->
+    </div>
+  </md-toolbar>
+  <md-dialog-content flex>
+    <div layout-padding
+         layout-margin>
+      <article>
         <div ng-if="!tmpl"
              ng-bind-html="content">
         </div>
         <ng-include src="tmpl"
                     ng-if="tmpl"></ng-include>
-      </div>
+      </article>
     </div>
   </md-dialog-content>
   <md-dialog-actions>
