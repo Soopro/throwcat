@@ -53,7 +53,7 @@ angular.module 'throwCat'
           fields = ['tip', 'answer']
         else
           return
-      if not fsv($scope.forms.recipe_form, ['tip', 'answer'])
+      if not fsv($scope.forms.recipe_form, fields)
         return
       if current_img_editor
         resource.recipe = current_img_editor.recipe()

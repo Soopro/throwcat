@@ -26,7 +26,7 @@
     <label>{{_('Type')}}</label>
     <md-select name="type"
                ng-model="question.type"
-               ng-disabled="!is_new || question.resources.length > 0"
+               ng-disabled="question.resources.length > 0"
                required>
       <md-option ng-repeat="type in question_types"
                  ng-value="{{type.flag}}">

@@ -117,6 +117,7 @@ angular.module 'throwCat'
           type: question_type
           resource: resource
       .then (res) ->
+        console.log res.recipe
         if res._deleted
           angular.removeFromList(question.resources, res, '_deleted')
         else if res._new
