@@ -31,7 +31,6 @@
 }
 
 
-
 /* text */
 .text-clamp-2 {
   display: -webkit-box;
@@ -52,6 +51,12 @@
   overflow: hidden !important;
   white-space: nowrap !important;
   text-overflow: ellipsis !important;
+}
+.text-nowrap-container {
+  overflow: hidden !important;
+  & > * {
+    &:extend(.text-nowrap);
+  }
 }
 .text-break {
   &,
