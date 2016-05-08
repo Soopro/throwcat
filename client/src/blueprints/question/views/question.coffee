@@ -55,6 +55,10 @@ angular.module 'throwCat'
 
     $scope.question_types = ConfigQs.question_types
 
+    $scope.type_change_albe = ->
+      new_qs = $scope.is_new
+      return not new_qs and $sopce.question.resourses.length <= 0
+
     $scope.save = ->
       fields = ['title', 'type', 'desc']
       if not fsv($scope.info_form, fields) or $scope.submitted
@@ -64,6 +68,7 @@ angular.module 'throwCat'
         flash 'Question need less one resource.', true
         return
 
+      console.log $scope.question
       return
       $scope.submitted = true
       $.scope.question.$save()
@@ -90,16 +95,6 @@ angular.module 'throwCat'
       helpModal(content)
 
     # resources
-
-    # $scope.move_res_up = (question, entry)->
-    #   return
-    #
-    # $scope.move_res_down = (question, entry)->
-    #   return
-
-    $scope.remove_res = (question, entry)->
-      return
-
     $scope.edit_res =(question, entry)->
       question_type = prepare_res_type(question)
       if not question_type
@@ -123,7 +118,7 @@ angular.module 'throwCat'
           resource: resource
       .then (res) ->
         if res._deleted
-          angular.removeFromList(question, res, 'deleted')
+          angular.removeFromList(question.resources, res, '_deleted')
         else if res._new
           delete res._new
           question.resources.push(res)
@@ -132,8 +127,9 @@ angular.module 'throwCat'
     prepare_res_type = (question)->
       question_type = null
       for type in ConfigQs.question_types
-        if type.key == question.type
+        if type.flag == question.type
           question_type =
+            flag: type.flag
             key: type.key
             name: type.name
           break

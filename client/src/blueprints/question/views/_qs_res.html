@@ -3,8 +3,13 @@
            ng-click="edit_res(question, entry)">
     <md-card-content layout="row">
       <div flex>
-        <h3 class="md-body-1 text-nowrap">{{entry.tip}}</h3>
-        <p class="md-caption text-nowrap">{{entry.answer}}</p>
+        <h3 class="md-body-1 text-nowrap">
+          {{_('Tip:')}} {{entry.tip}}
+        </h3>
+        <p class="md-caption text-nowrap"
+           ng-if="entry.answer">
+          {{_('Answer:')}} {{entry.answer}}
+        </p>
       </div>
       <div class="res-media">
         <img class="img-cover"

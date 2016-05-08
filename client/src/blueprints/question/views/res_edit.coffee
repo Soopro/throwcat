@@ -45,7 +45,14 @@ angular.module 'throwCat'
       resource._deleted = true
       dialog.hide(resource)
 
-    $scope.save = (resource)->
+    $scope.save = (resource, type)->
+      switch type.key
+        when 'photo'
+          fields = ['tip']
+        when 'reading'
+          fields = ['tip', 'answer']
+        else
+          return
       if not fsv($scope.forms.recipe_form, ['tip', 'answer'])
         return
       if current_img_editor
@@ -58,15 +65,6 @@ angular.module 'throwCat'
     $scope.select = (media, resource)->
       resource.src = media.src
       $scope.tab(0)
-
-    $scope.match_type = (subject, type)->
-      switch subject
-        when 'photo'
-          return type.key is 0
-        when 'reading'
-          return type.key is 1
-        else
-          return false
 
 
     # bagua image

@@ -3,20 +3,22 @@ angular.module 'throwCat'
 .constant 'ConfigQs',
   question_types: [
     {
-      key: 0
+      flag: 0
+      key: 'photo'
       name: 'Photo'
     }
     {
-      key: 1
+      flag: 1
+      key: 'reading'
       name: 'Reading'
     }
-    {
-      key: 2
-      name: 'Slide'
-    }
-    {
-      key: 3
-      name: 'Jigsaw'
-    }
+    # {
+    #   key: 2
+    #   name: 'Slide'
+    # }
+    # {
+    #   key: 3
+    #   name: 'Jigsaw'
+    # }
 
   ]

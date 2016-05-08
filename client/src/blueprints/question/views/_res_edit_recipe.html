@@ -1,27 +1,26 @@
 <md-content class="md-padding">
   <form name="forms.recipe_form"
-        ng-submit="save()"
         layout="column"
         layout-margin
         novalidate>
     <div>
-      <p ng-if="match_type('photo', resource_type)">
+      <p ng-if="resource_type.key == 'photo'">
         {{_('People must click the right spot on this photo. '+
             'The *Tip* field will tell people where to click on the photo.')}}
       </p>
-      <p ng-if="match_type('reading', resource_type)">
+      <p ng-if="resource_type.key == 'reading'">
         {{_('People must Reading the photo then give a right answer. '+
             'The *Tip* field will tell people where to look at on the photo, '+
             'and you have to put the right answer into *Answer* field.')}}
       </p>
-      <p ng-if="match_type('slide', resource_type)">
+      <!-- <p ng-if="resource_type.key == 'slide'">
         {{_('People must slide the object to the right position. '+
             'The *Tip* field will tell people where to go. ')}}
       </p>
-      <p ng-if="match_type('jigsaw', resource_type)">
+      <p ng-if="resource_type.key == 'jigsaw'">
         {{_('People must move the piece to finish the puzzle. '+
             'The *Tip* field will tell people what to do, ')}}
-      </p>
+      </p> -->
     </div>
 
     <md-input-container>
@@ -42,7 +41,7 @@
       </ng-messages>
     </md-input-container>
 
-    <md-input-container ng-if="match_type('reading', resource_type)">
+    <md-input-container ng-if="resource_type.key == 'reading'">
       <label>{{_('Answer')}}</label>
       <input name="answer"
              type="text"
@@ -70,7 +69,7 @@
     </p>
   </div>
   <md-card class="recipe-card"
-           ng-if="resource.src && match_type('photo', resource_type)">
+           ng-if="resource.src && resource_type.key == 'photo'">
     <md-card-content layout="column"
                      layout-align="center center"
                      flex>
@@ -82,7 +81,7 @@
     </md-card-content>
   </md-card>
   <md-card class="recipe-card"
-           ng-if="resource.src && match_type('reading', resource_type)">
+           ng-if="resource.src && resource_type.key == 'reading'">
     <md-card-content layout="column"
                      layout-align="center center"
                      flex>
