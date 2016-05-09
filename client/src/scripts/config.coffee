@@ -5,8 +5,6 @@ angular.module 'throwCat'
     'api': throwcat.server.api
     'self': throwcat.server.self
 
-  cookie_domain: throwcat.cookie_domain
-
   debug: throwcat.debug
 
   route:

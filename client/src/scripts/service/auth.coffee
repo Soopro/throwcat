@@ -10,6 +10,10 @@ angular.module 'throwCat'
     opts =
       path: '/'
 
+    @config = (new_opts)->
+      for k, v of new_opts
+        opts[k] = v
+
     @is_logged = ->
       !!$cookies.get 'auth'
 
