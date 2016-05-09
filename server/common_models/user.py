@@ -64,6 +64,12 @@ class User(BaseDocument):
             "deleted": False
         })
 
+    def find_one_by_key(self, app_key):
+        return self.find_one({
+            'app_key': app_key,
+            "deleted": False
+        })
+
     def find_all_by_display_name(self, display_name):
         return self.find({
             "display_name": display_name,
