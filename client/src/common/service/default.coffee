@@ -7,31 +7,31 @@ angular.module 'throwCat'
   )->
     default_navs = [
       {
-        alias: "dashboard"
+        key: "dashboard"
         name: "Dashboard"
         path: "/"
         ico: "ic_dashboard_24px"
       }
       {
-        alias: "media"
+        key: "media"
         name: "Media Library"
         ico: "ic_collections_24px"
         path: "/media"
       }
       {
-        alias: "account"
+        key: "account"
         name: "Account"
         ico: "ic_account_box_24px"
         path: "/account"
       }
       {
-        alias: "about"
+        key: "about"
         name: "About"
         ico: "ic_info_outline_24px"
         path: "/info/about"
       }
       {
-        alias: "exit"
+        key: "exit"
         name: "Exit"
         ico: "ic_exit_24px"
         path: "/exit"

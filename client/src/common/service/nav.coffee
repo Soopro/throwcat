@@ -19,9 +19,9 @@ angular.module 'throwCat'
     self.currIcon = if icon then icon else null
     self.currApp = app
 
-  @getElement = (alias) ->
+  @getElement = (key) ->
     for element in self.data
-      if element.alias == alias
+      if element.key == key
         return element
 
 
@@ -44,7 +44,7 @@ angular.module 'throwCat'
     self.activatedMenus = []
 
     for nav in self.data
-      if nav.alias is main_sec
+      if nav.key is main_sec
         if self.currTitleLocked
           self.title(self.currTitleLocked)
           self.subtitle(nav.name)
@@ -55,7 +55,7 @@ angular.module 'throwCat'
         if nav.nodes and sub_sec
           _break = false
           for subnav in nav.nodes
-            if subnav.alias is sub_sec
+            if subnav.key is sub_sec
               self.subtitle(subnav.name)
               _break = true
               break
