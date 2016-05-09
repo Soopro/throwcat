@@ -9,7 +9,7 @@
          layout-align="center center">
       <md-button class="md-icon-button show-hide noleave"
                  aria-label="{{_('Toggle main nav')}}"
-                 ng-show="!navs.currBackward"
+                 ng-show="is_logged() && !navs.currBackward"
                  ng-click="toggle_nav('main_nav')">
         <md-icon md-svg-icon="ic_menu_24px"></md-icon>
       </md-button>
