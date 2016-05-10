@@ -2,6 +2,7 @@ angular.module 'throwCat'
 
 .service 'navService', ->
   self = @
+  @loaded = false
   @data = []
   @activatedMenus = []
   @currTitleLocked = null
@@ -9,7 +10,6 @@ angular.module 'throwCat'
   @currTitle = ''
   @currSubTitle = ''
   @currSection = ''
-  @currApp = null
   @currBackward = null
 
   @load = (navs, title, icon, app) ->
@@ -17,7 +17,8 @@ angular.module 'throwCat'
       self.data = navs
     self.currTitleLocked = if title then title else null
     self.currIcon = if icon then icon else null
-    self.currApp = app
+    self.loaded = true
+
 
   @getElement = (key) ->
     for element in self.data
@@ -72,6 +73,7 @@ angular.module 'throwCat'
     self.currSubTitle = title or ''
 
   @clear = ->
+    self.loaded = false
     self.data = []
     self.activatedMenus = []
     self.currTitleLocked = null
@@ -79,7 +81,6 @@ angular.module 'throwCat'
     self.currTitle = ''
     self.currSubTitle = ''
     self.currSection = ''
-    self.currApp = null
     self.currBackward = null
 
   return @
