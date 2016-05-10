@@ -8,7 +8,7 @@ angular.module 'throwCat'
     gResolveProvider
   ) ->
     dir = 'blueprints/user/views'
-    bp = ''
+    bp = 'user'
 
     resolve =
       global: gResolveProvider.resolve
