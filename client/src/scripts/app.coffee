@@ -15,6 +15,7 @@ angular.module 'throwCat', [
 
 angular.module 'throwCat'
 .constant 'App',
+  name: 'ThrowCat'
   version: '0.1.0'
   artisan: [
     'Redyyu'

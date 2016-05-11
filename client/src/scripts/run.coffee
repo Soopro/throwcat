@@ -9,6 +9,7 @@ angular.module 'throwCat'
   'Config'
   'flashWatcher'
   'MediaService'
+  'g'
   (
     $rootScope
     $location
@@ -18,12 +19,16 @@ angular.module 'throwCat'
     Config
     flashWatcher
     MediaService
+    g
   ) ->
     console.log "-----------------------------"
     console.log "ThrowCat:", App.version
     console.log "Developers:", App.artisan.join(', ')
     console.log "Github:", App.github
     console.log "-----------------------------"
+
+    # add g to root
+    $rootScope.g = g
 
     # MediaService
     MediaService.config
