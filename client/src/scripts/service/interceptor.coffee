@@ -29,7 +29,6 @@ angular.module 'throwCat'
       if not is_api_reject
         console.log ('Request is rejected by non api remote.')
       else
-        console.log rejection.status, rejection.data
         if rejection.status <= 0 and rejection.data is null
           $location.path("/404")
           msg = 'Error! No connection to server.'
