@@ -47,9 +47,10 @@
        layout="row"
        layout-align="center center"
        ng-show="has_more(mediafiles, paged)">
-    <md-button class="btn"
+    <md-button class="md-icon-button"
+               aria-label="{{_('More')}}"
                ng-click="more(mediafiles, paged)">
-      {{_('Get More')}}
+      <md-icon md-svg-icon="ic_more_horiz_24px"></md-icon>
     </md-button>
   </div>
 </md-content>
