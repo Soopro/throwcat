@@ -104,6 +104,8 @@ angular.module 'throwCat'
     refresh_now = ->
       $scope.now = Date.now()
 
+    refresh_now()
+
     # upload media
     $scope.onFileSelect = ($files, mediafiles) ->
       # check upload files
