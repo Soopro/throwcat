@@ -101,10 +101,9 @@ angular.module 'throwCat'
     $scope.mimetypes_str = mimetypes.join(', ')
 
     # create now for prevent cached image
+    $scope.now = Date.now()
     refresh_now = ->
       $scope.now = Date.now()
-
-    refresh_now()
 
     # upload media
     $scope.onFileSelect = ($files, mediafiles) ->
