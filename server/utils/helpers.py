@@ -44,29 +44,24 @@ def route_inject(app_or_blueprint, url_patterns):
                                       **options)
 
 
-_valid_alias = re.compile(r'^[a-z0-9_\-]+$')
+_valid_slug = re.compile(r'^[a-z0-9_\-]+$')
 _word = re.compile(r'\w')
 _white_space = re.compile(r'\s')
 
 
-def pre_process_alias(alias, validator=None, required=True):
+def pre_process_slug(value):
     """
-    :param alias: alias name
-    :param required: is required or not.
-    :return: alias name after process
+    :param value: value
+    :return: slug after process
     """
-    if not alias and not required:
-        return alias
     try:
-        alias = alias.lower()
-        assert _valid_alias.match(alias) is not None
+        slug = value.lower()
+        if _valid_slug.match(slug) is None:
+            raise Exception
     except Exception:
-        alias = None
+        slug = None
 
-    if validator and hasattr(validator, '__call__'):
-        validator(alias, name='_alias_', non_empty=required)
-
-    return alias
+    return slug
 
 
 def safe_cast(val, to_type, default=None):

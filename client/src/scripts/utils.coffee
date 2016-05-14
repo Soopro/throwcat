@@ -33,15 +33,15 @@ angular.get_file_ext = (str)->
     return ''
 
 
-# ---- process key ----
-angular.pre_process_key = (key) ->
+# ---- process slug ----
+angular.pre_process_slug = (value) ->
   try
-    key = key.toLowerCase()
-    if not key.match(/^[a-z0-9_\-]+$/g)
-      return false
+    slug = value.toLowerCase()
+    if not slug.match(/^[a-z0-9_\-]+$/g)
+      return null
   catch
-    key = false
-  return key
+    slug = null
+  return slug
 
 # ---- startswith ----
 angular.startswith = (str, text) ->
