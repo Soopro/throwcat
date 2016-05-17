@@ -2,10 +2,10 @@
 from __future__ import absolute_import
 
 from utils.auth import generate_token
-from utils.helpers import (random_string,
-                           check_random_string,
-                           hmac_sha,
-                           str2int)
+from utils.short_url import (random_short_url,
+                             check_random_short_url)
+from utils.misc import (hmac_sha,
+                           parse_int)
 from flask import current_app
 from uuid import uuid4
 
@@ -13,8 +13,8 @@ from uuid import uuid4
 def set_register_captcha(key):
     EXPIRE = 5 * 60 * 60
     key = "{}-register-captcha".format(key)
-    stored_num = str2int(current_app.redis.get(key))
-    num, captcha = random_string(stored_num, length=6)
+    stored_num = parse_int(current_app.redis.get(key), None)
+    num, captcha = random_short_url(length=6, preset_int=stored_num)
     if not stored_num:
         current_app.redis.setex(key, num, EXPIRE)
     return captcha
@@ -22,8 +22,8 @@ def set_register_captcha(key):
 
 def check_register_captcha(key, captcha):
     key = "{}-register-captcha".format(key)
-    num = str2int(current_app.redis.get(key))
-    return check_random_string(num, captcha)
+    num = parse_int(current_app.redis.get(key), None)
+    return check_random_short_url(num, captcha)
 
 
 def del_register_captcha(key):
@@ -33,10 +33,10 @@ def del_register_captcha(key):
 
 def set_recovery_captcha(key):
     EXPIRE = 15 * 60
-    num, captcha = random_string(length=6)
+
     key = "{}-recovery-captcha".format(key)
-    stored_num = str2int(current_app.redis.get(key))
-    num, captcha = random_string(stored_num, length=6)
+    stored_num = parse_int(current_app.redis.get(key), None)
+    num, captcha = random_short_url(length=6, preset_int=stored_num)
     if not stored_num:
         current_app.redis.setex(key, num, EXPIRE)
     return captcha
@@ -44,8 +44,8 @@ def set_recovery_captcha(key):
 
 def check_recovery_captcha(key, captcha):
     key = "{}-recovery-captcha".format(key)
-    num = str2int(current_app.redis.get(key))
-    return check_random_string(num, captcha)
+    num = parse_int(current_app.redis.get(key), None)
+    return check_random_short_url(num, captcha)
 
 
 def del_recovery_captcha(key):

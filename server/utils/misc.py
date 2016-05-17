@@ -170,11 +170,11 @@ def sortedby(source, sort_keys, reverse=False):
     return sorted(source, key=cmp_to_key(compare), reverse=reverse)
 
 
-def parse_int(num):
+def parse_int(num, default=0):
     try:
         return int(float(num))
     except:
-        return 0
+        return default
 
 
 def parse_dict_by_structure(obj, structure):
@@ -264,29 +264,3 @@ def unicode2str(text):
     if isinstance(text, unicode):
         return text.encode('utf-8')
     return text
-
-
-def str2int(text):
-    try:
-        return int(text)
-    except:
-        return None
-
-
-def random_string(stored_num=None, length=6):
-    if not stored_num or not isinstance(stored_num, int):
-        end = len(short_url.DEFAULT_ALPHABET)**(length-1)
-        random_num = random.randint(0, end)
-    else:
-        random_num = stored_num
-
-    random_str = short_url.encode_url(random_num, length)
-    random_str = random_str.upper()
-    return random_num, random_str
-
-
-def check_random_string(random_num, random_str):
-    if not random_num:
-        return False
-    random_str = random_str.lower()
-    return random_num == short_url.decode_url(random_str)

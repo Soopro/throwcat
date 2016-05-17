@@ -2,7 +2,7 @@
 from __future__ import absolute_import
 
 from utils.models import BaseDocument
-from utils.helpers import now
+from utils.misc import now
 from mongokit import ObjectId
 
 

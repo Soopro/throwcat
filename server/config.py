@@ -2,7 +2,7 @@
 from __future__ import absolute_import
 
 from datetime import timedelta
-from utils.helpers import DottedImmutableDict
+from utils.misc import DottedImmutableDict
 import os
 
 

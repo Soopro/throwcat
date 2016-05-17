@@ -11,7 +11,7 @@ from services.cdn import qiniu
 
 from utils.api_utils import output_json
 from utils.request import get_param
-from utils.helpers import now, safe_filename
+from utils.misc import now, safe_filename
 
 from apiresps.validations import Struct
 

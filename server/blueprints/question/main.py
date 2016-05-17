@@ -3,7 +3,7 @@ from __future__ import absolute_import
 
 from flask import Blueprint
 from apiresps import APIError
-from utils.helpers import route_inject
+from utils.misc import route_inject
 from utils.api_utils import make_json_response
 
 from ..helpers import verify_access

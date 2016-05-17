@@ -6,7 +6,7 @@ from flask import Blueprint
 from apiresps import APIError
 
 from utils.api_utils import make_json_response
-from utils.helpers import route_inject
+from utils.misc import route_inject
 
 from ..helpers import verify_access
 

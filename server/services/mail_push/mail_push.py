@@ -4,7 +4,7 @@ from __future__ import absolute_import
 import json, os
 from jinja2 import Template
 
-from utils.helpers import now, DottedImmutableDict
+from utils.misc import now, DottedImmutableDict
 
 from .errors import MailQueuePushFailed
 
