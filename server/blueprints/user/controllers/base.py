@@ -18,6 +18,8 @@ def login():
     login = get_param("login", Struct.Email, True)
     password = get_param("passwd", Struct.Pwd, True)
 
+    login = login.lower()
+
     User = current_app.mongodb_conn.User
     user = User.find_one_by_login(login)
     if not user:

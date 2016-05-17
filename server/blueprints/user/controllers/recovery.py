@@ -15,6 +15,8 @@ from ..errors import *
 def get_recovery_captcha():
     login = get_param("login", Struct.Login, True)
 
+    login = login.lower()
+
     User = current_app.mongodb_conn.User
     if not User.find_one_by_login(login):
         raise UserNotFound
@@ -37,6 +39,8 @@ def recovery():
     login = get_param("login", Struct.Login, True)
     captcha = get_param("captcha", Struct.Token, True)
     passwd = get_param("passwd", Struct.Pwd, True)
+
+    login = login.lower()
 
     if not check_recovery_captcha(login, captcha):
         raise CaptchaError

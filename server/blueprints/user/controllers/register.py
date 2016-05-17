@@ -15,6 +15,8 @@ from ..errors import *
 def get_register_captcha():
     login = get_param("login", Struct.Login, True)
 
+    login = login.lower()
+
     User = current_app.mongodb_conn.User
     if User.find_one_by_login(login):
         raise UserHasExisted
@@ -38,6 +40,8 @@ def register():
     captcha = get_param("captcha", Struct.Token, True)
     login = get_param("login", Struct.Login, True)
     passwd = get_param("passwd", Struct.Pwd, True)
+
+    login = login.lower()
 
     User = current_app.mongodb_conn.User
     if User.find_one_by_login(login):
