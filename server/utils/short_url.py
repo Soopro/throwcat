@@ -1,7 +1,7 @@
 # coding=utf-8
 from __future__ import absolute_import
 
-from short_url
+import short_url
 
 
 def random_short_url(length=6, preset_int=None, case_sensitive=False):
