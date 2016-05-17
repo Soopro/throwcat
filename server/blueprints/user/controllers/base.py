@@ -42,8 +42,7 @@ def change_password():
     new_passwd2 = get_param("new_passwd2", Struct.Pwd, True)
 
     user = g.curr_user
-    if new_passwd != new_passwd2:
-        raise PasswordMismatchError
+
     if not check_hashed_password(str(user["password_hash"]), old_passwd):
         raise PasswordError
 

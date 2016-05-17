@@ -12,7 +12,6 @@ def random_short_url(length=6, preset_int=None, case_sensitive=False):
         random_num = preset_int
 
     random_str = short_url.encode_url(random_num, length)
-
     if not case_sensitive:
         random_str = random_str.upper()
 

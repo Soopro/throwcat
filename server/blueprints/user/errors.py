@@ -34,8 +34,3 @@ class CaptchaError(ValidationError):
 class PasswordError(ValidationError):
     response_code = 300301
     status_message = "PASSWORD_NOT_MATCH"
-
-
-class PasswordMismatchError(ValidationError):
-    response_code = 300401
-    status_message = 'PASSWORD_CONFIRM_NOT_MATCH'

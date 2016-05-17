@@ -36,12 +36,7 @@ def get_recovery_captcha():
 def recovery():
     login = get_param("login", Struct.Login, True)
     captcha = get_param("captcha", Struct.Token, True)
-
     passwd = get_param("passwd", Struct.Pwd, True)
-    passwd2 = get_param("passwd2", Struct.Pwd, True)
-
-    if passwd != passwd2:
-        raise PasswordMismatchError
 
     if not check_recovery_captcha(login, captcha):
         raise CaptchaError
