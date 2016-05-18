@@ -2,10 +2,8 @@ angular.module 'throwCat'
 
 .service 'Auth', [
   '$cookies'
-  'Config'
   (
     $cookies
-    Config
   ) ->
     opts =
       path: '/'
@@ -20,7 +18,7 @@ angular.module 'throwCat'
     @token = ->
       $cookies.get 'auth'
 
-    @login = (token, next_path) ->
+    @login = (token) ->
       $cookies.put 'auth', token, opts
 
     @logout = ->

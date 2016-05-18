@@ -11,7 +11,7 @@ from uuid import uuid4
 
 
 def set_register_captcha(key):
-    EXPIRE = 5 * 60 * 60
+    EXPIRE = 3 * 60 * 60
     key = "{}-register-captcha".format(key)
     stored_num = parse_int(current_app.redis.get(key), None)
     num, captcha = random_short_url(length=6, preset_int=stored_num)
@@ -34,7 +34,7 @@ def set_recovery_captcha(key):
     EXPIRE = 15 * 60
     key = "{}-recovery-captcha".format(key)
     stored_num = parse_int(current_app.redis.get(key), None)
-    num, captcha = random_short_url(length=6, preset_int=stored_num)
+    num, captcha = random_short_url(length=12, preset_int=stored_num)
     current_app.redis.setex(key, num, EXPIRE)
     return captcha
 
