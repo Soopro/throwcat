@@ -2,7 +2,7 @@
 from __future__ import absolute_import
 
 import short_url
-
+import random
 
 def random_short_url(length=6, preset_int=None, case_sensitive=False):
     if not preset_int or not isinstance(preset_int, int):
