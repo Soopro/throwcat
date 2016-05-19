@@ -48,7 +48,7 @@ angular.module 'throwCat'
     height: 1920
 
   max_file_size:
-    image: 2*1024
+    image: 960*1024
     video: 36*1024*1024
     audio: 8*1024*1024
     zip: 18*1024*1024
