@@ -108,6 +108,10 @@
           {
             "pattern": "/styles/svg",
             "replace": "svg"
+          },
+          {
+            "pattern": "/styles/icons/svg",
+            "replace": "svg"
           }
         ]
       },
