@@ -35,21 +35,19 @@ def get_question(question_id):
 
 @output_json
 def create_question():
-    src = get_param('src', Struct.Url, True)
     _type = get_param('type', Struct.Int, True)
     title = get_param('title', Struct.Attr, True)
     resources = get_param('resources', Struct.List, True)
 
     check_type(_type)
 
-    for resource, index in enumerate(resources):
+    for index, resource in enumerate(resources):
         check_item(resource, KEYS, "resource[{}]".format(index))
 
     user = g.curr_user
 
     question = current_app.mongodb_conn.Question()
     question["owner_id"] = user["_id"]
-    question["src"] = src
     question["type"] = _type
     question["title"] = title
     question["resources"] = resources
@@ -62,24 +60,22 @@ def create_question():
 def update_question(question_id):
     Struct.ObjectId(question_id, "question_id")
 
-    src = get_param('src', Struct.Url, True)
     _type = get_param('type', Struct.Int, True)
     title = get_param('title', Struct.Attr, True)
     resources = get_param('resources', Struct.List, True)
 
     check_type(_type)
 
-    for resource, index in enumerate(resources):
+    for index, resource in enumerate(resources):
         check_item(resource, KEYS, "resource[{}]".format(index))
 
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question()
+    Question = current_app.mongodb_conn.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question_id:
         raise QuestionNotFound
 
-    question["src"] = src
     question["type"] = _type
     question["title"] = title
     question["resources"] = resources
@@ -94,7 +90,7 @@ def delete_question(question_id):
 
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question()
+    Question = current_app.mongodb_conn.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question_id:
         raise QuestionNotFound

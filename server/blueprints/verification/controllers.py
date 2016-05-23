@@ -12,7 +12,7 @@ from .errors import *
 
 @output_json
 def get_question():
-    app_key = get_param('app_key', Struct.Int, True)
+    app_key = get_param('app_key', Struct.Token, True)
     question_id = get_param('question_id', Struct.ObjectId, True)
 
     User = current_app.mongodb_conn.User
@@ -33,7 +33,7 @@ def put_answer():
     point = get_param('point', Struct.Dict, True)
     ssid = get_param('ssid', Struct.Id, True)
 
-    app_key, qeustion_id, index = decode_ssid(ssid)
+    app_key, question_id, index = decode_ssid(ssid)
 
     User = current_app.mongodb_conn.User
     user = User.find_one_by_key(app_key)
