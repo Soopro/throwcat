@@ -41,7 +41,7 @@ def login():
 def change_password():
     old_passwd = get_param("passwd", Struct.Pwd, True)
     new_passwd = get_param("new_passwd", Struct.Pwd, True)
-    new_passwd2 = get_param("new_passwd2", Struct.Pwd, True)
+    # new_passwd2 = get_param("new_passwd2", Struct.Pwd, True)
 
     user = g.curr_user
 

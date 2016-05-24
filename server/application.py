@@ -22,7 +22,6 @@ from apiresps.errors import (NotFound,
                              UncaughtException)
 
 from services.cdn import qiniu
-from common_models import (User, Media)
 
 from services.mail_push import MailQueuePusher
 from envs import CONFIG_NAME
@@ -113,7 +112,8 @@ def create_app(config_name="development"):
     mongodb_conn = mongodb_database[app.config.get("MONGODB_DATABASE")]
 
     # register mongokit models
-    mongodb_database.register([User, Media])
+    from common_models import (User, Media, Question)
+    mongodb_database.register([User, Media, Question])
 
     # inject database connections to app object
     app.redis = rds_conn
@@ -190,6 +190,12 @@ def create_app(config_name="development"):
 
     from blueprints.media import blueprint as media_module
     app.register_blueprint(media_module, url_prefix="/media")
+
+    from blueprints.question import blueprint as question_module
+    app.register_blueprint(question_module, url_prefix="/question")
+
+    from blueprints.verification import blueprint as verification_module
+    app.register_blueprint(verification_module, url_prefix="/verification")
 
     print "-------------------------------------------------------"
     print "Throwcat: {}".format(app.version)

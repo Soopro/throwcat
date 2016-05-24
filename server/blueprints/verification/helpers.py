@@ -21,11 +21,11 @@ def check_pass_ssid(ssid):
 
 
 def encode_ssid(user, question, index):
-    return "{}-{}-{}".format(user["app_key"], question["_id"], index)
+    return "{}.{}.{}".format(user["app_key"], question["_id"], index)
 
 
 def decode_ssid(ssid):
-    app_key, question_id, index = ssid.split("-")
+    app_key, question_id, index = ssid.split(".")
     try:
         index = int(index)
     except Exception:

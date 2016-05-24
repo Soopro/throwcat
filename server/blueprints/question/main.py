@@ -10,7 +10,7 @@ from ..helpers import verify_access
 from .routes import urlpatterns
 
 
-bp_name = "user"
+bp_name = "question"
 
 blueprint = Blueprint(bp_name, __name__)
 

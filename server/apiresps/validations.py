@@ -200,6 +200,9 @@ class FileStructure(ParamStructure):
 class IntegerStructure(ParamStructure):
     type = int
 
+class FloatStructure(ParamStructure):
+    type = float
+
 class BoolStructure(ParamStructure):
     type = bool
 
@@ -259,6 +262,7 @@ class Struct(object):
     Bool = BoolStructure
     Flag = FlagBitStructure
     Int = IntegerStructure
+    Float = FloatStructure
     List = ListStructure
 
     File = FileStructure
