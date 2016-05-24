@@ -1,7 +1,5 @@
 /* Animation
 ----------------------------------------------- */
-@duration: 0.9s;
-
 .keyframes(@name; @frames) {
   @-webkit-keyframes @name { @frames(); }
 	   @-moz-keyframes @name { @frames(); }
@@ -37,7 +35,7 @@
   }
 );
 .rotating{
-  .animixin(Rotate @duration linear);
+  .animixin(Rotate 0.9s linear);
   animation-iteration-count: infinite;
 }
 
