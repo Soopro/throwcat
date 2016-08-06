@@ -27,7 +27,7 @@ from services.mail_push import MailQueuePusher
 from envs import CONFIG_NAME
 
 
-__version_info__ = ('0', '1', '0')
+__version_info__ = ('0', '1', '1')
 __version__ = '.'.join(__version_info__)
 
 __artisan__ = ['Majik', 'Redyyu']
@@ -103,22 +103,22 @@ def create_app(config_name="development"):
                               db=app.config.get("REDIS_DB"))
     rds_conn = Redis(connection_pool=rds_pool)
 
-    mongodb_database = MongodbConn(
+    mongodb_conn = MongodbConn(
         host=app.config.get("MONGODB_HOST"),
         port=app.config.get("MONGODB_PORT"),
         max_pool_size=app.config.get("MONGODB_MAX_POOL_SIZE")
     )
 
-    mongodb_conn = mongodb_database[app.config.get("MONGODB_DATABASE")]
+    mongodb = mongodb_conn[app.config.get("MONGODB_DATABASE")]
 
     # register mongokit models
     from common_models import (User, Media, Question)
-    mongodb_database.register([User, Media, Question])
+    mongodb_conn.register([User, Media, Question])
 
     # inject database connections to app object
     app.redis = rds_conn
-    app.mongodb_database = mongodb_database
     app.mongodb_conn = mongodb_conn
+    app.mongodb = mongodb
 
     # inject common services
     # app.sa_mod = Analyzer(rds_conn, rds_conn,

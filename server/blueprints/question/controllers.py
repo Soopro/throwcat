@@ -13,7 +13,7 @@ from .helpers import *
 def get_questions():
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     questions = Question.find_all_by_oid(user["_id"])
 
     return [output_question(question) for question in questions]
@@ -25,7 +25,7 @@ def get_question(question_id):
 
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question_id:
         raise QuestionNotFound
@@ -46,7 +46,7 @@ def create_question():
 
     user = g.curr_user
 
-    question = current_app.mongodb_conn.Question()
+    question = current_app.mongodb.Question()
     question["owner_id"] = user["_id"]
     question["type"] = _type
     question["title"] = title
@@ -71,7 +71,7 @@ def update_question(question_id):
 
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question_id:
         raise QuestionNotFound
@@ -90,7 +90,7 @@ def delete_question(question_id):
 
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question_id:
         raise QuestionNotFound

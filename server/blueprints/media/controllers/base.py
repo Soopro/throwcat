@@ -23,7 +23,7 @@ def list_media():
     user = g.curr_user
 
     scope = helper_get_media_scope(user)
-    medias = current_app.mongodb_conn.\
+    medias = current_app.mongodb.\
         Media.find_by_oid_scope(user['_id'], scope)
 
     media_list = [output_media(media) for media in medias]
@@ -111,7 +111,7 @@ def save_media():
     key = filename
     ext = _get_media_ext(filename)
 
-    media = current_app.mongodb_conn.Media()
+    media = current_app.mongodb.Media()
     if upload:
         media['uploaded'] = now()
     media['owner_id'] = user['_id']
@@ -179,7 +179,7 @@ def delete_media(filename):
 # helpers
 
 def helper_find_media(scope, key, owner_id=None):
-    Media = current_app.mongodb_conn.Media
+    Media = current_app.mongodb.Media
     if not key or not scope:
         raise MediaInvalidKey
     elif owner_id is None:

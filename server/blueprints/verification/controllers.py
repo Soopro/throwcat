@@ -15,12 +15,12 @@ def get_question():
     app_key = get_param('app_key', Struct.Token, True)
     question_id = get_param('question_id', Struct.ObjectId, True)
 
-    User = current_app.mongodb_conn.User
+    User = current_app.mongodb.User
     user = User.find_one_by_key(app_key)
     if not user:
         raise AppKeyError
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question:
         raise QuestionIdError
@@ -35,12 +35,12 @@ def put_answer():
 
     app_key, question_id, index = decode_ssid(ssid)
 
-    User = current_app.mongodb_conn.User
+    User = current_app.mongodb.User
     user = User.find_one_by_key(app_key)
     if not user:
         raise SsidError
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question:
         raise SsidError
@@ -59,7 +59,7 @@ def confirm():
 
     app_key, qeustion_id, index = decode_ssid(ssid)
 
-    User = current_app.mongodb_conn.User
+    User = current_app.mongodb.User
     user = User.find_one_by_key_and_secret(app_key, app_secret)
     if not user:
         raise ComfirmdError

@@ -17,7 +17,7 @@ def get_register_captcha():
 
     login = login.lower()
 
-    User = current_app.mongodb_conn.User
+    User = current_app.mongodb.User
     if User.find_one_by_login(login):
         raise UserHasExisted
 
@@ -43,7 +43,7 @@ def register():
 
     login = login.lower()
 
-    User = current_app.mongodb_conn.User
+    User = current_app.mongodb.User
     if User.find_one_by_login(login):
         raise UserHasExisted
 
