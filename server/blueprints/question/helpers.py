@@ -115,7 +115,17 @@ def output_question(question):
         "id": question["_id"],
         "title": question["title"],
         "type": question["type"],
-        "resources": question["resources"],
         "creation": question["creation"],
         "updated": question["updated"]
+    }
+
+
+def output_resource(resource):
+    return {
+        "id": resource["_id"],
+        "question_id": resource["question_id"],
+        "type": resource["type"],
+        'url': resource["url"],
+        "creation": resource["creation"],
+        "updated": resource["updated"]
     }

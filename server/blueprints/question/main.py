@@ -23,6 +23,12 @@ admin_api_endpoints = [
     "{}.create_question".format(bp_name),
     "{}.update_question".format(bp_name),
     "{}.delete_question".format(bp_name),
+
+    "{}.get_resources".format(bp_name),
+    "{}.get_resource".format(bp_name),
+    "{}.create_resource".format(bp_name),
+    "{}.update_resource".format(bp_name),
+    "{}.delete_resource".format(bp_name),
 ]
 
 

@@ -11,7 +11,6 @@ class Question(BaseDocument):
         'owner_id': ObjectId,
         'title': unicode,
         'type': int,
-        'resources': list,
         'creation': int,
         'updated': int
     }
@@ -25,7 +24,6 @@ class Question(BaseDocument):
     default_values = {
         'creation': now,
         'updated': now,
-        'resources': [],
         'type': 0
     }
 
