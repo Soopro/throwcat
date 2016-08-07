@@ -3,10 +3,6 @@ from .controllers.question import *
 from .controllers.resource import *
 
 urlpatterns = [
-    # open apis
-    # ('/', get_verify_terms, 'GET'),
-    # ('/<term_id>', get_verify_term, 'GET'),
-
     # question
     ('/', get_questions, 'GET'),
     ('/<question_id>', get_question, 'GET'),
@@ -21,9 +17,5 @@ urlpatterns = [
     ('/<question_id>/resource/<resource_id>', update_resource, 'PUT'),
     ('/<question_id>/resource/<resource_id>', delete_resource, 'DELETE'),
 
-    # for admin
-    # ('/<term_id>', create_verify_term, 'POST'),
-    # ('/<term_id>', update_verify_term, 'PUT'),
-    # ('/<term_id>', delete_verify_term, 'DELETE'),
 ]
 
