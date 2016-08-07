@@ -128,7 +128,7 @@ class Config(object):
     CDN_CONNECTION_POOL = 10
     CDN_CONNECTION_MAX_POOL = 20
     CDN_CONNECTION_RETRIES = 3
-    CDN_UPLOADS_BUCKET = 'uploads'
+    CDN_UPLOADS_BUCKET = 'throwcat'
 
     CDN = 'qiniu'
     CDN_ACCOUNT = 'r@supmice.com'
