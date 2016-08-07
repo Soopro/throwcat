@@ -15,7 +15,7 @@ def get_resources(question_id):
 
     user = g.curr_user
 
-    Resource = current_app.mongodb_conn.Resource
+    Resource = current_app.mongodb.Resource
     resources = Resource.find_all_by_qid_oid(question_id, user["_id"])
     return [output_resource(resource) for resource in resources]
 
@@ -27,7 +27,7 @@ def get_resource(question_id, resource_id):
 
     user = g.curr_user
 
-    Resource = current_app.mongodb_conn.Resource
+    Resource = current_app.mongodb.Resource
     resource = Resource.find_one_by_id_qid_oid(resource_id, question_id, user["_id"])
     if not resource:
         raise ResourceNotFound
@@ -41,7 +41,7 @@ def create_resource(question_id):
 
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question:
         raise QuestionNotFound
@@ -56,7 +56,7 @@ def create_resource(question_id):
 
     user = g.curr_user
 
-    resource = current_app.mongodb_conn.Resource()
+    resource = current_app.mongodb.Resource()
     resource["owner_id"] = user["_id"]
     resource["question_id"] = question["_id"]
     resource["type"] = _type
@@ -84,12 +84,12 @@ def update_resource(question_id, resource_id):
 
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question:
         raise QuestionNotFound
 
-    Resource = current_app.mongodb_conn.Resource
+    Resource = current_app.mongodb.Resource
     resource = Resource.find_one_by_id_qid_oid(resource_id, question["_id"], user["_id"])
     if not resource:
         raise ResourceNotFound
@@ -108,12 +108,12 @@ def delete_resource(question_id, resource_id):
 
     user = g.curr_user
 
-    Question = current_app.mongodb_conn.Question
+    Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
     if not question:
         raise QuestionNotFound
 
-    Resource = current_app.mongodb_conn.Resource
+    Resource = current_app.mongodb.Resource
     resource = Resource.find_one_by_id_qid_oid(resource_id, question_id, user["_id"])
     if not resource:
         raise ResourceNotFound

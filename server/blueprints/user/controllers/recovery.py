@@ -17,7 +17,7 @@ def get_recovery_captcha():
 
     login = login.lower()
 
-    User = current_app.mongodb_conn.User
+    User = current_app.mongodb.User
     if not User.find_one_by_login(login):
         raise UserNotFound
 
@@ -45,7 +45,7 @@ def recovery():
     if not check_recovery_captcha(login, captcha):
         raise CaptchaError
 
-    User = current_app.mongodb_conn.User
+    User = current_app.mongodb.User
     user = User.find_one_by_login(login)
     if not user:
         raise UserNotFound

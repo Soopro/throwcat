@@ -20,7 +20,7 @@ def login():
 
     login = login.lower()
 
-    User = current_app.mongodb_conn.User
+    User = current_app.mongodb.User
     user = User.find_one_by_login(login)
     if not user:
         raise UserNotFound

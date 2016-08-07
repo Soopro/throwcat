@@ -1,15 +1,11 @@
-#coding=utf-8
+# coding=utf-8
 from __future__ import absolute_import
 
 import unittest
-import shutil
 import os
 
-from flask import current_app, json
-
+from flask import json
 from application import create_app
-
-from utils.auth import generate_sid
 
 from utils.misc import now
 
@@ -27,12 +23,13 @@ class BasicTester(unittest.TestCase):
 
         self.app_context = self.app.app_context()
         self.app_context.push()
-        self.app.mongodb_database.drop_database(
+        self.app.mongodb_conn.drop_database(
             self.app.config.get('MONGODB_DATABASE') or 'test')
-        self.test_file_folder = os.path.join(os.path.abspath(os.path.dirname(__file__)), "testfiles")
+        self.test_file_folder = os.path.join(
+            os.path.abspath(os.path.dirname(__file__)), "testfiles")
 
     def tearDown(self):
-        self.app.mongodb_database.drop_database(
+        self.app.mongodb_conn.drop_database(
             self.app.config.get('MONGODB_DATABASE') or 'test')
 
         # if os.path.isdir(self.app.config.get("APPS_FOLDER")):

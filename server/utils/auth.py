@@ -89,7 +89,7 @@ def get_current_user():
     except Exception:
         raise AuthFailed("Invalid token")
 
-    user = current_app.mongodb_conn.User.find_one_by_id(uid)
+    user = current_app.mongodb.User.find_one_by_id(uid)
 
     sha = hmac.new(str(user['login']),
                    str(user['password_hash']),
@@ -101,10 +101,10 @@ def get_current_user():
 
 
 def get_current_user_by_oauth():
-    App = current_app.mongodb_conn.App
-    AppTrunk = current_app.mongodb_conn.AppTrunk
-    OAuth = current_app.mongodb_conn.OAuth
-    User = current_app.mongodb_conn.User
+    App = current_app.mongodb.App
+    AppTrunk = current_app.mongodb.AppTrunk
+    OAuth = current_app.mongodb.OAuth
+    User = current_app.mongodb.User
 
     access_token = load_token()
     payload = load_payload(access_token)
@@ -162,7 +162,7 @@ def get_current_member():
     except Exception:
         raise AuthFailed("Invalid token")
 
-    member = current_app.mongodb_conn.\
+    member = current_app.mongodb.\
         Member.find_one_by_oid_mid(owner_id, member_id)
 
     if member is None:
