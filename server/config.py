@@ -2,7 +2,6 @@
 from __future__ import absolute_import
 
 from datetime import timedelta
-from utils.misc import DottedImmutableDict
 import os
 
 
@@ -25,7 +24,7 @@ class Config(object):
 
     PROTOCOL = 'http'
     API_DOMAIN = 'sup.local:5000'
-    UPLOADS_DOMAIN = '7xqqrw.com1.z0.glb.clouddn.com'
+    UPLOADS_DOMAIN = 'objh8eedg.bkt.clouddn.com'
 
     UPLOADS_URL = '{}://{}'.format(PROTOCOL, UPLOADS_DOMAIN)
     API_URL = '{}://{}'.format(PROTOCOL, API_DOMAIN)
@@ -107,7 +106,7 @@ class Config(object):
     MONGODB_HOST = EXT_MONGODB_HOST = MONGODB_HOST_ENV
     MONGODB_PORT = EXT_MONGODB_PORT = MONGODB_PORT_ENV
     MONGODB_MAX_POOL_SIZE = 10
-    MONGODB_DATABASE = 'sup_db'
+    MONGODB_DATABASE = 'throwcat_dev'
 
     # redis
     REDIS_URL = "redis://redis"
@@ -128,16 +127,16 @@ class Config(object):
     CDN_CONNECTION_POOL = 10
     CDN_CONNECTION_MAX_POOL = 20
     CDN_CONNECTION_RETRIES = 3
-    CDN_UPLOADS_BUCKET = 'throwcat'
+    CDN_UPLOADS_BUCKET = 'throwcat-dev'
 
     CDN = 'qiniu'
-    CDN_ACCOUNT = 'r@supmice.com'
-    CDN_PUBLIC_KEY = 'b0cZgsAbLgUuyQivxbfS9WGTXdTo_jZhigSLRsyp'
-    CDN_PRIVATE_KEY = 'TvM9XxdeJTAVL6LVhRyOmeBzvoMzYVeRiuR3AJUJ'
+    CDN_ACCOUNT = 'redy.ru@gmail.com'
+    CDN_PUBLIC_KEY = 'lRXszduxv9_fSvlNbGJa-jn6OVax0FpdnC0J2wQ7'
+    CDN_PRIVATE_KEY = 'MBU2kNmmlLrxGjgf1oZsdt_utOrRNYYuLVOJEA35'
 
 
 class DevelopmentConfig(Config):
-    MONGODB_DATABASE = 'throwcat_dev'
+    pass
 
 
 class TestCaseConfig(Config):
@@ -154,8 +153,8 @@ class ProductionConfig(Config):
     LOG_FOLDER = os.path.join(DEPLOY_DIR, "logs")
 
     PROTOCOL = 'http'
-    API_DOMAIN = 'api.soopro.com'
-    UPLOADS_DOMAIN = '7xqqrw.com1.z0.glb.clouddn.com'
+    API_DOMAIN = 'api.throwcat.com'
+    UPLOADS_DOMAIN = 'objhwqn90.bkt.clouddn.com'
 
     UPLOADS_URL = '{}://{}'.format(PROTOCOL, UPLOADS_DOMAIN)
     API_URL = '{}://{}'.format(PROTOCOL, API_DOMAIN)
@@ -176,10 +175,7 @@ class ProductionConfig(Config):
         }
     }
 
-    CDN = 'qiniu'
-    CDN_ACCOUNT = 'one@supmice.com'
-    CDN_PUBLIC_KEY = 'HJlYHEfL15m4D9LnEf0ey-O4MR2mKMsslk_dS_sy'
-    CDN_PRIVATE_KEY = 'KUr_iIlYuHL4QkNGj2c4lFnVHW_rb94YPeMSUzs0'
+    CDN_UPLOADS_BUCKET = 'throwcat'
 
 
 class TestingConfig(Config):
@@ -188,10 +184,7 @@ class TestingConfig(Config):
     LOG_FOLDER = os.path.join(DEPLOY_DIR, "logs")
 
     PROTOCOL = 'http'
-    API_DOMAIN = 'api.sup.farm'
-    UPLOADS_DOMAIN = '7xqqrw.com1.z0.glb.clouddn.com'
-
-    UPLOADS_URL = '{}://{}'.format(PROTOCOL, UPLOADS_DOMAIN)
+    API_DOMAIN = 'api.test.throwcat.com'
     API_URL = '{}://{}'.format(PROTOCOL, API_DOMAIN)
 
     MONGODB_DATABASE = 'throwcat_beta'
@@ -210,10 +203,7 @@ class TestingConfig(Config):
         }
     }
 
-    CDN = 'qiniu'
-    CDN_ACCOUNT = 'ci@supmice.com'
-    CDN_PUBLIC_KEY = 'yDEwEaKnfTbUmkxOgyEEsHt9iWG-IIh4iZoO8iTd'
-    CDN_PRIVATE_KEY = 'axASEFK7NNBKv4NxMKd_Uir1k3z6xyyq86vIX8Cl'
+    CDN_UPLOADS_BUCKET = 'throwcat-dev'
 
 
 config = {
