@@ -13,3 +13,4 @@ redis==2.10.1
 requests==2.3.0
 wsgiref==0.1.2
 pycrypto==2.6.1
+short-url==1.2.1

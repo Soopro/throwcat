@@ -6,7 +6,7 @@ from utils.request import get_param
 from apiresps.validations import Struct
 from flask import current_app, g
 
-from .helpers import *
+from blueprints.question.helpers import *
 
 
 @output_json
@@ -27,7 +27,7 @@ def get_question(question_id):
 
     Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
-    if not question_id:
+    if not question:
         raise QuestionNotFound
 
     return output_question(question)
@@ -37,12 +37,8 @@ def get_question(question_id):
 def create_question():
     _type = get_param('type', Struct.Int, True)
     title = get_param('title', Struct.Attr, True)
-    resources = get_param('resources', Struct.List, True)
 
     check_type(_type)
-
-    for index, resource in enumerate(resources):
-        check_item(resource, KEYS, "resource[{}]".format(index))
 
     user = g.curr_user
 
@@ -50,7 +46,6 @@ def create_question():
     question["owner_id"] = user["_id"]
     question["type"] = _type
     question["title"] = title
-    question["resources"] = resources
     question.save()
 
     return output_question(question)
@@ -62,23 +57,18 @@ def update_question(question_id):
 
     _type = get_param('type', Struct.Int, True)
     title = get_param('title', Struct.Attr, True)
-    resources = get_param('resources', Struct.List, True)
 
     check_type(_type)
-
-    for index, resource in enumerate(resources):
-        check_item(resource, KEYS, "resource[{}]".format(index))
 
     user = g.curr_user
 
     Question = current_app.mongodb.Question
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
-    if not question_id:
+    if not question:
         raise QuestionNotFound
 
     question["type"] = _type
     question["title"] = title
-    question["resources"] = resources
     question.save()
 
     return output_question(question)
@@ -91,10 +81,13 @@ def delete_question(question_id):
     user = g.curr_user
 
     Question = current_app.mongodb.Question
+    Resource = current_app.mongodb.Resource
+
     question = Question.find_one_by_id_and_oid(question_id, user["_id"])
-    if not question_id:
+    if not question:
         raise QuestionNotFound
 
     question.delete()
+    Resource.delete_all_by_qid(question_id)
 
     return output_question(question)

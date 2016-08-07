@@ -12,3 +12,8 @@ class ParamError(ValidationError):
 class QuestionNotFound(NotFound):
     response_code = 305101
     status_message = "QUESTION_NOT_FOUND"
+
+
+class ResourceNotFound(NotFound):
+    response_code = 305201
+    status_message = "RESOURCE_NOT_FOUND"

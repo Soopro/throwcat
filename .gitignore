@@ -36,6 +36,7 @@ trash
 .DS_Store
 /build
 /captures
+venv
 
 # Logs and databases #
 ######################
