@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 from __future__ import absolute_import
 
 from flask import current_app, request, make_response, json
@@ -41,7 +41,7 @@ def make_cors_headers():
     headers_options = "OPTIONS, HEAD, POST, PUT, DELETE"
     headers["Access-Control-Allow-Methods"] = headers_options
 
-    allowed_origins = current_app.config.get('ALLOW_ORIGINS',[])
+    allowed_origins = current_app.config.get('ALLOW_ORIGINS', [])
     allowed_credentials = current_app.config.get('ALLOW_CREDENTIALS')
 
     if '*' in allowed_origins:
@@ -62,7 +62,7 @@ def make_json_response(response_or_error=STATUS_OK, data=None, cross=True):
     else:
         if not isinstance(response_or_error, APIError):
             response_or_error = ResponseInstanceTypeError()
-        
+
         if request.method in ['PUT', 'POST']:
             try:
                 request_body = request.json
@@ -70,12 +70,12 @@ def make_json_response(response_or_error=STATUS_OK, data=None, cross=True):
                 request_body = u'Json Data Invalid'
         else:
             request_body = u''
-        
+
         output = {
             "errcode": response_or_error.response_code,
             "errmsg": response_or_error.status_message,
             "erraffix": response_or_error.affix_message,
-            "request":{
+            "request": {
                 "request_api": request.path,
                 "request_method": request.method,
                 "request_body": request_body,
@@ -85,7 +85,7 @@ def make_json_response(response_or_error=STATUS_OK, data=None, cross=True):
     headers["Content-Type"] = "application/json"
     if cross is True:
         headers.update(make_cors_headers())
-    
+
     resp = make_response(json.dumps(output),
                          response_or_error.status_code,
                          headers)
