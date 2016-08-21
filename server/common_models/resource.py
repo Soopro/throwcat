@@ -4,7 +4,7 @@ from __future__ import absolute_import
 from utils.models import BaseDocument
 from utils.misc import now
 from mongokit import ObjectId
-
+from random import randint
 
 class Resource(BaseDocument):
     structure = {
@@ -54,9 +54,12 @@ class Resource(BaseDocument):
         })
 
     def random_one_by_qid(self, question_id):
+        count = self.find({
+            "owner_id": ObjectId(question_id),
+        }).count()
         return self.find({
             "owner_id": ObjectId(question_id),
-        })  # todo: random
+        }).limit(-1).skip(randint(0, count-1)).next()
 
     def delete_all_by_qid(self, question_id):
         return self.find({
