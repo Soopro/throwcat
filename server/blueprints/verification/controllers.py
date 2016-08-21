@@ -9,6 +9,7 @@ from flask import current_app
 from .helpers import *
 from .errors import *
 
+# todo: delete ssid, use signature user_id instead
 
 @output_json
 def get_question():
