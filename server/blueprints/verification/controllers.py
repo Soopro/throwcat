@@ -2,27 +2,24 @@
 from __future__ import absolute_import
 
 from utils.api_utils import output_json
-from utils.request import get_param
+from utils.request import get_param, get_args
 from apiresps.validations import Struct
 from flask import current_app
 
 from .helpers import *
 from .errors import *
 
-# todo: delete ssid, use signature user_id instead
 
 @output_json
-def get_question():
-    app_key = get_param('app_key', Struct.Token, True)
-    question_id = get_param('question_id', Struct.ObjectId, True)
-
+def get_question(user_slug, question_slug):
     User = current_app.mongodb.User
-    user = User.find_one_by_key(app_key)
+    user = User.find_one_by_slug(user_slug)
     if not user:
-        raise AppKeyError
+        raise AppNotFoundError
 
     Question = current_app.mongodb.Question
-    question = Question.find_one_by_id_and_oid(question_id, user["_id"])
+    question = Question.find_one_by_slug_and_oid(question_slug,
+                                                 user["_id"])
     if not question:
         raise QuestionIdError
 
@@ -31,41 +28,43 @@ def get_question():
 
 @output_json
 def put_answer():
-    point = get_param('point', Struct.Dict, True)
-    ssid = get_param('ssid', Struct.Id, True)
-
-    app_key, question_id, index = decode_ssid(ssid)
+    answer = get_param('answer', Struct.Dict, True)
+    token = get_param('token', Struct.Text, True)
+    app_key = get_args('app_key', Struct.Text, True)
 
     User = current_app.mongodb.User
     user = User.find_one_by_key(app_key)
     if not user:
-        raise SsidError
-
+        raise CheckError
+    verified, data = decode_signature(token)
+    if not verified:
+        raise CheckError
     Question = current_app.mongodb.Question
-    question = Question.find_one_by_id_and_oid(question_id, user["_id"])
+    question = Question.find_one_by_id_and_oid(data['question_id'],
+                                               data["owner_id"])
     if not question:
-        raise SsidError
-
-    if check_answer(question, index, point):
-        set_pass_ssid(ssid)
-        return {"result": "succeed"}
-    else:
-        return {"result": "fail"}
+        raise CheckError
+    verified, signature = check_answer(user, data, answer, app_key)
+    if verified:
+        return {
+            "result": "succeed",
+            "signature": signature,
+        }
+    return {"result": "fail"}
 
 
 @output_json
 def confirm():
-    ssid = get_param('ssid', Struct.Id, True)
+    signature = get_param('signature', Struct.Text, True)
     app_secret = get_param('app_secret', Struct.Token, True)
 
-    app_key, qeustion_id, index = decode_ssid(ssid)
+    validated, data = decode_signature(signature)
 
-    User = current_app.mongodb.User
-    user = User.find_one_by_key_and_secret(app_key, app_secret)
-    if not user:
+    if not validated:
         raise ComfirmdError
-
-    if not check_pass_ssid(ssid):
+    User = current_app.mongodb.User
+    user = User.find_one_by_key_and_secret(data['app_key'], app_secret)
+    if not user:
         raise ComfirmdError
 
     return {"result": "succeed"}

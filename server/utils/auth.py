@@ -148,35 +148,6 @@ def get_current_user_by_oauth():
     return user, app, access_token
 
 
-def get_current_member():
-    token = load_token()
-    expired_key_prefix = current_app.config.get("INVALID_MEMBER_TOKEN_PREFIX")
-    if current_app.redis.get(expired_key_prefix + token):
-        raise AuthFailed('Invalid JWT token as the member has logged out!')
-
-    try:
-        payload = load_payload(token)
-        member_id = ObjectId(payload.get("member_id"))
-        owner_id = ObjectId(payload.get("owner_id"))
-        assert payload["sha"] is not None
-    except Exception:
-        raise AuthFailed("Invalid token")
-
-    member = current_app.mongodb.\
-        Member.find_one_by_oid_mid(owner_id, member_id)
-
-    if member is None:
-        raise AuthFailed("member not found")
-
-    sha = hmac.new(str(member["_id"]),
-                   str(member["password_hash"]),
-                   hashlib.sha1)
-    if sha.hexdigest() != payload['sha']:
-        raise AuthFailed("Invalid token")
-
-    return member
-
-
 def get_jwt_token():
     auth = request.headers.get('Authorization')
     parts = auth.split()

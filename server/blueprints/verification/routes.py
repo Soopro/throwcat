@@ -3,7 +3,7 @@ from .controllers import *
 
 urlpatterns = [
     # open apis
-    ('/question', get_question, 'POST'),
+    ('/user/<user_slug>/question/<question_slug>', get_question, 'GET'),
     ('/answer', put_answer, 'POST'),
-    ('/comfirmation', confirm, 'POST'),
+    ('/confirm', confirm, 'POST'),
 ]

@@ -48,7 +48,7 @@ def create_resource(question_id):
 
     _type = get_param('type', Struct.Int, True)
     src = get_param('src', Struct.Url, True)
-    tip = get_param('tip', Struct.Attr, True)
+    hint = get_param('hint', Struct.Attr, True)
     answer = get_param('answer', Struct.Attr, True)
     recipe = get_param('recipe', Struct.Dict, True)
 
@@ -63,7 +63,7 @@ def create_resource(question_id):
 
     resource["type"] = _type
     resource["src"] = src
-    resource["tip"] = tip
+    resource["hint"] = hint
     resource["answer"] = answer
     resource["recipe"] = recipe
 

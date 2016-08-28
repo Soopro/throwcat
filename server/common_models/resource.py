@@ -6,14 +6,15 @@ from utils.misc import now
 from mongokit import ObjectId
 from random import randint
 
+
 class Resource(BaseDocument):
     structure = {
         'owner_id': ObjectId,
         'question_id': ObjectId,
-        'type': int,   # correspond to question type
+        'type': int,   # correspond to question type ()
 
         'src': unicode,
-        "tip": unicode,
+        "hint": unicode,
         "answer": unicode,
         "recipe": dict,
 

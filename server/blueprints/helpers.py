@@ -19,9 +19,7 @@ def verify_jwt():
     g.curr_user = current_user
 
 
-def verify_access(user_apis=None, open_apis=None):
-    if user_apis is None:
-        user_apis = []
+def verify_access(open_apis=None):
     if open_apis is None:
         open_apis = []
     if request.endpoint in open_apis:

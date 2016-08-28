@@ -5,9 +5,9 @@ from apiresps.errors import (PermissionDenied,
                              ConflictError)
 
 
-class AppKeyError(ConflictError):
+class AppNotFoundError(ConflictError):
     response_code = 306001
-    status_message = "APP_KEY_ERROR"
+    status_message = "APP_NOT_FOUND"
 
 
 class QuestionIdError(ConflictError):
@@ -15,11 +15,11 @@ class QuestionIdError(ConflictError):
     status_message = "QUESTION_ID_ERROR"
 
 
-class SsidError(ConflictError):
+class CheckError(ConflictError):
     response_code = 306003
-    status_message = "SSID_ERROR"
+    status_message = "CHECK_ERROR"
 
 
 class ComfirmdError(PermissionDenied):
     response_code = 306101
-    status_message = "COMFIRMD_ERROR"
+    status_message = "COMFIRM_ERROR"

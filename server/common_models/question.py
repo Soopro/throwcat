@@ -7,8 +7,12 @@ from mongokit import ObjectId
 
 
 class Question(BaseDocument):
+    TYPE_PHOTO = 0
+    TYPE_READING = 1
+
     structure = {
         'owner_id': ObjectId,
+        'slug': unicode,
         'title': unicode,
         'type': int,
         'creation': int,
@@ -23,8 +27,7 @@ class Question(BaseDocument):
 
     default_values = {
         'creation': now,
-        'updated': now,
-        'type': 0
+        'updated': now
     }
 
     def find_all_by_oid(self, owner_id):
@@ -43,3 +46,11 @@ class Question(BaseDocument):
             "_id": ObjectId(_id),
             "owner_id": ObjectId(owner_id)
         })
+
+    def find_one_by_slug_and_oid(self, slug, owner_id):
+        return self.find_one({
+            "slug": slug,
+            "owner_id": ObjectId(owner_id)
+        })
+
+

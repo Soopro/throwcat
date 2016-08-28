@@ -8,7 +8,7 @@ from .errors import *
 
 KEYS = {
     "src": Struct.Url,
-    "tip": Struct.Attr,
+    "hint": Struct.Attr,
     "answer": Struct.Attr,
     "recipe": {
         # "ah": Struct.Int,
@@ -53,7 +53,7 @@ def check_item(item, KEYS, item_str):
 # def check_resource(resource):
 #     KEYS = {
 #         "src": Struct.Url,
-#         "tip": Struct.Attr,
+#         "hint": Struct.Attr,
 #         "answer": Struct.Attr,
 #         "recipe": check_recipe,
 #     }
