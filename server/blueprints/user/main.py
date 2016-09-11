@@ -27,18 +27,10 @@ open_api_endpoints = [
     "{}.login".format(bp_name),
 ]
 
-user_api_endpoints = [
-    "{}.get_user_info".format(bp_name),
-    "{}.get_profile".format(bp_name),
-    "{}.reset_profile".format(bp_name),
-    "{}.change_password".format(bp_name),
-]
-
 
 @blueprint.before_request
 def before():
-    verify_access(open_apis=open_api_endpoints,
-                  user_apis=user_api_endpoints)
+    verify_access(open_apis=open_api_endpoints)
 
 
 @blueprint.errorhandler(APIError)

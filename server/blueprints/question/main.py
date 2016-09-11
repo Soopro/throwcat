@@ -34,7 +34,7 @@ admin_api_endpoints = [
 
 @blueprint.before_request
 def before():
-    verify_access(user_apis=admin_api_endpoints)
+    verify_access()
 
 
 @blueprint.errorhandler(APIError)

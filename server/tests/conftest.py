@@ -9,12 +9,18 @@ from application import create_app
 
 @pytest.fixture(scope='session')
 def app():
-    test_app = create_app("testing")
+    test_app = create_app("testcase")
     return test_app
 
 
 @pytest.fixture(scope='function')
 def client(app):
     test_client = app.test_client()
+    app.mongodb_conn.drop_database(app.config.get("MONGODB_DATABASE"))
     return test_client
 
+@pytest.fixture
+def auth_token_header(app):
+    def func(user):
+        return
+    return func
