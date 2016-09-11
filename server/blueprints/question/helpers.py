@@ -125,6 +125,9 @@ def output_resource(resource):
         "id": resource["_id"],
         "question_id": resource["question_id"],
         'src': resource["src"],
+        'hint': resource["hint"],
+        'answer': resource["answer"],
+        'recipe': resource["recipe"],
         "creation": resource["creation"],
         "updated": resource["updated"]
     }
