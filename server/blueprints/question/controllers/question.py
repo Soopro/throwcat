@@ -35,9 +35,9 @@ def get_question(question_id):
 
 @output_json
 def create_question():
-    _type = get_param('type', Struct.Int, True)
-    title = get_param('title', Struct.Attr, True)
-    slug = get_param('slug', Struct.Slug, True)
+    _type = get_param('type', Struct.Int, required=True)
+    title = get_param('title', Struct.Attr, required=True)
+    slug = get_param('slug', Struct.Slug, required=True)
 
     check_type(_type)
 

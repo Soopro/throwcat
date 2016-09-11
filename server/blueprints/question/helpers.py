@@ -124,8 +124,7 @@ def output_resource(resource):
     return {
         "id": resource["_id"],
         "question_id": resource["question_id"],
-        "type": resource["type"],
-        'url': resource["url"],
+        'src': resource["src"],
         "creation": resource["creation"],
         "updated": resource["updated"]
     }

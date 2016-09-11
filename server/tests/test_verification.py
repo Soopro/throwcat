@@ -1,6 +1,4 @@
 import json
-from blueprints.user.helpers import *
-from utils.auth import generate_hashed_password
 
 
 _default_headers = {
@@ -8,17 +6,8 @@ _default_headers = {
 }
 
 
-def test_get_question(app, client):
-    user = app.mongodb.User()
-    user["slug"] = u"test_slug"
-    user["login"] = u"tester@labmice.com"
-    user["display_name"] = u"olalala"
-    user["password_hash"] = generate_hashed_password(u"xxxx")
-    user["email"] = u"tester@labmice.com"
-    user["app_key"] = generate_key(u"test_slug")
-    user["app_secret"] = generate_secret()
-    user.save()
 
+def test_get_question(app, client, user):
     question = app.mongodb.Question()
     question["slug"] = u"test_question"
     question["owner_id"] = user["_id"]
@@ -35,24 +24,14 @@ def test_get_question(app, client):
     # resource["recipe"] = {}
     resource.save()
 
-    resp = client.get('/verification/user/test_slug/question/test_question')
+    resp = client.get('/verification/user/{}/question/test_question'.format(user['slug']))
     print resp.data
     assert resp.status_code == 200
     assert b"token" in resp.data
     assert b"question" in resp.data
 
 
-def test_put_answer_reading(app, client):
-    user = app.mongodb.User()
-    user["slug"] = u"test_slug"
-    user["login"] = u"tester@labmice.com"
-    user["display_name"] = u"olalala"
-    user["password_hash"] = generate_hashed_password(u"xxxx")
-    user["email"] = u"tester@labmice.com"
-    user["app_key"] = generate_key(u"test_slug")
-    user["app_secret"] = generate_secret()
-    user.save()
-
+def test_put_answer_reading(app, client, user):
     question = app.mongodb.Question()
     question["slug"] = u"test_question"
     question["owner_id"] = user["_id"]
@@ -69,7 +48,7 @@ def test_put_answer_reading(app, client):
     # resource["recipe"] = {}
     resource.save()
 
-    resp = client.get('/verification/user/test_slug/question/test_question')
+    resp = client.get('/verification/user/{}/question/test_question'.format(user['slug']))
     token = json.loads(resp.data)["token"]
 
     data = {
@@ -84,17 +63,7 @@ def test_put_answer_reading(app, client):
     assert b"true" in resp.data
 
 
-def test_put_answer_photo(app, client):
-    user = app.mongodb.User()
-    user["slug"] = u"test_slug"
-    user["login"] = u"tester@labmice.com"
-    user["display_name"] = u"olalala"
-    user["password_hash"] = generate_hashed_password(u"xxxx")
-    user["email"] = u"tester@labmice.com"
-    user["app_key"] = generate_key(u"test_slug")
-    user["app_secret"] = generate_secret()
-    user.save()
-
+def test_put_answer_photo(app, client, user):
     question = app.mongodb.Question()
     question["slug"] = u"test_question"
     question["owner_id"] = user["_id"]
@@ -110,7 +79,7 @@ def test_put_answer_photo(app, client):
     resource["recipe"] = {'ratio': [0.3, 0.3, 0.3, 0.3]}
     resource.save()
 
-    resp = client.get('/verification/user/test_slug/question/test_question')
+    resp = client.get('/verification/user/{}/question/test_question'.format(user['slug']))
     token = json.loads(resp.data)["token"]
 
     data = {
@@ -125,17 +94,7 @@ def test_put_answer_photo(app, client):
     assert b"true" in resp.data
 
 
-def test_confirm(app, client):
-    user = app.mongodb.User()
-    user["slug"] = u"test_slug"
-    user["login"] = u"tester@labmice.com"
-    user["display_name"] = u"olalala"
-    user["password_hash"] = generate_hashed_password(u"xxxx")
-    user["email"] = u"tester@labmice.com"
-    user["app_key"] = generate_key(u"test_slug")
-    user["app_secret"] = generate_secret()
-    user.save()
-
+def test_confirm(app, client, user):
     question = app.mongodb.Question()
     question["slug"] = u"test_question"
     question["owner_id"] = user["_id"]
@@ -152,7 +111,7 @@ def test_confirm(app, client):
     # resource["recipe"] = {}
     resource.save()
 
-    resp = client.get('/verification/user/test_slug/question/test_question')
+    resp = client.get('/verification/user/{}/question/test_question'.format(user['slug']))
     token = json.loads(resp.data)["token"]
 
     data = {

@@ -89,48 +89,26 @@ def test_login(app, client):
     assert resp.status_code == 200
 
 
-def test_get_profile(app, client, auth_token_header):
-    user = app.mongodb.User()
-    user["slug"] = u"test_slug"
-    user["login"] = u"tester@labmice.com"
-    user["display_name"] = u"olalala"
-    user["password_hash"] = generate_hashed_password(u"xxxx")
-    user["email"] = u"tester@labmice.com"
-    user["app_key"] = generate_key(u"test_slug")
-    user["app_secret"] = generate_secret()
-    user.save()
-
-    with app.app_context():
-        token = generate_user_token(user)
+def test_get_profile(app, client, token_header):
+    headers = token_header
+    headers.update({"Content-Type": "application/json"})
 
     resp = client.get("/user/profile",
-                      headers={"Authorization": "Bearer {}".format(token)})
+                      headers=headers)
     assert resp.status_code == 200
     assert b'display_name' in resp.data
 
 
-def test_change_password(app, client):
-    user = app.mongodb.User()
-    user["slug"] = u"test_slug"
-    user["login"] = u"tester@labmice.com"
-    user["display_name"] = u"olalala"
-    user["password_hash"] = generate_hashed_password(u"xxxx")
-    user["email"] = u"tester@labmice.com"
-    user["app_key"] = generate_key(u"test_slug")
-    user["app_secret"] = generate_secret()
-    user.save()
-
-    with app.app_context():
-        token = generate_user_token(user)
+def test_change_password(app, client, token_header):
+    headers = token_header
+    headers.update({"Content-Type": "application/json"})
 
     data = {
         "passwd": "xxxx",
         "new_passwd": "new_pass"
     }
     resp = client.put("/user/security/password",
-                      headers={
-                          "Content-Type": "application/json",
-                          "Authorization": "Bearer {}".format(token)},
+                      headers=headers,
                       data=json.dumps(data))
     print resp.data
     assert resp.status_code == 200
@@ -139,42 +117,19 @@ def test_change_password(app, client):
     assert check_hashed_password(user["password_hash"], u"new_pass")
 
 
+def test_get_secret(client, token_header):
+    headers = token_header
 
-def test_get_secret(app, client):
-    user = app.mongodb.User()
-    user["slug"] = u"test_slug"
-    user["login"] = u"tester@labmice.com"
-    user["display_name"] = u"olalala"
-    user["password_hash"] = generate_hashed_password(u"xxxx")
-    user["email"] = u"tester@labmice.com"
-    user["app_key"] = generate_key(u"test_slug")
-    user["app_secret"] = generate_secret()
-    user.save()
-    with app.app_context():
-        token = generate_user_token(user)
     resp = client.get("/user/security/secret",
-                      headers={
-                          "Content-Type": "application/json",
-                          "Authorization": "Bearer {}".format(token)})
+                      headers=headers)
     assert resp.status_code == 200
     assert b'app_secret' in resp.data
 
 
-def test_reset_secret(app, client):
-    user = app.mongodb.User()
-    user["slug"] = u"test_slug"
-    user["login"] = u"tester@labmice.com"
-    user["display_name"] = u"olalala"
-    user["password_hash"] = generate_hashed_password(u"xxxx")
-    user["email"] = u"tester@labmice.com"
-    user["app_key"] = generate_key(u"test_slug")
-    user["app_secret"] = generate_secret()
-    user.save()
-    with app.app_context():
-        token = generate_user_token(user)
+def test_reset_secret(client, token_header):
+    headers = token_header
+    headers.update({"Content-Type": "application/json"})
     resp = client.put("/user/security/secret",
-                      headers={
-                          "Content-Type": "application/json",
-                          "Authorization": "Bearer {}".format(token)})
+                      headers=headers)
     assert resp.status_code == 200
     assert b'app_secret' in resp.data

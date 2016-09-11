@@ -46,24 +46,20 @@ def create_resource(question_id):
     if not question:
         raise QuestionNotFound
 
-    _type = get_param('type', Struct.Int, required=True)
     src = get_param('src', Struct.Url)
     hint = get_param('hint', Struct.Attr, required=True)
     answer = get_param('answer', Struct.Attr)
     recipe = get_param('recipe', Struct.Dict)
-
-    check_type(_type)
 
     user = g.curr_user
 
     resource = current_app.mongodb.Resource()
     resource["owner_id"] = user["_id"]
     resource["question_id"] = question["_id"]
-    resource["type"] = _type
     resource["src"] = src
     resource["hint"] = hint
     resource["answer"] = answer
-    resource["recipe"] = recipe or {}
+    resource["recipe"] = recipe
 
     resource.save()
 
@@ -75,10 +71,11 @@ def update_resource(question_id, resource_id):
     Struct.ObjectId(question_id, "question_id")
     Struct.ObjectId(resource_id, "resource_id")
 
-    _type = get_param('type', Struct.Int, True)
-    title = get_param('title', Struct.Attr, True)
+    src = get_param('src', Struct.Url)
+    hint = get_param('hint', Struct.Attr, required=True)
+    answer = get_param('answer', Struct.Attr)
+    recipe = get_param('recipe', Struct.Dict)
 
-    check_type(_type)
 
     user = g.curr_user
 
@@ -92,8 +89,10 @@ def update_resource(question_id, resource_id):
     if not resource:
         raise ResourceNotFound
 
-    resource["type"] = _type
-    resource["title"] = title
+    resource["src"] = src
+    resource["hint"] = hint
+    resource["answer"] = answer
+    resource["recipe"] = recipe
     resource.save()
 
     return output_resource(resource)
