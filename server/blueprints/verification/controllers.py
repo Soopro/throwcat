@@ -28,43 +28,44 @@ def get_question(user_slug, question_slug):
 
 @output_json
 def put_answer():
-    answer = get_param('answer', Struct.Dict, True)
-    token = get_param('token', Struct.Text, True)
-    app_key = get_args('app_key', Struct.Text, True)
+    answer = get_param('answer', Struct.Dict, required=True)
+    token = get_param('token', Struct.Text, required=True)
+    app_key = get_args('app_key', required=True)
 
     User = current_app.mongodb.User
     user = User.find_one_by_key(app_key)
     if not user:
-        raise CheckError
-    verified, data = decode_signature(token)
+        return {"verified": False}
+    verified, signature_payload = decode_signature(token)
     if not verified:
-        raise CheckError
+        return {"verified": False}
     Question = current_app.mongodb.Question
-    question = Question.find_one_by_id_and_oid(data['question_id'],
-                                               data["owner_id"])
+    question = Question.find_one_by_id_and_oid(signature_payload['question_id'],
+                                               user["_id"])
     if not question:
-        raise CheckError
-    verified, signature = check_answer(user, data, answer, app_key)
+        return {"verified": False}
+    verified, signature = check_answer(question, user,
+                                       signature_payload, answer, app_key)
     if verified:
         return {
-            "result": "succeed",
+            "verified": True,
             "signature": signature,
         }
-    return {"result": "fail"}
+    return {"verified": False}
 
 
 @output_json
 def confirm():
-    signature = get_param('signature', Struct.Text, True)
-    app_secret = get_param('app_secret', Struct.Token, True)
+    signature = get_param('signature', Struct.Text, required=True)
+    app_secret = get_param('app_secret', Struct.Token, required=True)
 
     validated, data = decode_signature(signature)
 
     if not validated:
-        raise ComfirmdError
+        return {"confirmed": False}
     User = current_app.mongodb.User
     user = User.find_one_by_key_and_secret(data['app_key'], app_secret)
     if not user:
-        raise ComfirmdError
+        return {"confirmed": False}
 
-    return {"result": "succeed"}
+    return {"confirmed": True}

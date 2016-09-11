@@ -17,8 +17,8 @@ def _get_signature_serializer():
 
 
 def _verify_photo(resource, data):
-    for i in xrange(data['point']):
-        if resource['recipe']['ratio'][i] < data['point'][i]:
+    for i in xrange(len(data['point'])):
+        if data['point'][i] < resource['recipe']['ratio'][i]:
             return False
     return True
 
@@ -40,32 +40,33 @@ def output_question(user, question):
             "type": question["type"],
             "hint": resource["hint"],
         },
-        "token": serializer.dumps({"user_id": user['_id'],
-                                   "question_id": question['_id'],
-                                   "resource_id": resource['_id']})
+        "token": serializer.dumps({"owner_id": str(user['_id']),
+                                   "question_id": str(question['_id']),
+                                   "resource_id": str(resource['_id'])})
     }
 
 
-def check_answer(user, data, answer, app_key):
+def check_answer(question, user, signature_payload, answer, app_key):
+    Question = current_app.mongodb.Question
     Resource = current_app.mongodb.Resource
-    resource = Resource.find_one_by_id_qid_oid(data['resource_id'],
-                                               data['question_id'],
-                                               data['owner_id'])
+    resource = Resource.find_one_by_id_qid_oid(signature_payload['resource_id'],
+                                               signature_payload['question_id'],
+                                               user['_id'])
     verified = False
     signature = None
-    if resource['type'] == Resource.TYPE_PHOTO:
+
+    if question['type'] == Question.TYPE_PHOTO:
         verified = _verify_photo(resource, answer)
-    elif resource['type'] == Resource.TYPE_READING:
+    elif question['type'] == Question.TYPE_READING:
         verified = _verify_reading(resource, answer)
 
     if verified:
         serializer = _get_signature_serializer()
-        signature = serializer.dumps({'user_id': user['_id'],
-                                      'owner_id': data['owner_id'],
-                                      'question_id': data['question_id'],
-                                      'resource_id': resource['_id'],
+        signature = serializer.dumps({'owner_id': str(signature_payload['owner_id']),
+                                      'question_id': str(signature_payload['question_id']),
+                                      'resource_id': str(resource['_id']),
                                       'app_key': app_key})
-    return False, signature
+    return verified, signature
 
 
 def decode_signature(signature):

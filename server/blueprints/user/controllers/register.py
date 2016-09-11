@@ -13,7 +13,7 @@ from ..errors import *
 
 @output_json
 def get_register_captcha():
-    login = get_param("login", Struct.Login, True)
+    login = get_param("login", Struct.Login, required=True)
 
     login = login.lower()
 
@@ -36,10 +36,10 @@ def get_register_captcha():
 
 @output_json
 def register():
-    slug = get_param("slug", Struct.Slug, True)
-    captcha = get_param("captcha", Struct.Token, True)
-    login = get_param("login", Struct.Login, True)
-    passwd = get_param("passwd", Struct.Pwd, True)
+    slug = get_param("slug", Struct.Slug, required=True)
+    captcha = get_param("captcha", Struct.Token, required=True)
+    login = get_param("login", Struct.Login, required=True)
+    passwd = get_param("passwd", Struct.Pwd, required=True)
 
     login = login.lower()
 

@@ -37,6 +37,7 @@ def get_question(question_id):
 def create_question():
     _type = get_param('type', Struct.Int, True)
     title = get_param('title', Struct.Attr, True)
+    slug = get_param('slug', Struct.Slug, True)
 
     check_type(_type)
 
@@ -44,6 +45,7 @@ def create_question():
 
     question = current_app.mongodb.Question()
     question["owner_id"] = user["_id"]
+    question["slug"] = slug
     question["type"] = _type
     question["title"] = title
     question.save()

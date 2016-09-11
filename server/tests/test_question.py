@@ -3,6 +3,7 @@ _default_headers = {
     "Content-Type": "application/json",
 }
 
+
 def test_get_questions(client):
     assert False
 

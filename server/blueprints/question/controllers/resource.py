@@ -46,11 +46,11 @@ def create_resource(question_id):
     if not question:
         raise QuestionNotFound
 
-    _type = get_param('type', Struct.Int, True)
-    src = get_param('src', Struct.Url, True)
-    hint = get_param('hint', Struct.Attr, True)
-    answer = get_param('answer', Struct.Attr, True)
-    recipe = get_param('recipe', Struct.Dict, True)
+    _type = get_param('type', Struct.Int, required=True)
+    src = get_param('src', Struct.Url)
+    hint = get_param('hint', Struct.Attr, required=True)
+    answer = get_param('answer', Struct.Attr)
+    recipe = get_param('recipe', Struct.Dict)
 
     check_type(_type)
 
@@ -60,12 +60,10 @@ def create_resource(question_id):
     resource["owner_id"] = user["_id"]
     resource["question_id"] = question["_id"]
     resource["type"] = _type
-
-    resource["type"] = _type
     resource["src"] = src
     resource["hint"] = hint
     resource["answer"] = answer
-    resource["recipe"] = recipe
+    resource["recipe"] = recipe or {}
 
     resource.save()
 

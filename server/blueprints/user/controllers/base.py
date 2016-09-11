@@ -71,6 +71,7 @@ def get_secret():
 
     return output_secret(user)
 
+
 @output_json
 def reset_secret():
     user = g.curr_user

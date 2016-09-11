@@ -11,40 +11,29 @@ class Resource(BaseDocument):
     structure = {
         'owner_id': ObjectId,
         'question_id': ObjectId,
-        'type': int,   # correspond to question type ()
-
         'src': unicode,
         "hint": unicode,
         "answer": unicode,
         "recipe": dict,
-
         'creation': int,
         'updated': int
     }
 
     required_fields = [
         'owner_id',
-        'title',
-        'type'
+        'question_id',
+        "hint",
     ]
 
     default_values = {
         'creation': now,
         'updated': now,
-        'type': 0
     }
 
     def find_all_by_qid_oid(self, question_id, owner_id):
         return self.find({
             "question_id": ObjectId(question_id),
             "owner_id": ObjectId(owner_id),
-        })
-
-    def find_all_by_qid_oid_and_type(self, question_id, owner_id, _type):
-        return self.find({
-            "question_id": ObjectId(question_id),
-            "owner_id": ObjectId(owner_id),
-            "type": _type,
         })
 
     def find_one_by_id_qid_oid(self, _id, question_id, owner_id):
@@ -56,10 +45,10 @@ class Resource(BaseDocument):
 
     def random_one_by_qid(self, question_id):
         count = self.find({
-            "owner_id": ObjectId(question_id),
+            "question_id": ObjectId(question_id),
         }).count()
         return self.find({
-            "owner_id": ObjectId(question_id),
+            "question_id": ObjectId(question_id),
         }).limit(-1).skip(randint(0, count-1)).next()
 
     def delete_all_by_qid(self, question_id):
